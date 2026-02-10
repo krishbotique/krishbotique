@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO META -->
-  <meta name="description" content="KrishBotique brings you handpicked Amazon deals on beauty, fashion, home essentials, gadgets and gift ideas. Honest picks updated daily.">
-  <meta name="keywords" content="amazon deals india, krishbotique, beauty deals amazon, fashion finds, home essentials amazon">
+  <meta name="description" content="KrishBotique brings you handpicked Amazon deals on beauty, fashion, home essentials, kitchen, baby products and stationery.">
+  <meta name="keywords" content="krishbotique, amazon affiliate india, fashion deals amazon, beauty products, home decor amazon">
   <meta name="robots" content="index, follow">
 
   <!-- GOOGLE FONT -->
@@ -19,6 +19,20 @@
       font-family: 'Poppins', sans-serif;
       background: #ffffff;
       color: #333;
+    }
+
+    nav {
+      padding: 15px;
+      text-align: center;
+      background: #f7f7f7;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      margin: 0 8px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
     }
 
     /* HERO SECTION */
@@ -35,7 +49,12 @@
 
     .hero p {
       font-size: 1.1rem;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
+    }
+
+    .trustline {
+      font-size: 0.9rem;
+      opacity: 0.85;
     }
 
     .btn {
@@ -51,7 +70,6 @@
       display: inline-block;
     }
 
-    /* SECTIONS */
     section {
       padding: 60px 20px;
       max-width: 1100px;
@@ -64,7 +82,6 @@
       font-size: 2rem;
     }
 
-    /* PRODUCT GRID */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -107,18 +124,17 @@
       margin-bottom: 15px;
     }
 
-    /* CATEGORY CARDS */
     .category {
       background: linear-gradient(135deg, #FADADD, #DDEBFF);
       padding: 30px;
       border-radius: 16px;
       text-align: center;
       font-weight: 600;
-      cursor: pointer;
       font-size: 1rem;
+      text-decoration: none;
+      color: #000;
     }
 
-    /* TRUST SECTION */
     .trust {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -133,12 +149,17 @@
       font-size: 0.95rem;
     }
 
-    /* FOOTER */
     footer {
       background: #f1f1f1;
       text-align: center;
       padding: 25px 15px;
       font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #333;
+      text-decoration: none;
+      margin: 0 6px;
     }
 
     @media(max-width: 600px) {
@@ -151,10 +172,26 @@
 
 <body>
 
-<!-- HERO SECTION -->
+<!-- NAVIGATION -->
+<nav>
+  <a href="index.html">Home</a>
+  <a href="dresses.html">Dresses</a>
+  <a href="men-clothing.html">Men</a>
+  <a href="jewellery.html">Jewellery</a>
+  <a href="beauty.html">Beauty</a>
+  <a href="kitchen.html">Kitchen</a>
+  <a href="home-decor.html">Home Decor</a>
+  <a href="baby.html">Baby</a>
+  <a href="stationery.html">Stationery</a>
+</nav>
+
+<!-- HERO -->
 <div class="hero">
   <h1>✨ KrishBotique</h1>
-  <p>Curated Amazon Finds for Beauty, Fashion, Home & Gifts</p>
+  <p>Curated Amazon Finds for Fashion, Beauty, Home & Lifestyle</p>
+  <p class="trustline">
+    We independently review products. Purchases through our links may earn us a commission at no extra cost to you.
+  </p>
   <a class="btn" href="#products">Shop Trending Products</a>
 </div>
 
@@ -163,68 +200,71 @@
   <h2>🔥 Trending Amazon Picks</h2>
 
   <div class="grid">
-
     <div class="card">
-      <img src="https://via.placeholder.com/300" alt="Electric Hand Mixer Amazon India">
-      <h3>Electric Hand Mixer for Daily Cooking</h3>
+      <img src="https://via.placeholder.com/300" alt="Amazon Bestseller Product">
+      <h3>Top Rated Kitchen Tool</h3>
       <div class="rating">★★★★☆ (4.4/5)</div>
-      <p>Compact, lightweight & easy to clean. Bestseller choice.</p>
-      <a class="btn" href="YOUR_AMAZON_AFFILIATE_LINK" target="_blank" rel="nofollow sponsored">
+      <p>Highly rated Amazon bestseller with great reviews.</p>
+      <a class="btn" href="YOUR_AMAZON_LINK" target="_blank" rel="nofollow sponsored">
         Check Price on Amazon
       </a>
     </div>
 
     <div class="card">
-      <img src="https://via.placeholder.com/300" alt="Stylish Handbag for Women Amazon">
-      <h3>Stylish Handbag for Women</h3>
+      <img src="https://via.placeholder.com/300" alt="Amazon Fashion Pick">
+      <h3>Trending Fashion Pick</h3>
       <div class="rating">★★★★★ (4.8/5)</div>
-      <p>Elegant design, spacious & perfect for daily use.</p>
-      <a class="btn" href="YOUR_AMAZON_AFFILIATE_LINK" target="_blank" rel="nofollow sponsored">
+      <p>Stylish, affordable and loved by customers.</p>
+      <a class="btn" href="YOUR_AMAZON_LINK" target="_blank" rel="nofollow sponsored">
         Check Price on Amazon
       </a>
     </div>
 
     <div class="card">
-      <img src="https://via.placeholder.com/300" alt="Smart LED Night Lamp Amazon India">
-      <h3>Smart LED Night Lamp</h3>
+      <img src="https://via.placeholder.com/300" alt="Amazon Home Decor">
+      <h3>Modern Home Decor Item</h3>
       <div class="rating">★★★★☆ (4.3/5)</div>
-      <p>Soft lighting, energy efficient & modern look.</p>
-      <a class="btn" href="YOUR_AMAZON_AFFILIATE_LINK" target="_blank" rel="nofollow sponsored">
+      <p>Perfect for gifting and home styling.</p>
+      <a class="btn" href="YOUR_AMAZON_LINK" target="_blank" rel="nofollow sponsored">
         Check Price on Amazon
       </a>
     </div>
-
   </div>
 </section>
 
 <!-- CATEGORIES -->
 <section>
   <h2>🛍 Shop by Category</h2>
-
   <div class="grid">
-    <div class="category">💄 Beauty Deals</div>
-    <div class="category">👗 Fashion Finds</div>
-    <div class="category">🏡 Home Essentials</div>
-    <div class="category">📱 Gadgets</div>
-    <div class="category">🎁 Gift Ideas</div>
-    <div class="category">👶 Kids & Baby</div>
+    <a href="dresses.html" class="category">👗 Dresses</a>
+    <a href="men-clothing.html" class="category">👔 Men Clothing</a>
+    <a href="jewellery.html" class="category">💍 Jewellery</a>
+    <a href="beauty.html" class="category">💄 Beauty</a>
+    <a href="kitchen.html" class="category">🍳 Kitchen Essentials</a>
+    <a href="home-decor.html" class="category">🏡 Home Decor</a>
+    <a href="baby.html" class="category">👶 Baby & Maternity</a>
+    <a href="stationery.html" class="category">📒 Stationery</a>
   </div>
 </section>
 
-<!-- TRUST SECTION -->
+<!-- TRUST -->
 <section>
   <h2>💖 Why Trust KrishBotique</h2>
-
   <div class="trust">
     <div>✔ Handpicked Amazon Bestsellers</div>
-    <div>✔ Honest & Clean Recommendations</div>
-    <div>✔ Deals Updated Regularly</div>
+    <div>✔ Honest Recommendations</div>
+    <div>✔ Updated Regularly</div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <p>As an Amazon Associate, we earn from qualifying purchases.</p>
+  <p>
+    <a href="about.html">About Us</a> |
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="disclaimer.html">Disclaimer</a>
+  </p>
   <p>© 2026 KrishBotique</p>
 </footer>
 
