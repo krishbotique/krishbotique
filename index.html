@@ -35,6 +35,14 @@
       font-weight: 500;
     }
 
+    nav input {
+      margin-left: 10px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 0.9rem;
+    }
+
     /* HERO SECTION */
     .hero {
       background: linear-gradient(135deg, #FADADD, #DDEBFF);
@@ -183,6 +191,9 @@
   <a href="home-decor.html">Home Decor</a>
   <a href="baby.html">Baby</a>
   <a href="stationery.html">Stationery</a>
+
+  <!-- SEARCH BOX -->
+  <input type="text" id="searchInput" placeholder="Search products...">
 </nav>
 
 <!-- HERO -->
@@ -210,10 +221,9 @@
       </a>
     </div>
 
-
-     <div class="card">
+    <div class="card">
       <img src="https://m.media-amazon.com/images/I/61pTJpiFiOL._SL1500_.jpg" alt="Amazon Fashion Pick">
-      <h3>Trending valentiane Pick</h3>
+      <h3>Trending Valentine Pick</h3>
       <div class="rating">★★★★★ (4.8/5)</div>
       <p>Stylish, affordable and loved by customers.</p>
       <a class="btn" href="https://amzn.to/4kuec23" target="_blank" rel="nofollow sponsored">
@@ -221,9 +231,6 @@
       </a>
     </div>
 
-
-
-    
     <div class="card">
       <img src="https://m.media-amazon.com/images/I/41jwWE+VZ8L._SY741_.jpg" alt="Amazon Fashion Pick">
       <h3>Trending Fashion Pick</h3>
@@ -274,33 +281,36 @@
 <!-- FOOTER -->
 <footer style="text-align:center; padding:20px;">
   <p>Follow us:</p>
-  <a href="https://www.instagram.com/__cheap_and__best__" target="_blank">
-    Instagram
-  </a> |
-  <a href="https://whatsapp.com/channel/0029Vaa1dH9JP20yRUbR7Y2H" target="_blank">
-    Whatsapp channel
-  </a> |
-  <a href="https://pin.it/6KOQkwVcK" target="_blank">
-    Pinterest
-  </a>
-
+  <a href="https://www.instagram.com/__cheap_and__best__" target="_blank">Instagram</a> |
+  <a href="https://whatsapp.com/channel/0029Vaa1dH9JP20yRUbR7Y2H" target="_blank">Whatsapp channel</a> |
+  <a href="https://pin.it/6KOQkwVcK" target="_blank">Pinterest</a>
   <br><br>
-<p>As an Amazon Associate, KrishBotique earns from qualifying purchases.</p>
+  <p>As an Amazon Associate, KrishBotique earns from qualifying purchases.</p>
   <a href="about.html">About</a> |
   <a href="privacy.html">Privacy Policy</a> |
   <a href="disclaimer.html">Disclaimer</a>
 </footer>
 
+<!-- SEARCH SCRIPT -->
+<script>
+  const searchInput = document.getElementById('searchInput');
+  const cards = document.querySelectorAll('#products .card');
+
+  searchInput.addEventListener('keyup', function() {
+    const query = this.value.toLowerCase();
+
+    cards.forEach(card => {
+      const title = card.querySelector('h3').textContent.toLowerCase();
+      const description = card.querySelector('p').textContent.toLowerCase();
+
+      if (title.includes(query) || description.includes(query)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
