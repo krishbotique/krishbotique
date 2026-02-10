@@ -170,6 +170,14 @@
       margin: 0 6px;
     }
 
+    #noResults {
+      display: none;
+      text-align: center;
+      font-size: 1rem;
+      color: #e74c3c;
+      margin-top: 20px;
+    }
+
     @media(max-width: 600px) {
       .hero h1 {
         font-size: 2rem;
@@ -191,7 +199,7 @@
   <a href="home-decor.html">Home Decor</a>
   <a href="baby.html">Baby</a>
   <a href="stationery.html">Stationery</a>
-
+  
   <!-- SEARCH BOX -->
   <input type="text" id="searchInput" placeholder="Search products...">
 </nav>
@@ -251,6 +259,9 @@
       </a>
     </div>
   </div>
+
+  <!-- No results message -->
+  <div id="noResults">No products found.</div>
 </section>
 
 <!-- CATEGORIES -->
@@ -279,7 +290,7 @@
 </section>
 
 <!-- FOOTER -->
-<footer style="text-align:center; padding:20px;">
+<footer>
   <p>Follow us:</p>
   <a href="https://www.instagram.com/__cheap_and__best__" target="_blank">Instagram</a> |
   <a href="https://whatsapp.com/channel/0029Vaa1dH9JP20yRUbR7Y2H" target="_blank">Whatsapp channel</a> |
@@ -295,9 +306,11 @@
 <script>
   const searchInput = document.getElementById('searchInput');
   const cards = document.querySelectorAll('#products .card');
+  const noResults = document.getElementById('noResults');
 
   searchInput.addEventListener('keyup', function() {
     const query = this.value.toLowerCase();
+    let found = false;
 
     cards.forEach(card => {
       const title = card.querySelector('h3').textContent.toLowerCase();
@@ -305,10 +318,13 @@
 
       if (title.includes(query) || description.includes(query)) {
         card.style.display = 'block';
+        found = true;
       } else {
         card.style.display = 'none';
       }
     });
+
+    noResults.style.display = found ? 'none' : 'block';
   });
 </script>
 
