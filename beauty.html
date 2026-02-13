@@ -1,24 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <title>Beauty Products – Amazon Picks | KrishBotique</title>
+
 <meta name="description" content="Shop best-selling beauty products on Amazon India including skincare, makeup and personal care. Handpicked beauty essentials by KrishBotique.">
-<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-  <p style="text-align:center;font-size:14px;color:#777;margin:30px;">
-As an Amazon Associate, KrishBotique earns from qualifying purchases.
-</p>
+
+/* BODY */
 body{
-  font-family: Arial;
-  background:#fef6fb;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #fdf2f8;
   margin:0;
+}
+
+/* HEADER */
+.page-title{
+  text-align:center;
+  padding:30px 15px 10px;
+  font-size:28px;
+  color:#d63384;
+}
+
+.page-desc{
+  max-width:900px;
+  margin:auto;
+  text-align:center;
+  color:#555;
+  padding:0 20px 20px;
+  font-size:15px;
+}
+
+/* DISCLAIMER */
+.disclaimer{
+  text-align:center;
+  font-size:13px;
+  color:#777;
+  margin-bottom:20px;
 }
 
 /* GRID LAYOUT */
 .product-grid{
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap:20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap:25px;
   max-width:1200px;
   margin:auto;
   padding:20px;
@@ -27,37 +53,95 @@ body{
 /* PRODUCT CARD */
 .card{
   background:#fff;
-  padding:15px;
-  border-radius:15px;
+  padding:20px;
+  border-radius:18px;
   text-align:center;
-  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+  transition:0.3s ease;
 }
 
-/* IMAGE FIX */
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* IMAGE */
 .card img{
   width:100%;
-  height:200px;
+  height:220px;
   object-fit:contain;
+  margin-bottom:15px;
+}
+
+/* PRODUCT NAME */
+.card h3{
+  font-size:16px;
+  color:#333;
+  margin-bottom:8px;
+}
+
+/* PRICE */
+.price{
+  color:#d63384;
+  font-weight:bold;
+  font-size:16px;
 }
 
 /* BUTTON */
 .card a{
   display:inline-block;
-  margin-top:10px;
-  padding:8px 14px;
-  background:#ff69b4;
+  margin-top:12px;
+  padding:10px 16px;
+  background:linear-gradient(45deg,#ff69b4,#ff1493);
   color:#fff;
   text-decoration:none;
-  border-radius:6px;
+  border-radius:25px;
+  font-size:14px;
+  transition:0.3s;
 }
+
+.card a:hover{
+  opacity:0.85;
+}
+
+/* ------------------ RESPONSIVE DESIGN ------------------ */
+
+/* Tablet */
+@media (max-width: 992px){
+  .product-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px){
+  .product-grid{
+    grid-template-columns: 1fr;
+    padding:15px;
+  }
+
+  .page-title{
+    font-size:22px;
+  }
+
+  .card img{
+    height:180px;
+  }
+}
+
 </style>
 </head>
+
 <body>
 
-<h2 align="center">💄 Beauty Essentials</h2>
+<h2 class="page-title">💄 Beauty Essentials</h2>
 
-<p style="max-width:900px;margin:auto;text-align:center;color:#555;">
+<p class="page-desc">
 Explore trending beauty products on Amazon India including skincare, makeup, and personal care essentials loved by women across India.
+</p>
+
+<p class="disclaimer">
+As an Amazon Associate, KrishBotique earns from qualifying purchases.
 </p>
 
 <div class="product-grid">
@@ -65,28 +149,43 @@ Explore trending beauty products on Amazon India including skincare, makeup, and
   <div class="card">
     <img src="https://m.media-amazon.com/images/I/51XTNPnYyAL._AC_UL480_FMwebp_QL65_.jpg" alt="Mamaearth Vitamin C Face Serum">
     <h3>Mamaearth Vitamin C Face Serum</h3>
-    <p>₹538</p>
+    <p class="price">₹538</p>
     <a href="https://amzn.to/401qNjQ" target="_blank" rel="nofollow sponsored">
-      See Latest Price on Amazon
+      Shop on Amazon
     </a>
   </div>
 
   <div class="card">
-   <img src="https://m.media-amazon.com/images/I/51kdVRMXpvL._SL1080_.jpg"
+    <img src="https://m.media-amazon.com/images/I/51kdVRMXpvL._SL1080_.jpg"
      alt="The Derma Co Hyaluronic Sunscreen SPF 50">
-    <p>₹551</p>
+    <h3>The Derma Co Hyaluronic Sunscreen SPF 50</h3>
+    <p class="price">₹551</p>
     <a href="https://amzn.to/45U8alp" target="_blank" rel="nofollow sponsored">
-      See Latest Price on Amazon
+      Shop on Amazon
+    </a>
+  </div>
+
+  <div class="card">
+    <img src="https://m.media-amazon.com/images/I/51Rb1F6cgxL._SL1000_.jpg"
+     alt="Dove Exfoliating Bodywash">
+    <h3>Dove Exfoliating Bodywash (825ml)</h3>
+    <p class="price">₹304</p>
+    <a href="https://amzn.to/46DWX8P" target="_blank" rel="nofollow sponsored">
+      Shop on Amazon
+    </a>
+  </div>
+
+  <div class="card">
+    <img src="https://m.media-amazon.com/images/I/41OyrhqGLdL._SL1000_.jpg"
+     alt="Be Bodywise Hyaluronic Acid Body Wash">
+    <h3>Be Bodywise Hyaluronic Acid Body Wash</h3>
+    <p class="price">₹279</p>
+    <a href="https://amzn.to/3ZxVfCa" target="_blank" rel="nofollow sponsored">
+      Shop on Amazon
     </a>
   </div>
 
 </div>
 
-
 </body>
 </html>
-
-
-
-
-
