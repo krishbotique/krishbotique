@@ -5,63 +5,154 @@
 <title>Jewellery – Amazon Picks | KrishBotique</title>
 <meta name="description" content="Elegant jewellery picks from Amazon curated by KrishBotique.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-body{margin:0;font-family:Arial;background:linear-gradient(135deg,#fdeff9,#e8f0ff)}
-.card{background:#fff;border-radius:15px;padding:15px;text-align:center}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;padding:30px}
+:root{
+  --primary:#ff69b4;
+  --dark:#222;
+  --light:#fff;
+}
+
+/* GLOBAL */
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:linear-gradient(135deg,#fdeff9,#e8f0ff);
+}
+
+/* HEADER */
+.header{
+  text-align:center;
+  padding:25px 15px 10px;
+}
+
+.header h2{
+  margin:0;
+}
+
+/* GRID */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:25px;
+  padding:25px;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* CARD */
+.card{
+  background:var(--light);
+  border-radius:18px;
+  padding:15px;
+  text-align:center;
+  box-shadow:0 6px 15px rgba(0,0,0,0.08);
+  transition:0.3s;
+  position:relative;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+}
+
+/* 🔥 SALE BADGE */
+.badge{
+  position:absolute;
+  top:12px;
+  left:12px;
+  background:red;
+  color:#fff;
+  font-size:12px;
+  padding:4px 8px;
+  border-radius:20px;
+}
+
+/* 🔥 SQUARE IMAGE */
+.card img{
+  width:100%;
+  aspect-ratio:1/1;        /* Makes image square */
+  object-fit:contain;
+  border-radius:12px;
+  background:#fafafa;
+}
+
+/* TITLE */
+.card h3{
+  font-size:15px;
+  min-height:45px;
+}
+
+/* PRICE */
+.price{
+  font-weight:bold;
+  margin:8px 0;
+}
+
+/* BUTTON */
+.card a{
+  display:inline-block;
+  padding:9px 15px;
+  background:var(--primary);
+  color:#fff;
+  text-decoration:none;
+  border-radius:8px;
+  font-size:14px;
+  transition:0.3s;
+}
+
+.card a:hover{
+  background:#ff4fa3;
+}
+
+/* VIEW MORE SECTION */
+.more-section{
+  text-align:center;
+  margin:30px 0;
+}
+
+.more-section a{
+  background:#222;
+  color:#fff;
+  padding:12px 22px;
+  border-radius:30px;
+  text-decoration:none;
+  font-size:14px;
+}
+
+.more-section a:hover{
+  background:#444;
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  font-size:13px;
+  color:#555;
+  padding:18px;
+  border-top:1px solid #eee;
+  margin-top:25px;
+}
 </style>
 </head>
+
 <body>
 
-<h2 style="text-align:center">💍 Jewellery Picks</h2>
+<div class="header">
+  <h2>💍 Jewellery Picks</h2>
+</div>
 
 <div class="products">
-<div class="card">
-<img src="https://m.media-amazon.com/images/I/71CV1ddvQAL._SY575_.jpg">
-<h3>Shining Diva Fashion Valentine Gift for Girlfriend Wife Latest Collection Gold Plated Combo of 2</h3>
-<p>₹298</p>
-<a href="https://amzn.to/3MrUvLE" target="_blank">Buy on Amazon</a>
-</div>
-
 
   <div class="card">
-<img src="https://m.media-amazon.com/images/I/81zlKLbRAfL._SY575_.jpg">
-<h3>Om Jewells Valentine Gift Rose Gold Plated Jewellery Combo Of 5 Adjustable Chain Bangle Bracelet</h3>
-<p>₹299</p>
-<a href="https://amzn.to/4athXAt" target="_blank">Buy on Amazon</a>
-</div>
-
-
-   <div class="card">
-<img src="https://m.media-amazon.com/images/I/61dK8fy1dRL._SY575_.jpg">
-<h3>22pcs Latest Stylish Stackable Kunckle Rings Set</h3>
-<p>₹218</p>
-<a href="https://amzn.to/3O470Oe" target="_blank">Buy on Amazon</a>
-</div> 
-
+    <div class="badge">SALE</div>
+    <img src="https://m.media-amazon.com/images/I/71CV1ddvQAL._SY575_.jpg" alt="Gold Plated Combo">
+    <h3>Shining Diva Gold Plated Combo of 2</h3>
+    <div class="price">₹298</div>
+    <a href="https://amzn.to/3MrUvLE" target="_blank" rel="nofollow sponsored">
+      Buy on Amazon
+    </a>
+  </div>
 
   <div class="card">
-<img src="https://m.media-amazon.com/images/I/613BVmwuQ4L._SY575_.jpg">
-<h3>Jewellery for Women Stylish</h3>
-<p>₹175</p>
-<a href="https://amzn.to/4aoMOOj" target="_blank">Buy on Amazon</a>
-</div>
-
-
-    <div class="card">
-<img src="https://m.media-amazon.com/images/I/71UCk9VMVrL._SY575_.jpg">
-<h3> Bangle Bracelet for Women and Girls  Set of 6</h3>
-<p>₹268</p>
-<a href="https://amzn.to/4aMY6gO" target="_blank">Buy on Amazon</a>
-</div>
-
-  
-  
-</div>
-
-<p style="text-align:center">As an Amazon Associate, KrishBotique earns from qualifying purchases.</p>
-</body>
-</html>
-
-
-
+    <div class="badge">SALE</div>
+    <img src="https://m.
