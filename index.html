@@ -15,36 +15,7 @@
 <meta name="robots" content="index, follow">
 <meta name="author" content="KrishBotique">
 
-<!-- CANONICAL -->
 <link rel="canonical" href="https://krishbotique.github.io/krishbotique/">
-
-<!-- OPEN GRAPH (Facebook, WhatsApp, Pinterest) -->
-<meta property="og:title" content="KrishBotique | Best Amazon Deals India">
-<meta property="og:description" content="Shop trending Amazon fashion, beauty, home & lifestyle picks curated by KrishBotique.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://krishbotique.github.io/krishbotique/">
-<meta property="og:image" content="https://m.media-amazon.com/images/I/71775fRr+gL._SX400_.jpg">
-
-<!-- TWITTER CARD -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Best Amazon Deals India – KrishBotique">
-<meta name="twitter:description" content="Trending & affordable Amazon picks in fashion, beauty, kitchen & home.">
-<meta name="twitter:image" content="https://m.media-amazon.com/images/I/71775fRr+gL._SX400_.jpg">
-
-<!-- STRUCTURED DATA (BOOSTS GOOGLE RANKING) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "KrishBotique",
-  "url": "https://krishbotique.github.io/krishbotique/",
-  "description": "Handpicked Amazon deals in India for fashion, beauty, home, kitchen and lifestyle.",
-  "publisher": {
-    "@type": "Organization",
-    "name": "KrishBotique"
-  }
-}
-</script>
 
 <!-- GOOGLE FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -68,16 +39,11 @@ h2{text-align:center;margin-bottom:40px;font-size:2rem}
 .card h3{font-size:1rem;margin-bottom:8px}
 .rating{color:#ffb703;margin-bottom:8px;font-size:0.95rem}
 .card p{font-size:0.85rem;color:#666;margin-bottom:15px}
-.category{background:linear-gradient(135deg,#FADADD,#DDEBFF);padding:30px;border-radius:16px;text-align:center;font-weight:600;font-size:1rem;text-decoration:none;color:#000}
-.trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;text-align:center}
-.trust div{background:#f8f8f8;padding:25px;border-radius:14px;font-size:0.95rem}
 footer{background:#f1f1f1;text-align:center;padding:25px 15px;font-size:0.9rem}
 footer a{color:#333;text-decoration:none;margin:0 6px}
 #noResults{display:none;text-align:center;font-size:1rem;color:#e74c3c;margin-top:20px}
-@media(max-width:600px){.hero h1{font-size:2rem}}
 
-
-  /* Floating Hearts */
+/* FIXED Floating Hearts */
 .hearts {
   position: fixed;
   top: 0;
@@ -86,28 +52,28 @@ footer a{color:#333;text-decoration:none;margin:0 6px}
   height: 100%;
   pointer-events: none;
   overflow: hidden;
-  z-index: 0;
+  z-index: 9999;
 }
 
 .heart {
   position: absolute;
-  bottom: -50px;
-  font-size: 20px;
-  color: #ff4d6d;
-  animation: floatUp 6s linear infinite;
+  bottom: -40px;
+  color: rgba(255, 77, 109, 0.8);
+  animation: floatUp linear forwards;
 }
 
 @keyframes floatUp {
-  0% {
+  from {
     transform: translateY(0) scale(1);
     opacity: 1;
   }
-  100% {
-    transform: translateY(-110vh) scale(1.5);
+  to {
+    transform: translateY(-120vh) scale(1.5);
     opacity: 0;
   }
 }
 
+@media(max-width:600px){.hero h1{font-size:2rem}}
 </style>
 </head>
 
@@ -138,16 +104,6 @@ We independently review products. Purchases through our links may earn us a comm
 
 <section id="products">
 <h2>🔥 Trending Amazon Picks</h2>
-<section>
-<h2>Why Shop with KrishBotique?</h2>
-<p style="max-width:800px;margin:auto;text-align:center;font-size:15px;color:#555;">
-KrishBotique brings you carefully selected Amazon deals in India. 
-From affordable fashion jewellery to trending kitchen tools, 
-we review and curate products that offer value for money. 
-Our goal is to help shoppers discover top-rated Amazon products 
-without spending hours searching.
-</p>
-</section>
 
 <div class="grid">
 <div class="card">
@@ -157,88 +113,37 @@ without spending hours searching.
 <p>Highly rated kitchen essential loved by thousands of Amazon customers in India.</p>
 <a class="btn" href="https://amzn.to/4qq4aAg" target="_blank" rel="nofollow sponsored">Check Price on Amazon</a>
 </div>
-
-
-  
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/41jwWE+VZ8L._SY741_.jpg" alt="Amazon Fashion Pick">
-      <h3>Trending Fashion Pick</h3>
-      <div class="rating">★★★★★ (4.8/5)</div>
-      <p>Stylish, affordable and loved by customers.</p>
-      <a class="btn" href="https://amzn.to/4r6CTnE" target="_blank" rel="nofollow sponsored">
-        Check Price on Amazon
-      </a>
-    </div>
-
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/61WnmpLwAQL._SL1500_.jpg" alt="Amazon Home Decor">
-      <h3>Modern Home Decor Item</h3>
-      <div class="rating">★★★★☆ (4.3/5)</div>
-      <p>Perfect for gifting and home styling.</p>
-      <a class="btn" href="https://amzn.to/45WTz8T" target="_blank" rel="nofollow sponsored">
-        Check Price on Amazon
-      </a>
-    </div>
-
-  
 </div>
 
 <div id="noResults">No products found.</div>
 </section>
 
 <footer>
-<p>Follow us:</p>
-<a href="https://www.instagram.com/__cheap_and__best__" target="_blank">Instagram</a> |
-<a href="https://whatsapp.com/channel/0029Vaa1dH9JP20yRUbR7Y2H" target="_blank">Whatsapp Channel</a> |
-<a href="https://pin.it/6KOQkwVcK" target="_blank">Pinterest</a>
-<br><br>
 <p>As an Amazon Associate, KrishBotique earns from qualifying purchases.</p>
-<a href="about.html">About</a> |
-<a href="privacy.html">Privacy Policy</a> |
-<a href="disclaimer.html">Disclaimer</a>
 </footer>
 
-<script>
-const searchInput=document.getElementById('searchInput');
-const cards=document.querySelectorAll('#products .card');
-const noResults=document.getElementById('noResults');
-searchInput.addEventListener('keyup',function(){
-const query=this.value.toLowerCase();
-let found=false;
-cards.forEach(card=>{
-const title=card.querySelector('h3').textContent.toLowerCase();
-const description=card.querySelector('p').textContent.toLowerCase();
-if(title.includes(query)||description.includes(query)){
-card.style.display='block';
-found=true;
-}else{card.style.display='none';}
-});
-noResults.style.display=found?'none':'block';
-});
-</script>
+<!-- Floating Hearts Container -->
 <div class="hearts" id="hearts"></div>
+
 <script>
 function createHeart() {
   const heart = document.createElement("div");
-  heart.classList.add("heart");
+  heart.className = "heart";
   heart.innerHTML = "💖";
+
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = Math.random() * 20 + 15 + "px";
-  heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+  heart.style.fontSize = (Math.random() * 25 + 15) + "px";
+  heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+
   document.getElementById("hearts").appendChild(heart);
 
   setTimeout(() => {
     heart.remove();
-  }, 6000);
+  }, 7000);
 }
 
-setInterval(createHeart, 500);
+setInterval(createHeart, 400);
 </script>
 
 </body>
 </html>
-
-
-
-
-
