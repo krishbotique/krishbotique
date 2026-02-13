@@ -2,26 +2,39 @@
 <html lang="en">
 <head>
 <title>Baby & Maternity – Amazon Picks | KrishBotique</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+
+/* BODY */
 body{
-  font-family: Arial;
-  background:#fef6fb;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background:#fff6fb;
   margin:0;
 }
 
 /* PAGE TITLE */
-h2{
+.page-title{
   text-align:center;
-  padding:20px 10px 10px;
+  padding:30px 15px 10px;
+  font-size:26px;
+  color:#e75480;
+}
+
+.page-desc{
+  text-align:center;
+  max-width:900px;
+  margin:auto;
+  padding:0 20px 20px;
+  color:#555;
+  font-size:14px;
 }
 
 /* GRID LAYOUT */
 .product-grid{
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap:20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap:25px;
   max-width:1200px;
   margin:auto;
   padding:20px;
@@ -29,30 +42,58 @@ h2{
 
 /* PRODUCT CARD */
 .card{
-  background:#fff;
-  padding:15px;
-  border-radius:15px;
+  background:#ffffff;
+  padding:18px;
+  border-radius:18px;
   text-align:center;
-  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+  transition:0.3s ease;
 }
 
-/* IMAGE SIZE FIX */
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 12px 28px rgba(0,0,0,0.12);
+}
+
+/* IMAGE */
 .card img{
   width:100%;
-  height:180px;        /* 🔥 FIXED SIZE */
+  height:200px;
   object-fit:contain;
-  border-radius:10px;
+  border-radius:12px;
+  margin-bottom:12px;
+}
+
+/* PRODUCT NAME */
+.card h3{
+  font-size:15px;
+  color:#333;
+  margin-bottom:8px;
+  min-height:40px;
+}
+
+/* PRICE */
+.price{
+  font-weight:bold;
+  color:#e75480;
+  font-size:16px;
 }
 
 /* BUTTON */
 .card a{
   display:inline-block;
-  margin-top:10px;
-  padding:8px 14px;
-  background:#ff69b4;
+  margin-top:12px;
+  padding:9px 16px;
+  background:linear-gradient(45deg,#ff69b4,#ff1493);
   color:#fff;
   text-decoration:none;
-  border-radius:6px;
+  border-radius:25px;
+  font-size:14px;
+  transition:0.3s;
+}
+
+.card a:hover{
+  opacity:0.85;
 }
 
 /* FOOTER */
@@ -60,92 +101,105 @@ h2{
   text-align:center;
   font-size:13px;
   color:#777;
-  padding:15px 10px;
+  padding:20px 10px;
   border-top:1px solid #eee;
-  margin-top:20px;
+  margin-top:30px;
 }
+
+/* ---------------- RESPONSIVE DESIGN ---------------- */
+
+/* Tablet */
+@media (max-width: 992px){
+  .product-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px){
+  .product-grid{
+    grid-template-columns: 1fr;
+    padding:15px;
+  }
+
+  .page-title{
+    font-size:22px;
+  }
+
+  .card img{
+    height:170px;
+  }
+}
+
 </style>
 </head>
 
 <body>
 
-<h2>👶 Baby & Maternity Essentials</h2>
+<h2 class="page-title">👶 Baby & Maternity Essentials</h2>
+
+<p class="page-desc">
+Discover best-selling baby care, maternity support, diapers, wipes, skincare and pregnancy essentials loved by moms across India.
+</p>
 
 <div class="product-grid">
 
   <div class="card">
     <img src="https://m.media-amazon.com/images/I/71vygBo6SKL._SL1500_.jpg" alt="Pampers Baby Diapers">
     <h3>Pampers Premium Care Pant Style Baby Diapers (M, 104)</h3>
-    <p>₹1593</p>
-    <a href="https://amzn.to/4krm4Bv" target="_blank" rel="nofollow sponsored">
-      Buy on Amazon
-    </a>
+    <p class="price">₹1593</p>
+    <a href="https://amzn.to/4krm4Bv" target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
   </div>
 
   <div class="card">
     <img src="https://m.media-amazon.com/images/I/61RTSPooOtL._SL1500_.jpg" alt="LuvLap Baby Diapers">
     <h3>LuvLap Pant Style Baby Diapers (XL, 54)</h3>
-    <p>₹473</p>
-    <a href="https://amzn.to/4rJlPUN" target="_blank" rel="nofollow sponsored">
-      Buy on Amazon
-    </a>
+    <p class="price">₹473</p>
+    <a href="https://amzn.to/4rJlPUN" target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
   </div>
 
   <div class="card">
     <img src="https://m.media-amazon.com/images/I/41cqG+Lhu7L.jpg" alt="Mamaearth Baby Wash">
     <h3>Mamaearth Milky Soft Head to Toe Baby Wash (400ml)</h3>
-    <p>₹718</p>
-    <a href="https://amzn.to/4txdeq4" target="_blank" rel="nofollow sponsored">
-      Buy on Amazon
-    </a>
+    <p class="price">₹718</p>
+    <a href="https://amzn.to/4txdeq4" target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
   </div>
 
   <div class="card">
     <img src="https://m.media-amazon.com/images/I/71kY8YwzvQL._SL1500_.jpg" alt="Mee Mee Baby Wipes">
     <h3>Mee Mee Gentle Baby Wet Wipes (Pack of 6)</h3>
-    <p>₹359</p>
-    <a href="https://amzn.to/4abrr4s" target="_blank" rel="nofollow sponsored">
-      Buy on Amazon
-    </a>
-  </div>
-
-<div class="card">
-    <img src="https://m.media-amazon.com/images/I/711hgbm4rmL._SL1500_.jpg" alt="Mee Mee Baby Wipes">
-    <h3>Himalaya Baby Cream, Face Moisturizer & Day Cream, For Dry Skin 200ml</h3>
-    <p>₹248</p>
-    <a href="https://amzn.to/4akaumX" target="_blank" rel="nofollow sponsored">
-      Buy on Amazon
-    </a>
-  </div>
-
-<div class="card">
-    <img src="https://m.media-amazon.com/images/I/713ZK0PTSuL._SL1500_.jpg" alt="Mee Mee Baby Wipes">
-    <h3>OYO BABY Pregnancy Pillows for Sleeping J-Shape Full Body Pillow and Maternity Support -</h3>
-    <p>₹1476</p>
-    <a href="https://amzn.to/4apZmoU" target="_blank" rel="nofollow sponsored">
-      Buy on Amazon
-    </a>
+    <p class="price">₹359</p>
+    <a href="https://amzn.to/4abrr4s" target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
   </div>
 
   <div class="card">
-    <img src="https://m.media-amazon.com/images/I/51gdcobd8wL.jpg" alt="Mee Mee Baby Wipes">
-    <h3>Infantbond Cotton Designer Mattress With Net | Baby Sleeping Bag | 4 Pcs Bedding  -</h3>
-    <p>₹1641</p>
-    <a href="https://amzn.to/4ryTBvK" target="_blank" rel="nofollow sponsored">
-      Buy on Amazon
-    </a>
+    <img src="https://m.media-amazon.com/images/I/711hgbm4rmL._SL1500_.jpg" alt="Himalaya Baby Cream">
+    <h3>Himalaya Baby Cream 200ml</h3>
+    <p class="price">₹248</p>
+    <a href="https://amzn.to/4akaumX" target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
   </div>
 
   <div class="card">
-    <img src="https://m.media-amazon.com/images/I/81D-bayk87L._SL1500_.jpg" alt="Mee Mee Baby Wipes">
-    <h3>OYO BABY Medium Waterproof Dry Sheets 100×70 cm Combo Pack of 2</h3>
-    <p>₹399</p>
-    <a href="https://amzn.to/4tHRtnA" target="_blank" rel="nofollow sponsored">
-      Buy on Amazon
-    </a>
+    <img src="https://m.media-amazon.com/images/I/713ZK0PTSuL._SL1500_.jpg" alt="Pregnancy Pillow">
+    <h3>OYO BABY Pregnancy Pillow J-Shape Full Body Support</h3>
+    <p class="price">₹1476</p>
+    <a href="https://amzn.to/4apZmoU" target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
   </div>
 
-  
+  <div class="card">
+    <img src="https://m.media-amazon.com/images/I/51gdcobd8wL.jpg" alt="Infantbond Mattress">
+    <h3>Infantbond Cotton Baby Mattress With Net (4 Pcs Set)</h3>
+    <p class="price">₹1641</p>
+    <a href="https://amzn.to/4ryTBvK" target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
+  </div>
+
+  <div class="card">
+    <img src="https://m.media-amazon.com/images/I/81D-bayk87L._SL1500_.jpg" alt="Waterproof Dry Sheets">
+    <h3>OYO BABY Waterproof Dry Sheets Combo (2 Pack)</h3>
+    <p class="price">₹399</p>
+    <a href="https://amzn.to/4tHRtnA" target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
+  </div>
+
 </div>
 
 <footer class="affiliate-footer">
@@ -154,5 +208,3 @@ h2{
 
 </body>
 </html>
-
-
