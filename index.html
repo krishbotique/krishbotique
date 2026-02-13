@@ -2,38 +2,39 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="google-site-verification" content="ikPrskW0Js-gUkWNa7Ql4IJabVoCYLGU7ALqR9raULk" />
-<title>KrishBotique | Best Amazon Deals India – Fashion, Beauty, Home & Lifestyle Picks</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KrishBotique | Best Amazon Deals India – Fashion, Beauty & Lifestyle</title>
 
-<meta name="description" content="Discover the best Amazon deals in India on fashion, beauty, home decor, kitchen essentials, baby products and more.">
-<meta name="robots" content="index, follow">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 body{margin:0;font-family:'Poppins',sans-serif;background:#ffffff;color:#333}
-nav{padding:15px;text-align:center;background:#f7f7f7;font-size:0.95rem}
+nav{padding:15px;text-align:center;background:#f7f7f7}
 nav a{margin:0 8px;text-decoration:none;color:#333;font-weight:500}
-nav input{margin-left:10px;padding:6px 10px;border-radius:6px;border:1px solid #ccc;font-size:0.9rem}
+nav input{margin-left:10px;padding:6px 10px;border-radius:6px;border:1px solid #ccc}
+
 .hero{background:linear-gradient(135deg,#FADADD,#DDEBFF);padding:90px 20px;text-align:center}
 .hero h1{font-size:2.6rem;margin-bottom:10px}
-.hero p{font-size:1.1rem;margin-bottom:20px}
-.trustline{font-size:0.9rem;opacity:0.85}
-.btn{padding:14px 32px;background:linear-gradient(135deg,#FADADD,#DDEBFF);border:none;border-radius:30px;font-size:1rem;font-weight:600;text-decoration:none;color:#000;cursor:pointer;display:inline-block}
-section{padding:60px 20px;max-width:1100px;margin:auto}
-h2{text-align:center;margin-bottom:40px;font-size:2rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
-.card{background:#fff;border-radius:16px;box-shadow:0 8px 20px rgba(0,0,0,0.08);padding:20px;text-align:center;transition:transform 0.3s ease}
+.hero p{font-size:1.1rem}
+
+.btn{padding:12px 28px;background:linear-gradient(135deg,#FADADD,#DDEBFF);border:none;border-radius:30px;font-weight:600;text-decoration:none;color:#000;display:inline-block;margin-top:10px}
+
+section{padding:60px 20px;max-width:1200px;margin:auto}
+h2{text-align:center;margin-bottom:40px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
+
+.card{background:#fff;border-radius:16px;box-shadow:0 8px 20px rgba(0,0,0,0.08);padding:20px;text-align:center;transition:0.3s}
 .card:hover{transform:translateY(-6px)}
 .card img{width:100%;aspect-ratio:1/1;object-fit:contain;border-radius:12px;margin-bottom:15px}
-.card h3{font-size:1rem;margin-bottom:8px}
-.rating{color:#ffb703;margin-bottom:8px;font-size:0.95rem}
-.card p{font-size:0.85rem;color:#666;margin-bottom:15px}
-footer{background:#f1f1f1;text-align:center;padding:25px 15px;font-size:0.9rem}
-footer a{color:#333;text-decoration:none;margin:0 6px}
-#noResults{display:none;text-align:center;font-size:1rem;color:#e74c3c;margin-top:20px}
+.rating{color:#ffb703;margin-bottom:8px}
+.card p{font-size:0.9rem;color:#666}
 
-/* FLOATING HEARTS FIXED */
+footer{background:#f1f1f1;text-align:center;padding:25px}
+
+#noResults{display:none;text-align:center;color:#e74c3c}
+
+/* Floating Hearts */
 .hearts{
 position:fixed;
 top:0;
@@ -41,8 +42,8 @@ left:0;
 width:100%;
 height:100%;
 pointer-events:none;
-overflow:hidden;
 z-index:9999;
+overflow:hidden;
 }
 .heart{
 position:absolute;
@@ -53,34 +54,32 @@ animation:floatUp linear forwards;
 from{transform:translateY(0) scale(1);opacity:1;}
 to{transform:translateY(-120vh) scale(1.5);opacity:0;}
 }
+
+/* Mobile Fix */
+@media(max-width:768px){
+.hero h1{font-size:2rem}
+nav input{margin-top:10px}
+}
 </style>
 </head>
 
 <body>
 
 <nav>
-<a href="index.html">Home</a>
-<a href="dresses.html">Dresses</a>
-<a href="men-clothing.html">Men</a>
-<a href="jewellery.html">Jewellery</a>
-<a href="beauty.html">Beauty</a>
-<a href="kitchen.html">Kitchen</a>
-<a href="home-decor.html">Home Decor</a>
-<a href="baby.html">Baby</a>
-<a href="valentine.html">Valentine</a>
-<a href="stationery.html">Stationery</a>
+<a href="#">Home</a>
+<a href="#">Dresses</a>
+<a href="#">Beauty</a>
+<a href="#">Home Decor</a>
 <input type="text" id="searchInput" placeholder="Search products...">
 </nav>
 
 <div class="hero">
 <h1>✨ KrishBotique</h1>
-<p>Discover the Best Amazon Deals in India – Fashion, Beauty, Home & Lifestyle Picks</p>
-<p class="trustline">
-We independently review products. Purchases through our links may earn us a commission at no extra cost to you.
-</p>
-<a class="btn" href="#products">Shop Trending Products</a>
+<p>Discover the Best Amazon Deals Loved by Women</p>
+<a href="#products" class="btn">Shop Now</a>
 </div>
 
+<!-- TRENDING SECTION -->
 <section id="products">
 <h2>🔥 Trending Amazon Picks</h2>
 
@@ -88,28 +87,32 @@ We independently review products. Purchases through our links may earn us a comm
 
 <div class="card">
 <img src="https://m.media-amazon.com/images/I/71775fRr+gL._SX400_.jpg">
-<h3>Top Rated Kitchen Tool – Amazon Bestseller</h3>
+<h3>Top Rated Kitchen Tool</h3>
 <div class="rating">★★★★☆ (4.4/5)</div>
-<p>Highly rated kitchen essential loved by thousands of Amazon customers in India.</p>
-<a class="btn" href="https://amzn.to/4qq4aAg" target="_blank" rel="nofollow sponsored">Check Price on Amazon</a>
+<p>Highly rated kitchen essential loved by thousands.</p>
+<a class="btn" href="https://amzn.to/4qq4aAg" target="_blank">Check Price</a>
 </div>
 
 <div class="card">
 <img src="https://m.media-amazon.com/images/I/41jwWE+VZ8L._SY741_.jpg">
 <h3>Trending Fashion Pick</h3>
 <div class="rating">★★★★★ (4.8/5)</div>
-<p>Stylish, affordable and loved by customers.</p>
-<a class="btn" href="https://amzn.to/4r6CTnE" target="_blank" rel="nofollow sponsored">Check Price on Amazon</a>
+<p>Stylish and affordable.</p>
+<a class="btn" href="https://amzn.to/4r6CTnE" target="_blank">Check Price</a>
 </div>
 
 <div class="card">
 <img src="https://m.media-amazon.com/images/I/61WnmpLwAQL._SL1500_.jpg">
 <h3>Modern Home Decor Item</h3>
 <div class="rating">★★★★☆ (4.3/5)</div>
-<p>Perfect for gifting and home styling.</p>
-<a class="btn" href="https://amzn.to/45WTz8T" target="_blank" rel="nofollow sponsored">Check Price on Amazon</a>
+<p>Perfect for gifting and styling.</p>
+<a class="btn" href="https://amzn.to/45WTz8T" target="_blank">Check Price</a>
 </div>
 
+</div>
+</section>
+
+<!-- MOST LOVED BY WOMEN -->
 <section>
 <h2 style="color:#d63384;">💖 Most Loved by Women</h2>
 
@@ -119,42 +122,30 @@ We independently review products. Purchases through our links may earn us a comm
 <img src="https://m.media-amazon.com/images/I/51-0Yb6kfJL._SL1000_.jpg">
 <h3>Vitamin C Face Serum</h3>
 <div class="rating">★★★★★ (4.8/5)</div>
-<p>Glow-boosting skincare favorite loved by thousands of women.</p>
-<a class="btn" href="https://amzn.to/406OB5Q" target="_blank" rel="nofollow sponsored">
-Shop on Amazon
-</a>
+<p>Glow-boosting skincare bestseller.</p>
+<a class="btn" href="https://amzn.to/406OB5Q" target="_blank">Shop Now</a>
 </div>
 
 <div class="card">
 <img src="https://m.media-amazon.com/images/I/6116JOxgZfL._SY575_.jpg">
 <h3>Minimal Gold Layered Necklace</h3>
 <div class="rating">★★★★★ (4.7/5)</div>
-<p>Elegant everyday jewellery piece trending on Amazon.</p>
-<a class="btn" href="https://amzn.to/4rhOKzy" target="_blank" rel="nofollow sponsored">
-Shop on Amazon
-</a>
+<p>Elegant everyday jewellery piece.</p>
+<a class="btn" href="https://amzn.to/4rhOKzy" target="_blank">Shop Now</a>
 </div>
 
 <div class="card">
 <img src="https://m.media-amazon.com/images/I/61MJgnM9tVL._SL1500_.jpg">
 <h3>Scented Soy Candle</h3>
 <div class="rating">★★★★☆ (4.4/5)</div>
-<p>Cozy aesthetic home decor must-have.</p>
-<a class="btn" href="https://amzn.to/3ZvPvJ7" target="_blank" rel="nofollow sponsored">
-Shop on Amazon
-</a>
+<p>Cozy aesthetic decor must-have.</p>
+<a class="btn" href="https://amzn.to/3ZvPvJ7" target="_blank">Shop Now</a>
 </div>
 
 </div>
 </section>
-
-
-
-  
-</div>
 
 <div id="noResults">No products found.</div>
-</section>
 
 <footer>
 <p>As an Amazon Associate, KrishBotique earns from qualifying purchases.</p>
@@ -164,19 +155,20 @@ Shop on Amazon
 
 <script>
 const searchInput=document.getElementById('searchInput');
-const cards=document.querySelectorAll('#products .card');
+const cards=document.querySelectorAll('.card');
 const noResults=document.getElementById('noResults');
 
 searchInput.addEventListener('keyup',function(){
 const query=this.value.toLowerCase();
 let found=false;
 cards.forEach(card=>{
-const title=card.querySelector('h3').textContent.toLowerCase();
-const description=card.querySelector('p').textContent.toLowerCase();
-if(title.includes(query)||description.includes(query)){
+const text=card.innerText.toLowerCase();
+if(text.includes(query)){
 card.style.display='block';
 found=true;
-}else{card.style.display='none';}
+}else{
+card.style.display='none';
+}
 });
 noResults.style.display=found?'none':'block';
 });
@@ -196,4 +188,3 @@ setInterval(createHeart,400);
 
 </body>
 </html>
-
