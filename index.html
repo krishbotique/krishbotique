@@ -1,335 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>KrishBotique – Handpicked Amazon Finds</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
-  <!-- SEO META -->
-  <meta name="description" content="KrishBotique brings you handpicked Amazon deals on beauty, fashion, home essentials, kitchen, baby products and stationery.">
-  <meta name="keywords" content="krishbotique, amazon affiliate india, fashion deals amazon, beauty products, home decor amazon">
-  <meta name="robots" content="index, follow">
+<title>KrishBotique | Best Amazon Deals India – Fashion, Beauty, Home & Lifestyle Picks</title>
 
-  <!-- GOOGLE FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #ffffff;
-      color: #333;
-    }
+<!-- PRIMARY SEO -->
+<meta name="description" content="Discover the best Amazon deals in India on fashion, beauty, home decor, kitchen essentials, baby products and more. KrishBotique curates trending and affordable Amazon picks updated regularly.">
+<meta name="keywords" content="best amazon deals india, amazon fashion picks, amazon beauty products, home decor amazon india, krishbotique amazon finds">
+<meta name="robots" content="index, follow">
+<meta name="author" content="KrishBotique">
 
-    nav {
-      padding: 15px;
-      text-align: center;
-      background: #f7f7f7;
-      font-size: 0.95rem;
-    }
+<!-- CANONICAL -->
+<link rel="canonical" href="https://krishbotique.github.io/krishbotique/">
 
-    nav a {
-      margin: 0 8px;
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
+<!-- OPEN GRAPH (Facebook, WhatsApp, Pinterest) -->
+<meta property="og:title" content="KrishBotique | Best Amazon Deals India">
+<meta property="og:description" content="Shop trending Amazon fashion, beauty, home & lifestyle picks curated by KrishBotique.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://krishbotique.github.io/krishbotique/">
+<meta property="og:image" content="https://m.media-amazon.com/images/I/71775fRr+gL._SX400_.jpg">
 
-    nav input {
-      margin-left: 10px;
-      padding: 6px 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 0.9rem;
-    }
+<!-- TWITTER CARD -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Best Amazon Deals India – KrishBotique">
+<meta name="twitter:description" content="Trending & affordable Amazon picks in fashion, beauty, kitchen & home.">
+<meta name="twitter:image" content="https://m.media-amazon.com/images/I/71775fRr+gL._SX400_.jpg">
 
-    /* HERO SECTION */
-    .hero {
-      background: linear-gradient(135deg, #FADADD, #DDEBFF);
-      padding: 90px 20px;
-      text-align: center;
-    }
+<!-- STRUCTURED DATA (BOOSTS GOOGLE RANKING) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "KrishBotique",
+  "url": "https://krishbotique.github.io/krishbotique/",
+  "description": "Handpicked Amazon deals in India for fashion, beauty, home, kitchen and lifestyle.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "KrishBotique"
+  }
+}
+</script>
 
-    .hero h1 {
-      font-size: 2.6rem;
-      margin-bottom: 10px;
-    }
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    .hero p {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-    }
-
-    .trustline {
-      font-size: 0.9rem;
-      opacity: 0.85;
-    }
-
-    .btn {
-      padding: 14px 32px;
-      background: linear-gradient(135deg, #FADADD, #DDEBFF);
-      border: none;
-      border-radius: 30px;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      color: #000;
-      cursor: pointer;
-      display: inline-block;
-    }
-
-    section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 2rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      padding: 20px;
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 15px;
-    }
-
-    .card h3 {
-      font-size: 1rem;
-      margin-bottom: 8px;
-    }
-
-    .rating {
-      color: #ffb703;
-      margin-bottom: 8px;
-      font-size: 0.95rem;
-    }
-
-    .card p {
-      font-size: 0.85rem;
-      color: #666;
-      margin-bottom: 15px;
-    }
-
-    .category {
-      background: linear-gradient(135deg, #FADADD, #DDEBFF);
-      padding: 30px;
-      border-radius: 16px;
-      text-align: center;
-      font-weight: 600;
-      font-size: 1rem;
-      text-decoration: none;
-      color: #000;
-    }
-
-    .trust {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      text-align: center;
-    }
-
-    .trust div {
-      background: #f8f8f8;
-      padding: 25px;
-      border-radius: 14px;
-      font-size: 0.95rem;
-    }
-
-    footer {
-      background: #f1f1f1;
-      text-align: center;
-      padding: 25px 15px;
-      font-size: 0.9rem;
-    }
-
-    footer a {
-      color: #333;
-      text-decoration: none;
-      margin: 0 6px;
-    }
-
-    #noResults {
-      display: none;
-      text-align: center;
-      font-size: 1rem;
-      color: #e74c3c;
-      margin-top: 20px;
-    }
-
-    @media(max-width: 600px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-    }
-  </style>
+<style>
+body{margin:0;font-family:'Poppins',sans-serif;background:#ffffff;color:#333}
+nav{padding:15px;text-align:center;background:#f7f7f7;font-size:0.95rem}
+nav a{margin:0 8px;text-decoration:none;color:#333;font-weight:500}
+nav input{margin-left:10px;padding:6px 10px;border-radius:6px;border:1px solid #ccc;font-size:0.9rem}
+.hero{background:linear-gradient(135deg,#FADADD,#DDEBFF);padding:90px 20px;text-align:center}
+.hero h1{font-size:2.6rem;margin-bottom:10px}
+.hero p{font-size:1.1rem;margin-bottom:20px}
+.trustline{font-size:0.9rem;opacity:0.85}
+.btn{padding:14px 32px;background:linear-gradient(135deg,#FADADD,#DDEBFF);border:none;border-radius:30px;font-size:1rem;font-weight:600;text-decoration:none;color:#000;cursor:pointer;display:inline-block}
+section{padding:60px 20px;max-width:1100px;margin:auto}
+h2{text-align:center;margin-bottom:40px;font-size:2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
+.card{background:#fff;border-radius:16px;box-shadow:0 8px 20px rgba(0,0,0,0.08);padding:20px;text-align:center;transition:transform 0.3s ease}
+.card:hover{transform:translateY(-6px)}
+.card img{width:100%;aspect-ratio:1/1;object-fit:contain;border-radius:12px;margin-bottom:15px}
+.card h3{font-size:1rem;margin-bottom:8px}
+.rating{color:#ffb703;margin-bottom:8px;font-size:0.95rem}
+.card p{font-size:0.85rem;color:#666;margin-bottom:15px}
+.category{background:linear-gradient(135deg,#FADADD,#DDEBFF);padding:30px;border-radius:16px;text-align:center;font-weight:600;font-size:1rem;text-decoration:none;color:#000}
+.trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;text-align:center}
+.trust div{background:#f8f8f8;padding:25px;border-radius:14px;font-size:0.95rem}
+footer{background:#f1f1f1;text-align:center;padding:25px 15px;font-size:0.9rem}
+footer a{color:#333;text-decoration:none;margin:0 6px}
+#noResults{display:none;text-align:center;font-size:1rem;color:#e74c3c;margin-top:20px}
+@media(max-width:600px){.hero h1{font-size:2rem}}
+</style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
 <nav>
-  <a href="index.html">Home</a>
-  <a href="dresses.html">Dresses</a>
-  <a href="men-clothing.html">Men</a>
-  <a href="jewellery.html">Jewellery</a>
-  <a href="beauty.html">Beauty</a>
-  <a href="kitchen.html">Kitchen</a>
-  <a href="home-decor.html">Home Decor</a>
-  <a href="baby.html">Baby</a>
-  <a href="valentine.html">valentine</a>
-  <a href="stationery.html">Stationery</a>
-  
-  <!-- SEARCH BOX -->
-  <input type="text" id="searchInput" placeholder="Search products...">
+<a href="index.html">Home</a>
+<a href="dresses.html">Dresses</a>
+<a href="men-clothing.html">Men</a>
+<a href="jewellery.html">Jewellery</a>
+<a href="beauty.html">Beauty</a>
+<a href="kitchen.html">Kitchen</a>
+<a href="home-decor.html">Home Decor</a>
+<a href="baby.html">Baby</a>
+<a href="valentine.html">Valentine</a>
+<a href="stationery.html">Stationery</a>
+<input type="text" id="searchInput" placeholder="Search products...">
 </nav>
 
-<!-- HERO -->
 <div class="hero">
-  <h1>✨ KrishBotique</h1>
-  <p>Curated Amazon Finds for Fashion, Beauty, Home & Lifestyle</p>
-  <p class="trustline">
-    We independently review products. Purchases through our links may earn us a commission at no extra cost to you.
-  </p>
-  <a class="btn" href="#products">Shop Trending Products</a>
+<h1>✨ KrishBotique</h1>
+<p>Discover the Best Amazon Deals in India – Fashion, Beauty, Home & Lifestyle Picks</p>
+<p class="trustline">
+We independently review products. Purchases through our links may earn us a commission at no extra cost to you.
+</p>
+<a class="btn" href="#products">Shop Trending Products</a>
 </div>
 
-<!-- TRENDING PRODUCTS -->
 <section id="products">
-  <h2>🔥 Trending Amazon Picks</h2>
+<h2>🔥 Trending Amazon Picks</h2>
 
-  <div class="grid">
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/71775fRr+gL._SL1500_.jpg" alt="Amazon Bestseller Product">
-      <h3>Top Rated Kitchen Tool</h3>
-      <div class="rating">★★★★☆ (4.4/5)</div>
-      <p>Highly rated Amazon bestseller with great reviews.</p>
-      <a class="btn" href="https://amzn.to/4qq4aAg" target="_blank" rel="nofollow sponsored">
-        Check Price on Amazon
-      </a>
-    </div>
+<div class="grid">
+<div class="card">
+<img src="https://m.media-amazon.com/images/I/71775fRr+gL._SX400_.jpg" alt="Top Rated Kitchen Tool Amazon Bestseller India">
+<h3>Top Rated Kitchen Tool – Amazon Bestseller</h3>
+<div class="rating">★★★★☆ (4.4/5)</div>
+<p>Highly rated kitchen essential loved by thousands of Amazon customers in India.</p>
+<a class="btn" href="https://amzn.to/4qq4aAg" target="_blank" rel="nofollow sponsored">Check Price on Amazon</a>
+</div>
+</div>
 
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/61pTJpiFiOL._SL1500_.jpg" alt="Amazon Fashion Pick">
-      <h3>Trending Valentine Pick</h3>
-      <div class="rating">★★★★★ (4.8/5)</div>
-      <p>Stylish, affordable and loved by customers.</p>
-      <a class="btn" href="https://amzn.to/4kuec23" target="_blank" rel="nofollow sponsored">
-        Check Price on Amazon
-      </a>
-    </div>
-
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/41jwWE+VZ8L._SY741_.jpg" alt="Amazon Fashion Pick">
-      <h3>Trending Fashion Pick</h3>
-      <div class="rating">★★★★★ (4.8/5)</div>
-      <p>Stylish, affordable and loved by customers.</p>
-      <a class="btn" href="https://amzn.to/4r6CTnE" target="_blank" rel="nofollow sponsored">
-        Check Price on Amazon
-      </a>
-    </div>
-
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/61WnmpLwAQL._SL1500_.jpg" alt="Amazon Home Decor">
-      <h3>Modern Home Decor Item</h3>
-      <div class="rating">★★★★☆ (4.3/5)</div>
-      <p>Perfect for gifting and home styling.</p>
-      <a class="btn" href="https://amzn.to/45WTz8T" target="_blank" rel="nofollow sponsored">
-        Check Price on Amazon
-      </a>
-    </div>
-  </div>
-
-  <!-- No results message -->
-  <div id="noResults">No products found.</div>
+<div id="noResults">No products found.</div>
 </section>
 
-<!-- CATEGORIES -->
-<section>
-  <h2>🛍 Shop by Category</h2>
-  <div class="grid">
-    <a href="dresses.html" class="category">👗 Dresses</a>
-    <a href="men-clothing.html" class="category">👔 Men Clothing</a>
-    <a href="jewellery.html" class="category">💍 Jewellery</a>
-    <a href="beauty.html" class="category">💄 Beauty</a>
-    <a href="kitchen.html" class="category">🍳 Kitchen Essentials</a>
-    <a href="home-decor.html" class="category">🏡 Home Decor</a>
-    <a href="baby.html" class="category">👶 Baby & Maternity</a>
-    <a href="valentine.html" class="category">valentine</a>
-    <a href="stationery.html" class="category">📒 Stationery</a>
-  </div>
-</section>
-
-<!-- TRUST -->
-<section>
-  <h2>💖 Why Trust KrishBotique</h2>
-  <div class="trust">
-    <div>✔ Handpicked Amazon Bestsellers</div>
-    <div>✔ Honest Recommendations</div>
-    <div>✔ Updated Regularly</div>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <p>Follow us:</p>
-  <a href="https://www.instagram.com/__cheap_and__best__" target="_blank">Instagram</a> |
-  <a href="https://whatsapp.com/channel/0029Vaa1dH9JP20yRUbR7Y2H" target="_blank">Whatsapp channel</a> |
-  <a href="https://pin.it/6KOQkwVcK" target="_blank">Pinterest</a>
-  <br><br>
-  <p>As an Amazon Associate, KrishBotique earns from qualifying purchases.</p>
-  <a href="about.html">About</a> |
-  <a href="privacy.html">Privacy Policy</a> |
-  <a href="disclaimer.html">Disclaimer</a>
+<p>Follow us:</p>
+<a href="https://www.instagram.com/__cheap_and__best__" target="_blank">Instagram</a> |
+<a href="https://whatsapp.com/channel/0029Vaa1dH9JP20yRUbR7Y2H" target="_blank">Whatsapp Channel</a> |
+<a href="https://pin.it/6KOQkwVcK" target="_blank">Pinterest</a>
+<br><br>
+<p>As an Amazon Associate, KrishBotique earns from qualifying purchases.</p>
+<a href="about.html">About</a> |
+<a href="privacy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a>
 </footer>
 
-<!-- SEARCH SCRIPT -->
 <script>
-  const searchInput = document.getElementById('searchInput');
-  const cards = document.querySelectorAll('#products .card');
-  const noResults = document.getElementById('noResults');
-
-  searchInput.addEventListener('keyup', function() {
-    const query = this.value.toLowerCase();
-    let found = false;
-
-    cards.forEach(card => {
-      const title = card.querySelector('h3').textContent.toLowerCase();
-      const description = card.querySelector('p').textContent.toLowerCase();
-
-      if (title.includes(query) || description.includes(query)) {
-        card.style.display = 'block';
-        found = true;
-      } else {
-        card.style.display = 'none';
-      }
-    });
-
-    noResults.style.display = found ? 'none' : 'block';
-  });
+const searchInput=document.getElementById('searchInput');
+const cards=document.querySelectorAll('#products .card');
+const noResults=document.getElementById('noResults');
+searchInput.addEventListener('keyup',function(){
+const query=this.value.toLowerCase();
+let found=false;
+cards.forEach(card=>{
+const title=card.querySelector('h3').textContent.toLowerCase();
+const description=card.querySelector('p').textContent.toLowerCase();
+if(title.includes(query)||description.includes(query)){
+card.style.display='block';
+found=true;
+}else{card.style.display='none';}
+});
+noResults.style.display=found?'none':'block';
+});
 </script>
 
 </body>
 </html>
-
