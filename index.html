@@ -19,6 +19,38 @@ gtag('config', 'G-D0GMXLS34N');
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+/* STITCH TOY */
+.stitch-toy {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 120px;
+    z-index: 9999;
+    cursor: pointer;
+    animation: floatStitch 3s ease-in-out infinite;
+    transition: transform 0.2s ease-out;
+}
+
+/* FLOATING ANIMATION */
+@keyframes floatStitch {
+    0% { transform: translateY(0);}
+    50% { transform: translateY(-15px);}
+    100% { transform: translateY(0);}
+}
+
+/* HOVER EFFECT */
+.stitch-toy:hover {
+    transform: scale(1.15) rotate(-5deg);
+}
+
+/* MOBILE ADJUSTMENT */
+@media(max-width:480px){
+    .stitch-toy {
+        width: 80px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
 
 /* LOADER */
 #loader{
@@ -319,6 +351,7 @@ nav input{display:block;margin:10px auto}
 
 </style>
 </head>
+<img src="15c6f092-6b6e-485e-995b-cb797b611f2b.png" alt="Stitch Toy" class="stitch-toy">
 
 <body>
 
@@ -474,6 +507,28 @@ cards.forEach((card, index)=>{
   card.style.animationDelay = `${index*0.15}s`;
 });
 </script>
+<script>
+const stitch = document.getElementById('stitchToy');
+
+document.addEventListener('mousemove', (e) => {
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+
+    const stitchRect = stitch.getBoundingClientRect();
+    const stitchX = stitchRect.left + stitchRect.width / 2;
+    const stitchY = stitchRect.top + stitchRect.height / 2;
+
+    // Calculate angle between mouse and Stitch
+    const deltaX = mouseX - stitchX;
+    const deltaY = mouseY - stitchY;
+    const angle = Math.atan2(deltaY, deltaX) * 180 / Math.PI;
+
+    // Rotate the Stitch slightly toward cursor (max ±15deg)
+    const rotateAngle = Math.max(Math.min(angle / 10, 15), -15);
+    stitch.style.transform = `translateY(${Math.sin(Date.now()/500)*10}px) rotate(${rotateAngle}deg)`;
+});
+</script>
 
 </body>
 </html>
+
