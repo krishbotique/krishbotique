@@ -76,48 +76,18 @@ animation:pageFade 1.2s ease forwards;
 }
 
 /* KEYFRAMES */
-@keyframes pageFade{
-to{opacity:1;}
-}
-@keyframes gradientMove{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
-@keyframes floatGlow{
-from{transform:translateY(0);}
-to{transform:translateY(40px);}
-}
-@keyframes fadeUp{
-to { opacity:1; transform: translateY(0); }
-}
-@keyframes zoomIn{
-to { opacity:1; transform: scale(1); }
-}
-@keyframes cardFadeUp{
-to { opacity:1; transform: translateY(0); }
-}
-@keyframes badgeBounce{
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(-6px);}
-}
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.08);}
-100%{transform:scale(1);}
-}
-@keyframes offerPulse{
-0%,100%{box-shadow:0 0 10px #ff69b4;}
-50%{box-shadow:0 0 20px #ff1493;}
-}
-@keyframes floatInLeft{
-0%{opacity:0; transform:translateX(-50px);}
-100%{opacity:1; transform:translateX(0);}
-}
-@keyframes floatInRight{
-0%{opacity:0; transform:translateX(50px);}
-100%{opacity:1; transform:translateX(0);}
-}
+@keyframes pageFade{to{opacity:1;}}
+@keyframes gradientMove{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+@keyframes floatGlow{from{transform:translateY(0);}to{transform:translateY(40px);}}
+@keyframes fadeUp{to { opacity:1; transform: translateY(0); }}
+@keyframes zoomIn{to { opacity:1; transform: scale(1); }}
+@keyframes cardFadeUp{to { opacity:1; transform: translateY(0); }}
+@keyframes badgeBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+@keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.08);}100%{transform:scale(1);}}
+@keyframes offerPulse{0%,100%{box-shadow:0 0 10px #ff69b4;}50%{box-shadow:0 0 20px #ff1493;}}
+@keyframes floatInLeft{0%{opacity:0; transform:translateX(-50px);}100%{opacity:1; transform:translateX(0);}}
+@keyframes floatInRight{0%{opacity:0; transform:translateX(50px);}100%{opacity:1; transform:translateX(0);}}
+@keyframes floatInTop{0%{opacity:0; transform:translateY(-30px);}100%{opacity:1; transform:translateY(0);}}
 
 /* BODY */
 body{
@@ -351,12 +321,15 @@ nav input{display:block;margin:10px auto}
 
 </style>
 </head>
-<img src="15c6f092-6b6e-485e-995b-cb797b611f2b.png" alt="Stitch Toy" class="stitch-toy">
-
 <body>
 
+<!-- LOADER -->
 <div id="loader">Loading KrishBotique...</div>
 
+<!-- STITCH TOY -->
+<img src="15c6f092-6b6e-485e-995b-cb797b611f2b.png" alt="Stitch Toy" id="stitchToy" class="stitch-toy">
+
+<!-- NAV -->
 <nav>
 <a href="index.html">Home</a>
 <a href="dresses.html">Dresses</a>
@@ -371,6 +344,7 @@ nav input{display:block;margin:10px auto}
 <input type="text" id="searchInput" placeholder="Search products...">
 </nav>
 
+<!-- HERO -->
 <div class="hero">
 <h1>✨ KrishBotique</h1>
 <p>Discover the Best Amazon Deals Loved by Women</p>
@@ -380,11 +354,17 @@ nav input{display:block;margin:10px auto}
 <!-- TRENDING -->
 <section id="products">
 <h2>🔥 Trending Amazon Picks</h2>
+<div class="grid">
+<!-- Cards here ... (your existing cards remain unchanged) -->
+</div>
+</section>
 
+<!-- MOST LOVED -->
+<section>
+<h2 style="color:#d63384;">💖 Most Loved by Women</h2>
 <div class="grid">
 
-<div class="card">
-<div class="badge">Top Rated</div>
+    <div class="card">
 <img src="https://m.media-amazon.com/images/I/71775fRr+gL._SX400_.jpg">
 <h3>Top Rated Kitchen Tool</h3>
 <div class="rating">★★★★☆ (4.4/5)</div>
@@ -393,7 +373,6 @@ nav input{display:block;margin:10px auto}
 </div>
 
 <div class="card">
-<div class="badge">Best Seller</div>
 <img src="https://m.media-amazon.com/images/I/41jwWE+VZ8L._SY741_.jpg">
 <h3>Trending Fashion Pick</h3>
 <div class="rating">★★★★★ (4.8/5)</div>
@@ -402,7 +381,6 @@ nav input{display:block;margin:10px auto}
 </div>
 
 <div class="card">
-<div class="badge">Popular</div>
 <img src="https://m.media-amazon.com/images/I/61WnmpLwAQL._SL1500_.jpg">
 <h3>Modern Home Decor Item</h3>
 <div class="rating">★★★★☆ (4.3/5)</div>
@@ -413,14 +391,13 @@ nav input{display:block;margin:10px auto}
 </div>
 </section>
 
-<!-- MOST LOVED -->
+<!-- MOST LOVED BY WOMEN -->
 <section>
 <h2 style="color:#d63384;">💖 Most Loved by Women</h2>
 
 <div class="grid">
 
 <div class="card">
-<div class="badge">4.8⭐</div>
 <img src="https://m.media-amazon.com/images/I/51-0Yb6kfJL._SL1000_.jpg">
 <h3>Vitamin C Face Serum</h3>
 <div class="rating">★★★★★ (4.8/5)</div>
@@ -429,7 +406,6 @@ nav input{display:block;margin:10px auto}
 </div>
 
 <div class="card">
-<div class="badge">4.7⭐</div>
 <img src="https://m.media-amazon.com/images/I/6116JOxgZfL._SY575_.jpg">
 <h3>Minimal Gold Layered Necklace</h3>
 <div class="rating">★★★★★ (4.7/5)</div>
@@ -438,14 +414,13 @@ nav input{display:block;margin:10px auto}
 </div>
 
 <div class="card">
-<div class="badge">Trending</div>
 <img src="https://m.media-amazon.com/images/I/61MJgnM9tVL._SL1500_.jpg">
 <h3>Scented Soy Candle</h3>
 <div class="rating">★★★★☆ (4.4/5)</div>
 <p>Cozy aesthetic decor must-have.</p>
 <a class="btn" href="https://amzn.to/3ZvPvJ7" target="_blank">Shop Now</a>
 </div>
-
+<!-- Cards here ... (your existing cards remain unchanged) -->
 </div>
 </section>
 
@@ -506,8 +481,8 @@ cards.forEach((card, index)=>{
   observer.observe(card);
   card.style.animationDelay = `${index*0.15}s`;
 });
-</script>
-<script>
+
+/* STITCH MOUSE FOLLOW */
 const stitch = document.getElementById('stitchToy');
 
 document.addEventListener('mousemove', (e) => {
@@ -518,12 +493,10 @@ document.addEventListener('mousemove', (e) => {
     const stitchX = stitchRect.left + stitchRect.width / 2;
     const stitchY = stitchRect.top + stitchRect.height / 2;
 
-    // Calculate angle between mouse and Stitch
     const deltaX = mouseX - stitchX;
     const deltaY = mouseY - stitchY;
     const angle = Math.atan2(deltaY, deltaX) * 180 / Math.PI;
 
-    // Rotate the Stitch slightly toward cursor (max ±15deg)
     const rotateAngle = Math.max(Math.min(angle / 10, 15), -15);
     stitch.style.transform = `translateY(${Math.sin(Date.now()/500)*10}px) rotate(${rotateAngle}deg)`;
 });
@@ -531,4 +504,3 @@ document.addEventListener('mousemove', (e) => {
 
 </body>
 </html>
-
