@@ -3,79 +3,264 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-site-verification" content="ikPrskW0Js-gUkWNa7Ql4IJabVoCYLGU7ALqR9raULk" />
+<meta name="google-site-verification" content="ikPrskW0Js-gUkWNa7Ql4IJabVoCYLGU7ALqR9raULk" />
+
 <title>KrishBotique | Best Amazon Deals India – Fashion, Beauty & Lifestyle</title>
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-D0GMXLS34N"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-D0GMXLS34N');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-D0GMXLS34N');
 </script>
-
-<title>KrishBotique</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-body{margin:0;font-family:'Poppins',sans-serif;background:#ffffff;color:#333}
-nav{padding:15px;text-align:center;background:#f7f7f7;font-size:0.95rem}
-nav a{margin:0 8px;text-decoration:none;color:#333;font-weight:500}
-nav input{margin-left:10px;padding:6px 10px;border-radius:6px;border:1px solid #ccc;font-size:0.9rem}
 
-.hero{background:linear-gradient(135deg,#FADADD,#DDEBFF);padding:90px 20px;text-align:center}
-.hero h1{font-size:2.6rem;margin-bottom:10px}
-.hero p{font-size:1.1rem;margin-bottom:15px}
-
-.btn{padding:12px 28px;background:linear-gradient(135deg,#FADADD,#DDEBFF);border:none;border-radius:30px;font-weight:600;text-decoration:none;color:#000;display:inline-block}
-
-section{padding:60px 20px;max-width:1200px;margin:auto}
-h2{text-align:center;margin-bottom:40px}
-
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
-
-.card{background:#fff;border-radius:16px;box-shadow:0 8px 20px rgba(0,0,0,0.08);padding:20px;text-align:center;transition:0.3s}
-.card:hover{transform:translateY(-6px)}
-.card img{width:100%;aspect-ratio:1/1;object-fit:contain;border-radius:12px;margin-bottom:15px}
-.rating{color:#ffb703;margin-bottom:8px}
-.card p{font-size:0.9rem;color:#666}
-
-footer{background:#f1f1f1;text-align:center;padding:25px}
-
-#noResults{display:none;text-align:center;color:#e74c3c;margin-top:20px}
-
-/* Floating Hearts */
-.hearts{
+/* LOADER */
+#loader{
 position:fixed;
-top:0;
-left:0;
 width:100%;
 height:100%;
-pointer-events:none;
+background:#fff;
+display:flex;
+justify-content:center;
+align-items:center;
 z-index:9999;
-overflow:hidden;
-}
-.heart{
-position:absolute;
-bottom:-40px;
-animation:floatUp linear forwards;
-}
-@keyframes floatUp{
-from{transform:translateY(0) scale(1);opacity:1;}
-to{transform:translateY(-120vh) scale(1.5);opacity:0;}
+font-weight:600;
+font-size:1.5rem;
+background:linear-gradient(270deg,#ff69b4,#ff1493,#ff69b4);
+background-size:400% 400%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:gradientMove 5s ease infinite;
 }
 
-/* Mobile */
+/* BODY */
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:#ffffff;
+color:#333;
+scroll-behavior:smooth;
+overflow-x:hidden;
+}
+
+/* LUXURY GLOW BACKGROUND */
+body::before{
+content:"";
+position:fixed;
+top:-200px;
+left:-200px;
+width:600px;
+height:600px;
+background:radial-gradient(circle,#ffd6ec,transparent 70%);
+z-index:-1;
+animation:floatGlow 12s infinite alternate;
+}
+body::after{
+content:"";
+position:fixed;
+bottom:-200px;
+right:-200px;
+width:600px;
+height:600px;
+background:radial-gradient(circle,#ddefff,transparent 70%);
+z-index:-1;
+animation:floatGlow 15s infinite alternate-reverse;
+}
+
+@keyframes floatGlow{
+from{transform:translateY(0);}
+to{transform:translateY(40px);}
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* NAV */
+nav{
+padding:15px;
+text-align:center;
+background:rgba(255,255,255,0.9);
+backdrop-filter:blur(12px);
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 2px 15px rgba(0,0,0,0.05);
+}
+
+nav a{
+margin:0 8px;
+text-decoration:none;
+color:#333;
+font-weight:500;
+transition:0.3s;
+}
+
+nav a:hover{color:#d63384;}
+
+nav input{
+margin-left:10px;
+padding:8px 14px;
+border-radius:20px;
+border:1px solid #ddd;
+}
+
+/* HERO */
+.hero{
+background:linear-gradient(135deg,#FADADD,#DDEBFF);
+padding:110px 20px;
+text-align:center;
+}
+
+.hero h1{font-size:2.8rem;margin-bottom:10px;}
+.hero p{margin-bottom:20px;}
+
+.btn{
+padding:12px 28px;
+border:none;
+border-radius:30px;
+font-weight:600;
+text-decoration:none;
+color:#fff;
+display:inline-block;
+background:linear-gradient(270deg,#ff69b4,#ff1493,#ff69b4);
+background-size:400% 400%;
+animation:gradientMove 6s ease infinite;
+transition:0.4s;
+}
+
+.btn:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 25px rgba(214,51,132,0.3);
+}
+
+/* SECTIONS */
+section{
+padding:70px 20px;
+max-width:1200px;
+margin:auto;
+}
+
+h2{text-align:center;margin-bottom:40px;}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+
+/* CARD */
+.card{
+background:#fff;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.07);
+padding:20px;
+text-align:center;
+transition:0.5s ease;
+opacity:0;
+transform:translateY(40px);
+position:relative;
+}
+
+.card.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.02);
+box-shadow:0 20px 40px rgba(0,0,0,0.12);
+}
+
+.card img{
+width:100%;
+aspect-ratio:1/1;
+object-fit:contain;
+border-radius:14px;
+margin-bottom:15px;
+}
+
+.rating{
+color:#ffb703;
+margin-bottom:8px;
+font-weight:600;
+}
+
+.card p{
+font-size:0.9rem;
+color:#666;
+}
+
+/* BADGE */
+.badge{
+position:absolute;
+top:15px;
+left:15px;
+background:#d63384;
+color:#fff;
+padding:5px 12px;
+border-radius:20px;
+font-size:0.75rem;
+font-weight:600;
+box-shadow:0 5px 15px rgba(214,51,132,0.3);
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.08);}
+100%{transform:scale(1);}
+}
+
+/* FOOTER */
+footer{
+background:#f8f8f8;
+text-align:center;
+padding:30px;
+margin-top:40px;
+}
+
+#noResults{
+display:none;
+text-align:center;
+color:#e74c3c;
+margin-top:20px;
+font-weight:600;
+}
+
+/* STICKY OFFER */
+.offer-bar{
+position:fixed;
+bottom:0;
+width:100%;
+background:linear-gradient(90deg,#ff1493,#ff69b4);
+color:#fff;
+text-align:center;
+padding:12px;
+font-weight:600;
+z-index:999;
+}
+
+/* MOBILE */
 @media(max-width:768px){
 .hero h1{font-size:2rem}
 nav input{display:block;margin:10px auto}
 }
+
 </style>
 </head>
 
 <body>
+
+<div id="loader">Loading KrishBotique...</div>
 
 <nav>
 <a href="index.html">Home</a>
@@ -104,6 +289,7 @@ nav input{display:block;margin:10px auto}
 <div class="grid">
 
 <div class="card">
+<div class="badge">Top Rated</div>
 <img src="https://m.media-amazon.com/images/I/71775fRr+gL._SX400_.jpg">
 <h3>Top Rated Kitchen Tool</h3>
 <div class="rating">★★★★☆ (4.4/5)</div>
@@ -112,6 +298,7 @@ nav input{display:block;margin:10px auto}
 </div>
 
 <div class="card">
+<div class="badge">Best Seller</div>
 <img src="https://m.media-amazon.com/images/I/41jwWE+VZ8L._SY741_.jpg">
 <h3>Trending Fashion Pick</h3>
 <div class="rating">★★★★★ (4.8/5)</div>
@@ -120,6 +307,7 @@ nav input{display:block;margin:10px auto}
 </div>
 
 <div class="card">
+<div class="badge">Popular</div>
 <img src="https://m.media-amazon.com/images/I/61WnmpLwAQL._SL1500_.jpg">
 <h3>Modern Home Decor Item</h3>
 <div class="rating">★★★★☆ (4.3/5)</div>
@@ -130,13 +318,14 @@ nav input{display:block;margin:10px auto}
 </div>
 </section>
 
-<!-- MOST LOVED BY WOMEN -->
+<!-- MOST LOVED -->
 <section>
 <h2 style="color:#d63384;">💖 Most Loved by Women</h2>
 
 <div class="grid">
 
 <div class="card">
+<div class="badge">4.8⭐</div>
 <img src="https://m.media-amazon.com/images/I/51-0Yb6kfJL._SL1000_.jpg">
 <h3>Vitamin C Face Serum</h3>
 <div class="rating">★★★★★ (4.8/5)</div>
@@ -145,6 +334,7 @@ nav input{display:block;margin:10px auto}
 </div>
 
 <div class="card">
+<div class="badge">4.7⭐</div>
 <img src="https://m.media-amazon.com/images/I/6116JOxgZfL._SY575_.jpg">
 <h3>Minimal Gold Layered Necklace</h3>
 <div class="rating">★★★★★ (4.7/5)</div>
@@ -153,6 +343,7 @@ nav input{display:block;margin:10px auto}
 </div>
 
 <div class="card">
+<div class="badge">Trending</div>
 <img src="https://m.media-amazon.com/images/I/61MJgnM9tVL._SL1500_.jpg">
 <h3>Scented Soy Candle</h3>
 <div class="rating">★★★★☆ (4.4/5)</div>
@@ -166,12 +357,25 @@ nav input{display:block;margin:10px auto}
 <div id="noResults">No products found.</div>
 
 <footer>
+<p>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="affiliate-disclosure.html">Affiliate Disclosure</a> |
+<a href="contact.html">Contact</a>
+</p>
 <p>As an Amazon Associate, KrishBotique earns from qualifying purchases.</p>
 </footer>
 
-<div class="hearts" id="hearts"></div>
+<div class="offer-bar">
+🔥 Limited Time Deals – Grab Your Favorites Now!
+</div>
 
 <script>
+/* LOADER */
+window.addEventListener("load",function(){
+document.getElementById("loader").style.display="none";
+});
+
+/* SEARCH */
 const searchInput=document.getElementById('searchInput');
 const cards=document.querySelectorAll('.card');
 const noResults=document.getElementById('noResults');
@@ -191,29 +395,17 @@ card.style.display='none';
 noResults.style.display=found?'none':'block';
 });
 
-function createHeart(){
-const heart=document.createElement("div");
-heart.className="heart";
-heart.innerHTML="💖";
-heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(Math.random()*25+15)+"px";
-heart.style.animationDuration=(Math.random()*3+4)+"s";
-document.getElementById("hearts").appendChild(heart);
-setTimeout(()=>{heart.remove();},7000);
+/* SCROLL REVEAL */
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('show');
 }
-setInterval(createHeart,400);
+});
+},{threshold:0.2});
+cards.forEach(card=>observer.observe(card));
+
 </script>
-<footer>
-<p>
-<a href="privacy-policy.html">Privacy Policy</a> |
-<a href="affiliate-disclosure.html">Affiliate Disclosure</a> |
-<a href="contact.html">Contact</a>
-</p>
-<p>As an Amazon Associate, KrishBotique earns from qualifying purchases.</p>
-</footer>
 
 </body>
 </html>
-
-
-
