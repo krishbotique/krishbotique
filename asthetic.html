@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Asthetic Finds – Amazon asthetic Picks | KrishBotique</title>
+<meta name="description" content="Shop trendy Asthetic from amazon curated by KrishBotique.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/* BASE STYLES */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#fdeff9,#e8f0ff);
+    scroll-behavior: smooth;
+}
+
+header {
+    background: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+header h2 {
+    margin: 0;
+    color: #333;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ff1493;
+}
+
+/* PAGE TITLE */
+h2.page-title {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s forwards;
+}
+
+/* PRODUCTS GRID */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 20px;
+    padding: 30px;
+}
+
+/* CARD STYLES */
+.card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.4s;
+}
+
+.card h3 {
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.card button {
+    background: linear-gradient(90deg,#ff1493,#ff69b4);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(255,20,147,0.4);
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+/* CARD ANIMATION */
+.card.show {
+    animation: cardFadeUp 0.6s forwards;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #f8f8f8;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+/* KEYFRAMES */
+@keyframes fadeUp {
+    to { opacity:1; transform: translateY(0); }
+}
+
+@keyframes cardFadeUp {
+    to { opacity:1; transform: translateY(0); }
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    nav {
+        margin-top: 10px;
+    }
+    h2.page-title {
+        font-size: 1.6rem;
+    }
+    .products {
+        padding: 20px;
+        gap: 15px;
+    }
+}
+
+@media(max-width:480px){
+    h2.page-title {
+        font-size: 1.4rem;
+    }
+    .card button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+<h2>KrishBotique</h2>
+<nav>
+    <a href="index.html">Home</a>
+</nav>
+</header>
+
+<h2 class="page-title">Asthetic finds</h2>
+
+<div class="products">
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/71SxFeCaQnL._SL1500_.jpg" alt="Flower mat">
+        <h3>Little Flower Super Soft Anti Skid  Super Absorbent Mats</h3>
+        <p>₹349</p>
+        <a href="https://amzn.to/4tTpqS5" target="_blank"><button>View on Amazon</button></a>
+    </div>
+
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/71yS-U+MRkL._SL1500_.jpg" alt="Hexogen mirror">
+        <h3>Hexagon 20 Golden Stickers for Wall, Hexagon Mirror</h3>
+        <p>₹229</p>
+        <a href="https://amzn.to/4r4bq5y" target="_blank"><button>View on Amazon</button></a>
+    </div>
+  
+  <div class="card">
+        <img src="https://m.media-amazon.com/images/I/41+OHgM+NJL.jpg" alt="Flower mirror">
+        <h3>Flower-Shaped Makeup Mirror, Rotatable Makeup Mirror with Tray Table Vanity Mirror</h3>
+        <p>₹249</p>
+        <a href="https://amzn.to/4s6EqKI" target="_blank"><button>View on Amazon</button></a>
+    </div>
+
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/61Qlj88qnfL._SL1242_.jpg" alt="asthetic planner">
+        <h3Desk Calendar 2026 Planner and Organizer- B5 Size</h3>
+        <p>₹209</p>
+        <a href="https://amzn.to/3OZ7s0n" target="_blank"><button>View on Amazon</button></a>
+    </div>
+</div>
+
+<footer>
+<p>As an Amazon Associate, KrishBotique earns from qualifying purchases.</p>
+</footer>
+
+<script>
+// Scroll reveal animation for cards
+const cards = document.querySelectorAll('.card');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+},{threshold: 0.2});
+
+cards.forEach((card, index) => {
+    observer.observe(card);
+    card.style.animationDelay = `${index*0.15}s`; // staggered animation
+});
+</script>
+
+</body>
+</html>
+
