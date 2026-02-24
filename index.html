@@ -487,22 +487,23 @@ cards.forEach((card, index)=>{
 const stitch = document.getElementById('stitchToy');
 
 document.addEventListener('mousemove', (e) => {
-    const mouseX = e.clientX;
-    const mouseY = e.clientY;
 
     const stitchRect = stitch.getBoundingClientRect();
     const stitchX = stitchRect.left + stitchRect.width / 2;
     const stitchY = stitchRect.top + stitchRect.height / 2;
 
-    const deltaX = mouseX - stitchX;
-    const deltaY = mouseY - stitchY;
-    const angle = Math.atan2(deltaY, deltaX) * 180 / Math.PI;
+    const deltaX = e.clientX - stitchX;
+    const deltaY = e.clientY - stitchY;
 
-    const rotateAngle = Math.max(Math.min(angle / 10, 15), -15);
-    stitch.style.transform = `translateY(${Math.sin(Date.now()/500)*10}px) rotate(${rotateAngle}deg)`;
+    const angle = Math.atan2(deltaY, deltaX) * 180 / Math.PI;
+    const rotateAngle = Math.max(Math.min(angle / 15, 10), -10);
+
+    stitch.style.rotate = rotateAngle + "deg";
+
 });
 </script>
 
 </body>
 </html>
+
 
