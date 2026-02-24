@@ -319,6 +319,51 @@ animation:offerPulse 2s infinite;
 nav input{display:block;margin:10px auto}
 }
 
+    /* CATEGORY DROPDOWN */
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dropbtn {
+  background: none;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  margin: 0 8px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #fff;
+  min-width: 200px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 1000;
+  text-align: left;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  transition: 0.3s;
+}
+
+.dropdown-content a:hover {
+  background: #fce4ec;
+  color: #d63384;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}   
+
 </style>
 </head>
 <body>
@@ -332,16 +377,23 @@ nav input{display:block;margin:10px auto}
 <!-- NAV -->
 <nav>
 <a href="index.html">Home</a>
-<a href="dresses.html">Dresses</a>
-<a href="men-clothing.html">Men</a>
-<a href="jewellery.html">Jewellery</a>
-<a href="beauty.html">Beauty</a>
-<a href="kitchen.html">Kitchen</a>
-<a href="home-decor.html">Home Decor</a>
-<a href="baby.html">Baby</a>
-<a href="valentine.html">Valentine</a>
-<a href="stationery.html">Stationery</a>
-<a href="asthetic.html">Asthetic</a>
+
+<div class="dropdown">
+  <button class="dropbtn">Categories ▾</button>
+  <div class="dropdown-content">
+    <a href="dresses.html">Dresses</a>
+    <a href="men-clothing.html">Men</a>
+    <a href="jewellery.html">Jewellery</a>
+    <a href="beauty.html">Beauty</a>
+    <a href="kitchen.html">Kitchen</a>
+    <a href="home-decor.html">Home Decor</a>
+    <a href="baby.html">Baby</a>
+    <a href="valentine.html">Valentine</a>
+    <a href="stationery.html">Stationery</a>
+    <a href="asthetic.html">Aesthetic</a>
+  </div>
+</div>
+
 <input type="text" id="searchInput" placeholder="Search products...">
 </nav>
 
@@ -523,6 +575,7 @@ document.addEventListener('mousemove', (e) => {
 
 </body>
 </html>
+
 
 
 
