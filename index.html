@@ -17,12 +17,11 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-D0GMXLS34N');
 
-    /* AMAZON CLICK TRACKING */
+/* AMAZON CLICK TRACKING */
 const amazonLinks = document.querySelectorAll('.amazon-link');
 
 amazonLinks.forEach(link => {
   link.addEventListener('click', function() {
-
     const productName = this.getAttribute('data-product');
     const productURL = this.getAttribute('href');
 
@@ -30,7 +29,6 @@ amazonLinks.forEach(link => {
       product_name: productName,
       product_url: productURL
     });
-
   });
 });
 </script>
@@ -357,31 +355,29 @@ nav input{display:block;margin:10px auto}
 .dropdown-content {
   display: none;
   position: absolute;
+  top: 100%;
+  left: 0;
   background: #fff;
-  min-width: 200px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  border-radius: 12px;
-  overflow: hidden;
+  min-width: 180px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  border-radius: 8px;
   z-index: 1000;
-  text-align: left;
+  padding: 5px 0;
 }
 
 .dropdown-content a {
   display: block;
-  padding: 10px 15px;
+  padding: 10px 16px;
   text-decoration: none;
   color: #333;
-  transition: 0.3s;
+  font-size: 14px;
+  transition: background 0.2s ease;
 }
 
 .dropdown-content a:hover {
   background: #fce4ec;
   color: #d63384;
 }
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}   
 
 </style>
 </head>
@@ -594,10 +590,29 @@ document.addEventListener('mousemove', (e) => {
     stitch.style.transform = `rotate(${rotateAngle}deg)`;
 
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+  const dropBtn = document.querySelector(".dropbtn");
+  const dropdownContent = document.querySelector(".dropdown-content");
+
+  dropBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    dropdownContent.style.display =
+      dropdownContent.style.display === "block" ? "none" : "block";
+  });
+
+  document.addEventListener("click", function(e) {
+    if (!e.target.closest(".dropdown")) {
+      dropdownContent.style.display = "none";
+    }
+  });
+});
 </script>
+
 
 </body>
 </html>
+
 
 
 
