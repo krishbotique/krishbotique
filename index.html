@@ -16,6 +16,23 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-D0GMXLS34N');
+
+    /* AMAZON CLICK TRACKING */
+const amazonLinks = document.querySelectorAll('.amazon-link');
+
+amazonLinks.forEach(link => {
+  link.addEventListener('click', function() {
+
+    const productName = this.getAttribute('data-product');
+    const productURL = this.getAttribute('href');
+
+    gtag('event', 'amazon_click', {
+      product_name: productName,
+      product_url: productURL
+    });
+
+  });
+});
 </script>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -580,6 +597,7 @@ document.addEventListener('mousemove', (e) => {
 
 </body>
 </html>
+
 
 
 
