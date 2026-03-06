@@ -6,7 +6,11 @@
 <meta name="description" content="Shop trendy Amazon fashion, home decor, kitchen & baby products curated by KrishBotique. Best Amazon finds in India.">
 <meta name="keywords" content="amazon affiliate india, trendy amazon products, best amazon deals, krishbotique">
 <meta name="google-site-verification" content="ikPrskW0Js-gUkWNa7Ql4IJabVoCYLGU7ALqR9raULk" />
-
+<meta property="og:title" content="KrishBotique | Best Amazon Deals India">
+<meta property="og:description" content="Discover trending Amazon fashion, beauty, kitchen & home decor finds loved by women.">
+<meta property="og:image" content="https://yourwebsite.com/preview.jpg">
+<meta property="og:url" content="https://yourwebsite.com">
+<meta property="og:type" content="website">
 <title>KrishBotique | Best Amazon Deals India – Fashion, Beauty & Lifestyle</title>
 
 <!-- Google Analytics -->
@@ -17,20 +21,7 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-D0GMXLS34N');
 
-/* AMAZON CLICK TRACKING */
-const amazonLinks = document.querySelectorAll('.amazon-link');
 
-amazonLinks.forEach(link => {
-  link.addEventListener('click', function() {
-    const productName = this.getAttribute('data-product');
-    const productURL = this.getAttribute('href');
-
-    gtag('event', 'amazon_click', {
-      product_name: productName,
-      product_url: productURL
-    });
-  });
-});
 </script>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -258,11 +249,10 @@ height:180px;
 object-fit:contain;
 border-radius:15px;
 margin-bottom:10px;
-transition:transform 0.3s ease;
+transition:transform 0.5s ease;
 background:#fff;
 }
-transition:transform 0.5s ease;
-}
+
 .card:hover img{
 transform:scale(1.08);
 }
@@ -426,11 +416,12 @@ animation:offerPulse 2s infinite;
   </div>
 </div>
 
-<input type="text" id="searchInput" placeholder="Search products..."><form action="search.html" method="GET">
+<form action="search.html" method="GET">
 <input type="text" name="q" placeholder="Search products..." required>
+<button type="submit">Search</button>
 </form>
-</nav>
 
+  
 <!-- HERO -->
 <div class="hero">
 <h1>✨ KrishBotique</h1>
@@ -667,7 +658,24 @@ if(stitch){
 
 /* DROPDOWN */
 document.addEventListener("DOMContentLoaded",function(){
+/* AMAZON CLICK TRACKING */
+const amazonLinks = document.querySelectorAll('.amazon-link');
 
+amazonLinks.forEach(link => {
+  link.addEventListener('click', function() {
+
+    const productName = this.getAttribute('data-product');
+    const productURL = this.getAttribute('href');
+
+    if(typeof gtag === "function"){
+      gtag('event', 'amazon_click', {
+        product_name: productName,
+        product_url: productURL
+      });
+    }
+
+  });
+});
   const dropBtn=document.querySelector(".dropbtn");
   const dropdownContent=document.querySelector(".dropdown-content");
 
@@ -687,30 +695,14 @@ document.addEventListener("DOMContentLoaded",function(){
 
 });
 
-/* AMAZON CLICK TRACKING */
-const amazonLinks=document.querySelectorAll('.amazon-link');
 
-amazonLinks.forEach(link=>{
-  link.addEventListener('click',function(){
-
-    const productName=this.getAttribute('data-product');
-    const productURL=this.getAttribute('href');
-
-    if(typeof gtag==="function"){
-      gtag('event','amazon_click',{
-        product_name:productName,
-        product_url:productURL
-      });
-    }
-
-  });
-});
 
 </script>
 
 
 </body>
 </html>
+
 
 
 
