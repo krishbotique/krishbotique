@@ -426,7 +426,9 @@ animation:offerPulse 2s infinite;
   </div>
 </div>
 
-<input type="text" id="searchInput" placeholder="Search products...">
+<input type="text" id="searchInput" placeholder="Search products..."><form action="search.html" method="GET">
+<input type="text" name="q" placeholder="Search products..." required>
+</form>
 </nav>
 
 <!-- HERO -->
@@ -590,37 +592,45 @@ animation:offerPulse 2s infinite;
 <div class="offer-bar">
 🔥 Limited Time Deals – Grab Your Favorites Now!
 </div>
-
 <script>
+
 /* LOADER */
 window.addEventListener("load", function(){
   const loader = document.getElementById("loader");
-  loader.style.transition = "opacity 0.6s";
-  loader.style.opacity = 0;
-  setTimeout(()=>loader.style.display="none", 600);
+  if(loader){
+    loader.style.transition = "opacity 0.6s";
+    loader.style.opacity = 0;
+    setTimeout(()=>loader.style.display="none", 600);
+  }
 });
 
 /* SEARCH */
-const searchInput=document.getElementById('searchInput');
-const cards=document.querySelectorAll('.card');
-const noResults=document.getElementById('noResults');
+const searchInput = document.getElementById('searchInput');
+const cards = document.querySelectorAll('.card');
+const noResults = document.getElementById('noResults');
 
-searchInput.addEventListener('keyup',function(){
-  const query=this.value.toLowerCase();
-  let found=false;
-  cards.forEach(card=>{
-    const text=card.innerText.toLowerCase();
-    if(text.includes(query)){
-      card.style.display='';
-      found=true;
-    }else{
-      card.style.display='none';
+if(searchInput){
+  searchInput.addEventListener('keyup',function(){
+    const query=this.value.toLowerCase();
+    let found=false;
+
+    cards.forEach(card=>{
+      const text=card.innerText.toLowerCase();
+      if(text.includes(query)){
+        card.style.display='';
+        found=true;
+      }else{
+        card.style.display='none';
+      }
+    });
+
+    if(noResults){
+      noResults.style.display=found?'none':'block';
     }
   });
-  noResults.style.display=found?'none':'block';
-});
+}
 
-/* SCROLL REVEAL WITH STAGGER */
+/* SCROLL REVEAL */
 const observer=new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){
@@ -629,7 +639,7 @@ const observer=new IntersectionObserver(entries=>{
   });
 },{threshold:0.2});
 
-cards.forEach((card, index)=>{
+cards.forEach((card,index)=>{
   observer.observe(card);
   card.style.animationDelay = `${index*0.15}s`;
 });
@@ -637,43 +647,71 @@ cards.forEach((card, index)=>{
 /* STITCH MOUSE FOLLOW */
 const stitch = document.getElementById('stitchToy');
 
-document.addEventListener('mousemove', (e) => {
+if(stitch){
+  document.addEventListener('mousemove',(e)=>{
 
     const stitchRect = stitch.getBoundingClientRect();
-    const stitchX = stitchRect.left + stitchRect.width / 2;
-    const stitchY = stitchRect.top + stitchRect.height / 2;
+    const stitchX = stitchRect.left + stitchRect.width/2;
+    const stitchY = stitchRect.top + stitchRect.height/2;
 
     const deltaX = e.clientX - stitchX;
     const deltaY = e.clientY - stitchY;
 
     const angle = Math.atan2(deltaY, deltaX) * 180 / Math.PI;
-    const rotateAngle = Math.max(Math.min(angle / 15, 10), -10);
+    const rotateAngle = Math.max(Math.min(angle/15,10),-10);
 
-    stitch.style.transform = `rotate(${rotateAngle}deg)`;
+    stitch.style.transform=`rotate(${rotateAngle}deg)`;
 
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-  const dropBtn = document.querySelector(".dropbtn");
-  const dropdownContent = document.querySelector(".dropdown-content");
-
-  dropBtn.addEventListener("click", function(e) {
-    e.preventDefault();
-    dropdownContent.style.display =
-      dropdownContent.style.display === "block" ? "none" : "block";
   });
+}
 
-  document.addEventListener("click", function(e) {
-    if (!e.target.closest(".dropdown")) {
-      dropdownContent.style.display = "none";
+/* DROPDOWN */
+document.addEventListener("DOMContentLoaded",function(){
+
+  const dropBtn=document.querySelector(".dropbtn");
+  const dropdownContent=document.querySelector(".dropdown-content");
+
+  if(dropBtn){
+    dropBtn.addEventListener("click",function(e){
+      e.preventDefault();
+      dropdownContent.style.display =
+      dropdownContent.style.display==="block"?"none":"block";
+    });
+  }
+
+  document.addEventListener("click",function(e){
+    if(!e.target.closest(".dropdown") && dropdownContent){
+      dropdownContent.style.display="none";
     }
   });
+
 });
+
+/* AMAZON CLICK TRACKING */
+const amazonLinks=document.querySelectorAll('.amazon-link');
+
+amazonLinks.forEach(link=>{
+  link.addEventListener('click',function(){
+
+    const productName=this.getAttribute('data-product');
+    const productURL=this.getAttribute('href');
+
+    if(typeof gtag==="function"){
+      gtag('event','amazon_click',{
+        product_name:productName,
+        product_url:productURL
+      });
+    }
+
+  });
+});
+
 </script>
 
 
 </body>
 </html>
+
 
 
 
