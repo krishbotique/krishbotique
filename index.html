@@ -392,6 +392,7 @@ animation:offerPulse 2s infinite;
 .dropbtn:hover{
   background:#ff4d8d;
   color:#fff;
+  box-shadow:0 5px 15px rgba(255,77,141,0.4);
 }
 
 .dropdown-content {
@@ -419,6 +420,10 @@ animation:offerPulse 2s infinite;
 .dropdown-content a:hover {
   background: #fce4ec;
   color: #d63384;
+}
+    .dropdown.active .dropbtn{
+  background:#ff4d8d;
+  color:#fff;
 }
 
 </style>
@@ -741,6 +746,7 @@ amazonLinks.forEach(link => {
 
   if(dropBtn){
     dropBtn.addEventListener("click",function(e){
+  document.querySelector(".dropdown").classList.toggle("active");
       e.preventDefault();
       dropdownContent.style.display =
       dropdownContent.style.display==="block"?"none":"block";
