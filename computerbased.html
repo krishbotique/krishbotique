@@ -1,41 +1,59 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-<title>computerbased – Amazon Picks | KrishBotique</title>
-</head>
-<body style="font-family:Arial;background:#fdeff9">
+<title>Computer Based – Amazon Picks | KrishBotique</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
+
 body{
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   background:#fef6fb;
   margin:0;
 }
 
-/* GRID LAYOUT */
+/* TITLE */
+h2{
+  text-align:center;
+  padding:20px 10px;
+}
+
+/* GRID */
 .product-grid{
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap:20px;
-  max-width:1200px;
+  max-width:1300px;
   margin:auto;
   padding:20px;
 }
 
-/* PRODUCT CARD */
+/* CARD */
 .card{
   background:#fff;
   padding:15px;
   border-radius:15px;
   text-align:center;
-  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  transition:0.3s;
 }
 
-/* IMAGE FIX */
+.card:hover{
+  transform:translateY(-5px);
+}
+
+/* IMAGE */
 .card img{
   width:100%;
-  height:200px;
+  height:180px;
   object-fit:contain;
+}
+
+/* TEXT */
+.card h3{
+  font-size:15px;
+  margin:10px 0;
 }
 
 /* BUTTON */
@@ -47,24 +65,110 @@ body{
   color:#fff;
   text-decoration:none;
   border-radius:6px;
+  font-size:14px;
 }
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  background:#fff;
+  margin-top:20px;
+}
+
+footer a{
+  text-decoration:none;
+  color:#ff69b4;
+  margin:0 5px;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+
+/* Tablet */
+@media (min-width: 600px){
+  .product-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Small Laptop */
+@media (min-width: 900px){
+  .product-grid{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1200px){
+  .product-grid{
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* Large Desktop (6 per row) */
+@media (min-width: 1500px){
+  .product-grid{
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
 </style>
+</head>
 
-<h2 align="center">Computer and electronics finds</h2>
+<body>
 
-<div style="background:#fff;margin:20px;padding:15px;border-radius:15px;text-align:center">
-<img src="https://m.media-amazon.com/images/I/7154EWu-5LL._SL1500_.jpg" width="100%">
-<h3>Gaming wired over ear Headphone</h3>
+<h2>💻 Computer & Electronics Finds</h2>
+
+<div class="product-grid">
+
+<div class="card">
+<img src="https://m.media-amazon.com/images/I/7154EWu-5LL._SL1500_.jpg">
+<h3>Gaming Wired Over-Ear Headphones</h3>
 <a href="https://amzn.to/4rJC7wq">View on Amazon</a>
 </div>
-    <p>
-    Follow us:
-    <a href="https://www.instagram.com/__cheap_and__best__?igsh=MW5penRibjh3NDRqeg==" target="_blank">Instagram</a> |
-    <a href="https://pin.it/3W3LaPO1q" target="_blank">Pinterest</a> |
-     <a href="https://whatsapp.com/channel/0029Vaa1dH9JP20yRUbR7Y2H" target="_blank">Whatsapp</a> |
-     <a href="https://beacons.ai/krishbotique "  target="_blank">view us </a>
-  </p>
+
+<!-- ADD MORE PRODUCTS LIKE THIS -->
+<div class="card">
+<img src="https://m.media-amazon.com/images/I/61IQwTHKYqL._SL1200_.jpg">
+<h3>Mport 7 USB Hub Dock</h3>
+<a href="https://amzn.to/48edqBi">View on Amazon</a>
+</div>
+
+<div class="card">
+<img src="https://m.media-amazon.com/images/I/51rbID42liL._SL1500_.jpg">
+<h3>Bluetooth 5.0 Silent Mouse</h3>
+<a href="https://amzn.to/40YfOIC">View on Amazon</a>
+</div>
+
+<div class="card">
+<img src="https://m.media-amazon.com/images/I/61GaM2HE5YL._SL1200_.jpg">
+<h3>Smart Gadget Cleaning Kit</h3>
+<a href="https://amzn.to/47wN3Gz">View on Amazon</a>
+</div>
+
+<div class="card">
+<img src="https://m.media-amazon.com/images/I/81ha67yYQuL._SL1500_.jpg">
+<h3>Mouse Pad </h3>
+<a href="https://amzn.to/4bVLT8Q">View on Amazon</a>
+</div>
+
+  <div class="card">
+<img src="https://m.media-amazon.com/images/I/51Ta-z2O2LL._SL1500_.jpg">
+<h3>Multiplug Travel Adapter</h3>
+<a href="https://amzn.to/4lZfAKJ">View on Amazon</a>
+</div>
+
+</div>
+
+<footer>
+<p>
+Follow us:
+<a href="https://www.instagram.com/__cheap_and__best__?igsh=MW5penRibjh3NDRqeg==" target="_blank">Instagram</a> |
+<a href="https://pin.it/3W3LaPO1q" target="_blank">Pinterest</a> |
+<a href="https://whatsapp.com/channel/0029Vaa1dH9JP20yRUbR7Y2H" target="_blank">Whatsapp</a> |
+<a href="https://beacons.ai/krishbotique" target="_blank">View Us</a>
+</p>
+</footer>
+
 </body>
 </html>
-
-
