@@ -1,183 +1,616 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Home Decor – Amazon Finds | KrishBotique</title>
-
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<title>Home Decor – Amazon Finds | KrishBotique</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-body{
-  font-family: Arial, sans-serif;
-  background:#fef6fb;
-  margin:0;
-}
-
-/* TITLE */
-h2{
-  text-align:center;
-  padding:20px 10px;
-}
-
-/* GRID */
-.product-grid{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap:20px;
-  max-width:1200px;
-  margin:auto;
-  padding:20px;
-}
-
-/* CARD */
-.card{
-  background:#fff;
-  padding:15px;
-  border-radius:15px;
-  text-align:center;
-  box-shadow:0 4px 12px rgba(0,0,0,0.08);
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-5px);
-}
-
-/* IMAGE */
-.card img{
-  width:100%;
-  height:180px;
-  object-fit:contain;
-}
-
-/* TEXT */
-.card h3{
-  font-size:15px;
-  margin:10px 0 5px;
-}
-
-.card p{
-  font-weight:bold;
-  color:#444;
-}
-
-/* BUTTON */
-.card a{
-  display:inline-block;
-  margin-top:10px;
-  padding:8px 14px;
-  background:#ff69b4;
-  color:#fff;
-  text-decoration:none;
-  border-radius:6px;
-  font-size:14px;
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:20px;
-  background:#fff;
-  margin-top:20px;
-}
-
-footer a{
-  text-decoration:none;
-  color:#ff69b4;
-  margin:0 5px;
-}
-
-/* RESPONSIVE BREAKPOINTS */
-
-/* Tablet */
-@media (min-width: 600px){
-  .product-grid{
-    grid-template-columns: repeat(2, 1fr);
+  :root {
+    --rose: #e8c4c4;
+    --rose-deep: #c98b8b;
+    --rose-dark: #7a3f3f;
+    --blush: #f9f0f0;
+    --cream: #fdf7f2;
+    --charcoal: #2b2020;
+    --muted: #7c6464;
+    --border: rgba(180,130,130,0.18);
+    --accent: #b05b5b;
+    --accent-light: #faeaea;
   }
-}
 
-/* Laptop */
-@media (min-width: 900px){
-  .product-grid{
-    grid-template-columns: repeat(3, 1fr);
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    min-height: 100vh;
   }
-}
 
-/* Desktop (4–5 items per row) */
-@media (min-width: 1200px){
-  .product-grid{
-    grid-template-columns: repeat(5, 1fr);
+  /* ── HEADER ── */
+  header {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
   }
-}
 
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--charcoal);
+    letter-spacing: 0.03em;
+    text-decoration: none;
+  }
+
+  .logo span { color: var(--accent); }
+
+  nav { display: flex; gap: 28px; }
+  nav a {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--accent); }
+  nav a.active { color: var(--charcoal); font-weight: 500; }
+
+  /* ── HERO BANNER ── */
+  .hero {
+    background: linear-gradient(135deg, #f9eeee 0%, #fdf5f0 50%, #f0eef9 100%);
+    padding: 64px 40px 52px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(200,140,140,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(160,140,210,0.10) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 6vw, 60px);
+    font-weight: 500;
+    color: var(--charcoal);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+
+  .hero p {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 420px;
+    margin: 0 auto;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 40px;
+    padding: 6px 16px;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 28px;
+    letter-spacing: 0.03em;
+  }
+
+  .hero-badge span { color: var(--accent); font-weight: 500; }
+
+  /* ── PRODUCT GRID ── */
+  .section {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 52px 28px 64px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 36px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--charcoal);
+  }
+
+  .section-count {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: transform 0.28s cubic-bezier(.34,1.56,.64,1), box-shadow 0.28s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(100,50,50,0.10);
+  }
+
+  .card-img-wrap {
+    background: var(--blush);
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card-img-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.04) 100%);
+  }
+
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.38s ease;
+  }
+
+  .card:hover img { transform: scale(1.06); }
+
+  .card-body {
+    padding: 18px 20px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-name {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--charcoal);
+    line-height: 1.5;
+    margin-bottom: auto;
+    padding-bottom: 14px;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    gap: 10px;
+  }
+
+  .card-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--charcoal);
+    letter-spacing: -0.01em;
+  }
+
+  .card-price sup {
+    font-size: 13px;
+    font-weight: 500;
+    vertical-align: super;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .btn-amazon {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 9px 16px;
+    border-radius: 50px;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-amazon:hover {
+    background: var(--rose-dark);
+    transform: scale(1.03);
+  }
+
+  .btn-amazon svg { flex-shrink: 0; }
+
+  /* ── BADGE CHIP ── */
+  .chip {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--accent);
+    padding: 3px 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #fff;
+    border-top: 1px solid var(--border);
+    padding: 48px 40px 40px;
+  }
+
+  .footer-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--charcoal);
+    text-decoration: none;
+  }
+
+  .footer-logo span { color: var(--accent); }
+
+  .footer-tagline {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 4px;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 18px;
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--muted);
+    text-decoration: none;
+    transition: all 0.2s;
+    background: transparent;
+    letter-spacing: 0.02em;
+  }
+
+  .social-btn:hover {
+    background: var(--accent-light);
+    border-color: var(--rose-deep);
+    color: var(--accent);
+  }
+
+  .social-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+  .footer-copy {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.03em;
+    opacity: 0.7;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 760px) {
+    header { padding: 0 20px; }
+    nav { display: none; }
+    .hero { padding: 44px 24px 40px; }
+    .section { padding: 40px 16px 52px; }
+    footer { padding: 40px 20px 32px; }
+  }
+
+  @media (max-width: 500px) {
+    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .card-img-wrap { height: 150px; }
+    .card-body { padding: 14px 14px 16px; }
+    .card-price { font-size: 18px; }
+  }
+
+  /* ── FADE-IN ANIMATION ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .card {
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  .card:nth-child(1) { animation-delay: 0.05s; }
+  .card:nth-child(2) { animation-delay: 0.10s; }
+  .card:nth-child(3) { animation-delay: 0.15s; }
+  .card:nth-child(4) { animation-delay: 0.20s; }
+  .card:nth-child(5) { animation-delay: 0.25s; }
+  .card:nth-child(6) { animation-delay: 0.30s; }
+  .card:nth-child(7) { animation-delay: 0.35s; }
 </style>
 </head>
-
 <body>
 
-<h2>🏠 Home Decor</h2>
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo">Krish<span>Botique</span></a>
+  <nav>
+    <a href="#" class="active">Home Decor</a>
+    <a href="#">Kitchen</a>
+    <a href="#">Lifestyle</a>
+    <a href="#">Gifting</a>
+  </nav>
+</header>
 
-<div class="product-grid">
-
-<div class="card">
-<img src="https://m.media-amazon.com/images/I/71SQns5kZrL._SL1500_.jpg">
-<h3>Train Diffusers for Essential Oils</h3>
-<p>₹1,690</p>
-<a href="https://amzn.to/40pXyri">View on Amazon</a>
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-eyebrow">Curated Amazon Finds</p>
+  <h1>Home Décor<br>Collection</h1>
+  <p>Hand-picked pieces to bring warmth, style, and charm to every corner of your home.</p>
+  <div class="hero-badge">
+    <span>7</span> curated products &nbsp;·&nbsp; All on Amazon India
+  </div>
 </div>
 
-<div class="card">
-<img src="https://m.media-amazon.com/images/I/81tEiLoHJGL._SL1500_.jpg">
-<h3>Wall Hanging Decor</h3>
-<p>₹1,299</p>
-<a href="https://amzn.to/3ZIAnYX">View on Amazon</a>
+<!-- PRODUCTS -->
+<div class="section">
+  <div class="section-header">
+    <h2 class="section-title">Featured Picks</h2>
+    <span class="section-count">7 items</span>
+  </div>
+
+  <div class="product-grid">
+
+    <!-- 1 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <span class="chip">Bestseller</span>
+        <img src="https://m.media-amazon.com/images/I/71SQns5kZrL._SL1500_.jpg" alt="Train Diffuser for Essential Oils" loading="lazy">
+      </div>
+      <div class="card-body">
+        <p class="card-name">Train Diffuser for Essential Oils</p>
+        <div class="card-footer">
+          <div class="card-price"><sup>₹</sup>1,690</div>
+          <a class="btn-amazon" href="https://amzn.to/40pXyri" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h12M8 2l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            View
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/81tEiLoHJGL._SL1500_.jpg" alt="Wall Hanging Decor" loading="lazy">
+      </div>
+      <div class="card-body">
+        <p class="card-name">Wall Hanging Décor</p>
+        <div class="card-footer">
+          <div class="card-price"><sup>₹</sup>1,299</div>
+          <a class="btn-amazon" href="https://amzn.to/3ZIAnYX" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h12M8 2l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            View
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <span class="chip">Under ₹200</span>
+        <img src="https://m.media-amazon.com/images/I/61ejfP6n1KL._SL1500_.jpg" alt="PVC Door Guard Gap Filler" loading="lazy">
+      </div>
+      <div class="card-body">
+        <p class="card-name">PVC Door Guard Gap Filler</p>
+        <div class="card-footer">
+          <div class="card-price"><sup>₹</sup>188</div>
+          <a class="btn-amazon" href="https://amzn.to/4uK4wVR" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h12M8 2l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            View
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/41+k00wvBlL._SX466_.jpg" alt="Lamp for Kids" loading="lazy">
+      </div>
+      <div class="card-body">
+        <p class="card-name">Decorative Lamp for Kids</p>
+        <div class="card-footer">
+          <div class="card-price"><sup>₹</sup>360</div>
+          <a class="btn-amazon" href="https://amzn.to/4bZSctk" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h12M8 2l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            View
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <span class="chip">Under ₹300</span>
+        <img src="https://m.media-amazon.com/images/I/61d9W1vJjmL._SL1065_.jpg" alt="Storage Organizer" loading="lazy">
+      </div>
+      <div class="card-body">
+        <p class="card-name">Multi-Purpose Storage Organizer</p>
+        <div class="card-footer">
+          <div class="card-price"><sup>₹</sup>299</div>
+          <a class="btn-amazon" href="https://amzn.to/4bTJ6gC" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h12M8 2l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            View
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/91GQZOS0QvL._SL1500_.jpg" alt="Wire Mesh Decor" loading="lazy">
+      </div>
+      <div class="card-body">
+        <p class="card-name">Wire Mesh Wall Décor</p>
+        <div class="card-footer">
+          <div class="card-price"><sup>₹</sup>599</div>
+          <a class="btn-amazon" href="https://amzn.to/4cdUnJN" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h12M8 2l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            View
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <span class="chip">Fan Fave</span>
+        <img src="https://m.media-amazon.com/images/I/61Q+8oKYUXL._SL1080_.jpg" alt="Galaxy Night Projector" loading="lazy">
+      </div>
+      <div class="card-body">
+        <p class="card-name">Galaxy Night Light Projector</p>
+        <div class="card-footer">
+          <div class="card-price"><sup>₹</sup>269</div>
+          <a class="btn-amazon" href="https://amzn.to/3NXLxXg" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h12M8 2l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            View
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<div class="card">
-<img src="https://m.media-amazon.com/images/I/61ejfP6n1KL._SL1500_.jpg">
-<h3>PVC Door Guard Gap Filler</h3>
-<p>₹188</p>
-<a href="https://amzn.to/4uK4wVR">View on Amazon</a>
-</div>
-
-<div class="card">
-<img src="https://m.media-amazon.com/images/I/41+k00wvBlL._SX466_.jpg">
-<h3>Lamp for Kids</h3>
-<p>₹360</p>
-<a href="https://amzn.to/4bZSctk">View on Amazon</a>
-</div>
-
-<div class="card">
-<img src="https://m.media-amazon.com/images/I/61d9W1vJjmL._SL1065_.jpg">
-<h3>Storage Organizer</h3>
-<p>₹299</p>
-<a href="https://amzn.to/4bTJ6gC">View on Amazon</a>
-</div>
-
-<div class="card">
-<img src="https://m.media-amazon.com/images/I/91GQZOS0QvL._SL1500_.jpg">
-<h3>Wire Mesh Decor</h3>
-<p>₹599</p>
-<a href="https://amzn.to/4cdUnJN">View on Amazon</a>
-</div>
-
-<div class="card">
-<img src="https://m.media-amazon.com/images/I/61Q+8oKYUXL._SL1080_.jpg">
-<h3>Galaxy Night Projector</h3>
-<p>₹269</p>
-<a href="https://amzn.to/3NXLxXg">View on Amazon</a>
-</div>
-
-</div>
-
+<!-- FOOTER -->
 <footer>
-<p>
-Follow us:
-<a href="https://www.instagram.com/__cheap_and__best__?igsh=MW5penRibjh3NDRqeg==" target="_blank">Instagram</a> |
-<a href="https://pin.it/3W3LaPO1q" target="_blank">Pinterest</a> |
-<a href="https://whatsapp.com/channel/0029Vaa1dH9JP20yRUbR7Y2H" target="_blank">Whatsapp</a> |
-<a href="https://beacons.ai/krishbotique" target="_blank">View Us</a>
-</p>
+  <div class="footer-inner">
+    <div style="text-align:center;">
+      <a href="#" class="footer-logo">Krish<span>Botique</span></a>
+      <p class="footer-tagline">Affordable finds. Beautiful homes.</p>
+    </div>
+
+    <div class="social-links">
+      <!-- Instagram -->
+      <a class="social-btn" href="https://www.instagram.com/__cheap_and__best__?igsh=MW5penRibjh3NDRqeg==" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+        Instagram
+      </a>
+      <!-- Pinterest -->
+      <a class="social-btn" href="https://pin.it/3W3LaPO1q" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.18-.73 1.22-5.17 1.22-5.17s-.31-.62-.31-1.55c0-1.45.84-2.54 1.88-2.54.89 0 1.32.67 1.32 1.47 0 .9-.57 2.24-.87 3.48-.25 1.04.52 1.89 1.54 1.89 1.85 0 3.09-2.38 3.09-5.19 0-2.14-1.43-3.64-3.49-3.64-2.38 0-3.77 1.79-3.77 3.63 0 .72.28 1.49.62 1.91.07.08.08.15.06.23-.06.27-.2.84-.23.96-.04.15-.13.18-.3.11-1.12-.52-1.82-2.17-1.82-3.49 0-2.84 2.06-5.45 5.95-5.45 3.12 0 5.55 2.22 5.55 5.19 0 3.09-1.95 5.58-4.65 5.58-.91 0-1.76-.47-2.05-1.03l-.56 2.08c-.2.78-.75 1.75-1.12 2.34.84.26 1.73.4 2.65.4 5.52 0 10-4.48 10-10S17.52 2 12 2z"/>
+        </svg>
+        Pinterest
+      </a>
+      <!-- WhatsApp -->
+      <a class="social-btn" href="https://whatsapp.com/channel/0029Vaa1dH9JP20yRUbR7Y2H" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+        </svg>
+        WhatsApp
+      </a>
+      <!-- Beacons -->
+      <a class="social-btn" href="https://beacons.ai/krishbotique" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+        </svg>
+        All Links
+      </a>
+    </div>
+
+    <p class="footer-copy">© 2025 KrishBotique · Curated finds, not sponsored opinions.</p>
+  </div>
 </footer>
 
 </body>
