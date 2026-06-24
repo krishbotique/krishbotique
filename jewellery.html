@@ -5,153 +5,563 @@
 <title>Jewellery – Amazon Picks | KrishBotique</title>
 <meta name="description" content="Elegant jewellery picks from Amazon curated by KrishBotique.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-body{
-  margin:0;
-  font-family:Arial;
-  background:linear-gradient(135deg,#fdeff9,#e8f0ff);
+:root {
+  --cream: #F7F0E8;
+  --parchment: #EDE0CE;
+  --sand: #D9C4A7;
+  --caramel: #B8895A;
+  --cognac: #8B5A2B;
+  --espresso: #3E1F0D;
+  --gold: #C9973A;
+  --gold-lt: #F0D9A8;
+  --white: #FFFFFF;
+  --text-main: #2C1810;
+  --text-mid: #6B4C35;
+  --text-muted: #9C7A5E;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
 }
 
-/* PAGE TITLE */
-h2{
-  text-align:center;
-  padding:20px 10px;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background-color: var(--cream);
+  color: var(--text-main);
+  min-height: 100vh;
 }
 
-/* GRID LAYOUT */
-.products{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap:20px;
-  padding:20px;
-  max-width:1200px;
-  margin:auto;
+/* ── HEADER ── */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--sand);
+  padding: 0 40px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 20px rgba(62,31,13,0.06);
 }
 
-/* CARD STYLE */
-.card{
-  background:#fff;
-  border-radius:15px;
-  padding:15px;
-  text-align:center;
-  box-shadow:0 4px 10px rgba(0,0,0,0.08);
-  transition:0.3s;
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--espresso);
+  letter-spacing: 0.04em;
+  text-decoration: none;
 }
 
-.card:hover{
-  transform:translateY(-5px);
+.logo span { color: var(--gold); }
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
-/* IMAGE FIX (IMPORTANT) */
-.card img{
-  width:100%;
-  height:220px;          /* Fixed same height */
-  object-fit:contain;    /* Keeps image proportion */
-  border-radius:10px;
+nav a {
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: background 0.25s, color 0.25s;
 }
 
-/* PRODUCT TITLE */
-.card h3{
-  font-size:15px;
-  min-height:50px;       /* Align text height */
+nav a:hover {
+  background: var(--gold-lt);
+  color: var(--cognac);
 }
 
-/* PRICE */
-.card p{
-  font-weight:bold;
-  margin:10px 0;
+/* ── DROPDOWN ── */
+.dropdown { position: relative; }
+
+.dropbtn {
+  background: none;
+  border: none;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: background 0.25s, color 0.25s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-/* BUTTON */
-.card a{
-  display:inline-block;
-  padding:8px 14px;
-  background:#ff69b4;
-  color:#fff;
-  text-decoration:none;
-  border-radius:6px;
-  font-size:14px;
+.dropbtn::after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.2s;
 }
 
-.card a:hover{
-  background:#ff4fa3;
+.dropdown:hover .dropbtn {
+  background: var(--gold-lt);
+  color: var(--cognac);
 }
 
-/* FOOTER */
-.footer{
-  text-align:center;
-  font-size:13px;
-  color:#555;
-  padding:15px;
-  margin-top:20px;
-  border-top:1px solid #eee;
+.dropdown:hover .dropbtn::after {
+  transform: rotate(225deg) translateY(-2px);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--white);
+  min-width: 190px;
+  border: 1px solid var(--sand);
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 40px rgba(62,31,13,0.12);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 18px;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--text-mid);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, padding-left 0.2s;
+}
+
+.dropdown-content a:hover {
+  background: var(--gold-lt);
+  color: var(--cognac);
+  padding-left: 24px;
+}
+
+.dropdown:hover .dropdown-content { display: block; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--parchment);
+  border-bottom: 1px solid var(--sand);
+  padding: 64px 40px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 15% 50%, rgba(201,151,58,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 85% 50%, rgba(139,90,43,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.1s forwards;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 300;
+  color: var(--espresso);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.25s forwards;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--cognac);
+}
+
+.hero-sub {
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: var(--text-mid);
+  letter-spacing: 0.04em;
+  max-width: 460px;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.4s forwards;
+}
+
+.hero-divider {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 22px auto 0;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.55s forwards;
+}
+
+/* ── GRID SECTION ── */
+.grid-section {
+  padding: 56px 40px 48px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ── PRODUCTS GRID ── */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+/* ── CARD ── */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--sand);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: transform 0.38s ease, box-shadow 0.38s ease, border-color 0.38s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 48px rgba(62,31,13,0.13);
+  border-color: var(--caramel);
+}
+
+.card-img-wrap {
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background: var(--parchment);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  padding: 12px;
+  transition: transform 0.5s ease;
+}
+
+.card:hover img { transform: scale(1.06); }
+
+.card-body {
+  padding: 16px 18px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  flex: 1;
+}
+
+.card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--espresso);
+}
+
+.card-price {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--cognac);
+  letter-spacing: 0.02em;
+}
+
+.card-footer {
+  padding: 0 18px 18px;
+}
+
+.card a.direct-btn {
+  display: block;
+  width: 100%;
+  background: var(--espresso);
+  border: 1px solid var(--espresso);
+  padding: 11px 0;
+  border-radius: var(--radius-sm);
+  color: var(--gold-lt);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.25s, color 0.25s, transform 0.2s;
+}
+
+.card:hover a.direct-btn {
+  background: var(--cognac);
+  border-color: var(--cognac);
+}
+
+.card a.direct-btn:hover { transform: translateY(-1px); }
+
+/* SHOW ANIMATION */
+.card.show { animation: cardFadeUp 0.55s forwards; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--espresso);
+  color: var(--sand);
+  padding: 40px 40px 32px;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: var(--gold-lt);
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.footer-links a {
+  color: var(--sand);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 1px solid rgba(217,196,167,0.25);
+  border-radius: 20px;
+  transition: border-color 0.25s, color 0.25s;
+}
+
+.footer-links a:hover {
+  color: var(--gold-lt);
+  border-color: var(--gold);
+}
+
+.footer-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--caramel);
+  margin: 0 auto 20px;
+  opacity: 0.5;
+}
+
+.footer-note {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cardFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  header { padding: 0 20px; }
+  .hero { padding: 48px 24px 40px; }
+  .grid-section { padding: 40px 20px 32px; }
+  .products { gap: 16px; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2rem; }
+  .products { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 12px; }
+  .card-body { padding: 10px 12px 8px; }
+  .card-footer { padding: 0 12px 12px; }
+  .card h3 { font-size: 0.9rem; }
+  footer { padding: 32px 20px 24px; }
 }
 </style>
 </head>
-
 <body>
 
-<h2>💍 Jewellery Picks</h2>
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="logo">Krish<span>Botique</span></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <div class="dropdown">
+      <button class="dropbtn">Categories</button>
+      <div class="dropdown-content">
+        <a href="dresses.html">Dresses</a>
+        <a href="men-clothing.html">Men</a>
+        <a href="jewellery.html">Jewellery</a>
+        <a href="beauty.html">Beauty</a>
+        <a href="kitchen.html">Kitchen</a>
+        <a href="home-decor.html">Home Decor</a>
+        <a href="baby.html">Baby</a>
+        <a href="valentine.html">Valentine</a>
+        <a href="stationery.html">Stationery</a>
+        <a href="asthetic.html">Aesthetic</a>
+      </div>
+    </div>
+  </nav>
+</header>
 
-<div class="products">
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Curated Collection</p>
+  <h1>Jewellery <em>Picks</em></h1>
+  <p class="hero-sub">Elegant, affordable pieces from Amazon — handpicked to complement every look.</p>
+  <div class="hero-divider"></div>
+</section>
 
-  <div class="card">
-    <img src="https://m.media-amazon.com/images/I/71CV1ddvQAL._SY575_.jpg" alt="Shining Diva Gold Plated Combo">
-    <h3>Shining Diva Gold Plated Combo of 2</h3>
-    <p>₹298</p>
-    <a href="https://amzn.to/3MrUvLE" target="_blank" rel="nofollow sponsored">
-      Buy on Amazon
-    </a>
+<!-- PRODUCTS -->
+<section class="grid-section">
+  <div class="products">
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71CV1ddvQAL._SY575_.jpg" alt="Shining Diva Gold Plated Combo">
+      </div>
+      <div class="card-body">
+        <h3>Shining Diva Gold Plated Combo of 2</h3>
+        <p class="card-price">₹298</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/3MrUvLE" target="_blank" rel="nofollow sponsored" class="direct-btn">Buy on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/81zlKLbRAfL._SY575_.jpg" alt="Om Jewells Rose Gold Combo">
+      </div>
+      <div class="card-body">
+        <h3>Om Jewells Rose Gold Plated Combo of 5</h3>
+        <p class="card-price">₹299</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4athXAt" target="_blank" rel="nofollow sponsored" class="direct-btn">Buy on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61dK8fy1dRL._SY575_.jpg" alt="Stackable Knuckle Rings Set">
+      </div>
+      <div class="card-body">
+        <h3>22pcs Stylish Stackable Knuckle Rings Set</h3>
+        <p class="card-price">₹218</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/3O470Oe" target="_blank" rel="nofollow sponsored" class="direct-btn">Buy on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/613BVmwuQ4L._SY575_.jpg" alt="Stylish Jewellery for Women">
+      </div>
+      <div class="card-body">
+        <h3>Stylish Jewellery for Women</h3>
+        <p class="card-price">₹175</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4aoMOOj" target="_blank" rel="nofollow sponsored" class="direct-btn">Buy on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71UCk9VMVrL._SY575_.jpg" alt="Bangle Bracelet Set of 6">
+      </div>
+      <div class="card-body">
+        <h3>Bangle Bracelet Set of 6</h3>
+        <p class="card-price">₹268</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4aMY6gO" target="_blank" rel="nofollow sponsored" class="direct-btn">Buy on Amazon →</a>
+      </div>
+    </div>
+
   </div>
+</section>
 
-  <div class="card">
-    <img src="https://m.media-amazon.com/images/I/81zlKLbRAfL._SY575_.jpg" alt="Om Jewells Rose Gold Combo">
-    <h3>Om Jewells Rose Gold Plated Combo of 5</h3>
-    <p>₹299</p>
-    <a href="https://amzn.to/4athXAt" target="_blank" rel="nofollow sponsored">
-      Buy on Amazon
-    </a>
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">KrishBotique</p>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/__cheap_and__best__?igsh=MW5penRibjh3NDRqeg==" target="_blank">Instagram</a>
+    <a href="https://pin.it/3W3LaPO1q" target="_blank">Pinterest</a>
+    <a href="https://whatsapp.com/channel/0029Vaa1dH9JP20yRUbR7Y2H" target="_blank">WhatsApp</a>
+    <a href="https://beacons.ai/krishbotique" target="_blank">View Us</a>
   </div>
-
-  <div class="card">
-    <img src="https://m.media-amazon.com/images/I/61dK8fy1dRL._SY575_.jpg" alt="Stackable Knuckle Rings Set">
-    <h3>22pcs Stylish Stackable Knuckle Rings Set</h3>
-    <p>₹218</p>
-    <a href="https://amzn.to/3O470Oe" target="_blank" rel="nofollow sponsored">
-      Buy on Amazon
-    </a>
-  </div>
-
-  <div class="card">
-    <img src="https://m.media-amazon.com/images/I/613BVmwuQ4L._SY575_.jpg" alt="Stylish Jewellery for Women">
-    <h3>Stylish Jewellery for Women</h3>
-    <p>₹175</p>
-    <a href="https://amzn.to/4aoMOOj" target="_blank" rel="nofollow sponsored">
-      Buy on Amazon
-    </a>
-  </div>
-
-  <div class="card">
-    <img src="https://m.media-amazon.com/images/I/71UCk9VMVrL._SY575_.jpg" alt="Bangle Bracelet Set of 6">
-    <h3>Bangle Bracelet Set of 6</h3>
-    <p>₹268</p>
-    <a href="https://amzn.to/4aMY6gO" target="_blank" rel="nofollow sponsored">
-      Buy on Amazon
-    </a>
-  </div>
-
-</div>
-    <p>
-    Follow us:
-    <a href="https://www.instagram.com/__cheap_and__best__?igsh=MW5penRibjh3NDRqeg==" target="_blank">Instagram</a> |
-    <a href="https://pin.it/3W3LaPO1q" target="_blank">Pinterest</a> |
-     <a href="https://whatsapp.com/channel/0029Vaa1dH9JP20yRUbR7Y2H" target="_blank">Whatsapp</a> |
-     <a href="https://beacons.ai/krishbotique "  target="_blank">view us </a>
+  <div class="footer-divider"></div>
+  <p class="footer-note">
+    As an Amazon Associate, KrishBotique earns from qualifying purchases.<br>
+    All product links are affiliate links.
   </p>
-<div class="footer">
-  As an Amazon Associate, KrishBotique earns from qualifying purchases.
-</div>
+</footer>
+
+<script>
+const cards = document.querySelectorAll('.card');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+cards.forEach((card, i) => {
+  card.style.animationDelay = `${i * 0.08}s`;
+  observer.observe(card);
+});
+</script>
 
 </body>
 </html>
