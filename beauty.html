@@ -1,440 +1,998 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
 <title>Beauty Products – Amazon Picks | KrishBotique</title>
-
 <meta name="description" content="Shop best-selling beauty products on Amazon India including skincare, makeup and personal care.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-
-/* ---------- GLOBAL ---------- */
-body{
-  font-family: 'Poppins', Arial, sans-serif;
-  background: #fdf2f8;
-  margin:0;
+:root {
+  --cream: #F7F0E8;
+  --parchment: #EDE0CE;
+  --sand: #D9C4A7;
+  --caramel: #B8895A;
+  --cognac: #8B5A2B;
+  --espresso: #3E1F0D;
+  --gold: #C9973A;
+  --gold-lt: #F0D9A8;
+  --white: #FFFFFF;
+  --text-main: #2C1810;
+  --text-mid: #6B4C35;
+  --text-muted: #9C7A5E;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
 }
 
-.page-title{
-  text-align:center;
-  padding:35px 15px 10px;
-  font-size:28px;
-  color:#d63384;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background-color: var(--cream);
+  color: var(--text-main);
+  min-height: 100vh;
 }
 
-.page-desc{
-  max-width:900px;
-  margin:auto;
-  text-align:center;
-  color:#555;
-  padding:0 20px 30px;
-  font-size:15px;
+/* ── HEADER ── */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--sand);
+  padding: 0 40px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 20px rgba(62,31,13,0.06);
 }
 
-/* ---------- PRODUCT SECTION ---------- */
-
-.product-section{
-  max-width:1200px;
-  margin:auto;
-  padding:20px;
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--espresso);
+  letter-spacing: 0.04em;
+  text-decoration: none;
 }
 
-.section-heading{
-  text-align:center;
-  margin:50px 0 25px;
-  font-size:22px;
-  color:#b03060;
+.logo span { color: var(--gold); }
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
-.product-grid{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap:25px;
+nav a {
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: background 0.25s, color 0.25s;
 }
 
-/* ---------- CARD ---------- */
-
-.card{
-  background:#fff;
-  padding:20px;
-  border-radius:18px;
-  text-align:center;
-  box-shadow:0 6px 18px rgba(0,0,0,0.06);
-  transition:0.3s ease;
+nav a:hover {
+  background: var(--gold-lt);
+  color: var(--cognac);
 }
 
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 10px 25px rgba(0,0,0,0.12);
+/* ── DROPDOWN ── */
+.dropdown { position: relative; }
+
+.dropbtn {
+  background: none;
+  border: none;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: background 0.25s, color 0.25s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.card img{
-  width:100%;
-  height:220px;
-  object-fit:contain;
-  margin-bottom:15px;
+.dropbtn::after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.2s;
 }
 
-.card h3{
-  font-size:15px;
-  color:#333;
-  margin-bottom:8px;
-  min-height:48px;
+.dropdown:hover .dropbtn {
+  background: var(--gold-lt);
+  color: var(--cognac);
 }
 
-.price{
-  color:#d63384;
-  font-weight:bold;
-  font-size:16px;
-  margin-bottom:6px;
+.dropdown:hover .dropbtn::after {
+  transform: rotate(225deg) translateY(-2px);
 }
 
-.product-desc{
-  font-size:13px;
-  color:#666;
-  margin-bottom:10px;
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--white);
+  min-width: 190px;
+  border: 1px solid var(--sand);
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 40px rgba(62,31,13,0.12);
+  overflow: hidden;
+  z-index: 1000;
 }
 
-.card a{
-  display:inline-block;
-  margin-top:12px;
-  padding:10px 18px;
-  background:linear-gradient(45deg,#ff69b4,#ff1493);
-  color:#fff;
-  text-decoration:none;
-  border-radius:25px;
-  font-size:14px;
-  transition:0.3s;
+.dropdown-content a {
+  display: block;
+  padding: 10px 18px;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--text-mid);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, padding-left 0.2s;
 }
 
-.card a:hover{
-  opacity:0.85;
+.dropdown-content a:hover {
+  background: var(--gold-lt);
+  color: var(--cognac);
+  padding-left: 24px;
 }
 
-/* ---------- RESPONSIVE ---------- */
+.dropdown:hover .dropdown-content { display: block; }
 
-@media (max-width: 600px){
-  .page-title{
-    font-size:22px;
-  }
-
-  .card img{
-    height:180px;
-  }
+/* ── HERO ── */
+.hero {
+  background: var(--parchment);
+  border-bottom: 1px solid var(--sand);
+  padding: 64px 40px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.disclaimer{
-  text-align:center;
-  font-size:13px;
-  color:#777;
-  margin:40px 0;
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 15% 50%, rgba(201,151,58,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 85% 50%, rgba(139,90,43,0.08) 0%, transparent 70%);
+  pointer-events: none;
 }
 
-  .rating{
-  font-size:13px;
-  color:#ff9800;
-  margin:5px 0;
+.hero-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.1s forwards;
 }
 
-.btn{
-  display:inline-block;
-  margin-top:12px;
-  padding:10px 18px;
-  background:linear-gradient(45deg,#ff69b4,#ff1493);
-  color:#fff;
-  text-decoration:none;
-  border-radius:25px;
-  font-size:14px;
-  transition:0.3s;
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 300;
+  color: var(--espresso);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.25s forwards;
 }
 
-.btn:hover{
-  opacity:0.85;
+.hero h1 em {
+  font-style: italic;
+  color: var(--cognac);
 }
 
+.hero-sub {
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: var(--text-mid);
+  letter-spacing: 0.04em;
+  max-width: 460px;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.4s forwards;
+}
+
+.hero-divider {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 22px auto 0;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.55s forwards;
+}
+
+/* ── SECTION ── */
+.grid-section {
+  padding: 56px 40px 16px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+.section-header::before,
+.section-header::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sand));
+}
+
+.section-header::after {
+  background: linear-gradient(90deg, var(--sand), transparent);
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--espresso);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--cognac);
+}
+
+/* ── PRODUCTS GRID ── */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+/* ── CARD ── */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--sand);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: transform 0.38s ease, box-shadow 0.38s ease, border-color 0.38s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 48px rgba(62,31,13,0.13);
+  border-color: var(--caramel);
+}
+
+.card-img-wrap {
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background: var(--parchment);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.5s ease;
+  padding: 10px;
+}
+
+.card:hover img { transform: scale(1.06); }
+
+.card-body {
+  padding: 16px 18px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  flex: 1;
+}
+
+.card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--espresso);
+}
+
+.card-price {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--cognac);
+  letter-spacing: 0.02em;
+}
+
+.card-rating {
+  font-size: 0.78rem;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+
+.card-footer {
+  padding: 0 18px 18px;
+}
+
+.card a.btn-amazon {
+  display: block;
+  text-decoration: none;
+}
+
+.card .btn-amazon button,
+.card-footer a button {
+  width: 100%;
+  background: var(--espresso);
+  border: 1px solid var(--espresso);
+  padding: 11px 0;
+  border-radius: var(--radius-sm);
+  color: var(--gold-lt);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, transform 0.2s;
+}
+
+.card:hover .btn-amazon button,
+.card:hover .card-footer a button {
+  background: var(--cognac);
+  border-color: var(--cognac);
+}
+
+.card .btn-amazon button:hover,
+.card-footer a button:hover {
+  transform: translateY(-1px);
+}
+
+/* direct <a> as button (legacy markup) */
+.card a.direct-btn {
+  display: block;
+  width: 100%;
+  background: var(--espresso);
+  border: 1px solid var(--espresso);
+  padding: 11px 0;
+  border-radius: var(--radius-sm);
+  color: var(--gold-lt);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.25s, color 0.25s, transform 0.2s;
+}
+
+.card:hover a.direct-btn {
+  background: var(--cognac);
+  border-color: var(--cognac);
+}
+
+.card a.direct-btn:hover { transform: translateY(-1px); }
+
+/* SHOW ANIMATION */
+.card.show { animation: cardFadeUp 0.55s forwards; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--espresso);
+  color: var(--sand);
+  padding: 40px 40px 32px;
+  text-align: center;
+  margin-top: 56px;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: var(--gold-lt);
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.footer-links a {
+  color: var(--sand);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 1px solid rgba(217,196,167,0.25);
+  border-radius: 20px;
+  transition: border-color 0.25s, color 0.25s;
+}
+
+.footer-links a:hover {
+  color: var(--gold-lt);
+  border-color: var(--gold);
+}
+
+.footer-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--caramel);
+  margin: 0 auto 20px;
+  opacity: 0.5;
+}
+
+.footer-note {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cardFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  header { padding: 0 20px; }
+  .hero { padding: 48px 24px 40px; }
+  .grid-section { padding: 40px 20px 8px; }
+  .products { gap: 16px; }
+  .section-title { font-size: 1.3rem; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2rem; }
+  .products { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 12px; }
+  .card-body { padding: 10px 12px 8px; }
+  .card-footer { padding: 0 12px 12px; }
+  .card h3 { font-size: 0.88rem; }
+  footer { padding: 32px 20px 24px; }
+}
 </style>
 </head>
-
 <body>
 
-<h2 class="page-title">💄 Beauty Essentials</h2>
-
-<p class="page-desc">
-Explore trending skincare and makeup essentials loved across India.
-</p>
-
-<div class="product-section">
-
-  <h3 class="section-heading">✨ Skincare Essentials</h3>
-
-  <div class="product-grid">
-<!-- GADGETS -->
-
-<div class="card">
-      <img src="https://m.media-amazon.com/images/G/01/Influencer/hotspotIcon.svg">
-      <h3>Philips India's No.1 Hair Styling Brand -Hair Straightener Brush, </h3>
-      <a href="https://amzn.to/49KDgOj" target="_blank">Shop on Amazon</a>
-    </div>
-
-
-    
-    <!-- SKINCARE PRODUCTS -->
-
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/51XTNPnYyAL._AC_UL480_FMwebp_QL65_.jpg">
-      <h3>Mamaearth Vitamin C Face Serum</h3>
-      <p class="price">₹538</p>
-      <a href="https://amzn.to/401qNjQ" target="_blank">Shop on Amazon</a>
-    </div>
-
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/51kdVRMXpvL._SL1080_.jpg">
-      <h3>The Derma Co Hyaluronic Sunscreen SPF 50</h3>
-      <p class="price">₹551</p>
-      <a href="https://amzn.to/45U8alp" target="_blank">Shop on Amazon</a>
-    </div>
-
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/51Rb1F6cgxL._SL1000_.jpg">
-      <h3>Dove Exfoliating Bodywash (825ml)</h3>
-      <p class="price">₹304</p>
-      <a href="https://amzn.to/46DWX8P" target="_blank">Shop on Amazon</a>
-    </div>
-
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/41OyrhqGLdL._SL1000_.jpg">
-      <h3>Be Bodywise Hyaluronic Acid Body Wash</h3>
-      <p class="price">₹279</p>
-      <a href="https://amzn.to/3ZxVfCa" target="_blank">Shop on Amazon</a>
-    </div>
-
-  </div>
-
-  <h3 class="section-heading">💄 Full Face Under Budget</h3>
-
-  <div class="product-grid">
-
-    <!-- MAKEUP PRODUCTS -->
-
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/418-0bNNQgL._SL1080_.jpg">
-      <h3>Maybelline Fit Me Matte + Poreless Foundation</h3>
-      <p class="price">₹599</p>
-      <a href="https://amzn.to/3ZBEZA7" target="_blank">Shop on Amazon</a>
-    </div>
-
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/51tVPK5ZsxL._SL1000_.jpg">
-      <h3>Lakme 9 to 5 Primer + Matte Compact</h3>
-      <p class="price">₹425</p>
-      <a href="https://amzn.to/4rlFP04" target="_blank">Shop on Amazon</a>
-    </div>
-
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/61b2tDBxhlL._SL1500_.jpg">
-      <h3>Maybelline Colossal Kajal</h3>
-      <p class="price">₹199</p>
-      <a href="https://amzn.to/4aT8ljy" target="_blank">Shop on Amazon</a>
-    </div>
-
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/51XOWNJa0TL._SL1500_.jpg">
-      <h3>Swiss Beauty Makeup Fixer Spray</h3>
-      <p class="price">₹299</p>
-      <a href="https://amzn.to/4tIZ3hK" target="_blank">Shop on Amazon</a>
-    </div>
-
-  </div>
-
-
-
-
-   <h3 class="section-heading">Glowing Skin Combo Under Budget</h3>
-
-  <div class="product-grid">
-
-    <!-- MAKEUP PRODUCTS -->
-
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/61vmEu4MuZL._SL1500_.jpg">
-      <h3>Minimalist 10% Vitamin C Face Serum</h3>
-      <p class="price">₹255</p>
-      <a href="https://amzn.to/3MDjQCq" target="_blank">Shop on Amazon</a>
-    </div>
-
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/61tvX-QQDhL._SL1500_.jpg">
-      <h3>Minimalist Sunscreen SPF 50 PA++++</h3>
-      <p class="price">₹212</p>
-      <a href="https://amzn.to/4aTslTi" target="_blank">Shop on Amazon</a>
-    </div>
-
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/51qu97DFTjL._SL1000_.jpg">
-      <h3>NIVEA Soft Light Moisturizer, 300 ml </h3>
-      <p class="price">₹343</p>
-      <a href="https://amzn.to/4tFCQAX" target="_blank">Shop on Amazon</a>
-    </div>
-
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/41R7LCjddAL._SL1100_.jpg">
-      <h3>Laneige Lip Sleeping Mask</h3>
-      <p class="price">₹480</p>
-      <a href="https://amzn.to/4rk53f7" target="_blank">Shop on Amazon</a>
-    </div>
-
-  </div>
-
-   <h3 class="section-heading">Lip Combo Under Budget</h3>
-
-  <div class="product-grid">
-
-    <!-- MAKEUP PRODUCTS -->
-
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/614SzhQINdL._SL1500_.jpg">
-      <h3>Swiss Beauty Bold Matt Lip Liner </h3>
-      <p class="price">₹602</p>
-      <a href="https://amzn.to/4qIflVt" target="_blank">Shop on Amazon</a>
-    </div>
-
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/61w-ceoyAxL._SL1200_.jpg">
-      <h3>Maybelline New York Color Sensational Creamy Matte</h3>
-      <p class="price">₹177</p>
-      <a href="https://amzn.to/46UUPto" target="_blank">Shop on Amazon</a>
-    </div>
-
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/61-ASfrp3GL._SL1500_.jpg">
-      <h3>MARS Candylicious Sheer Lip Gloss  </h3>
-      <p class="price">₹299</p>
-      <a href="https://amzn.to/4alFzIo" target="_blank">Shop on Amazon</a>
-    </div>
-
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/515YANWJ35L._SL1000_.jpg">
-      <h3>Lakme Powerplay Priming Matte Lipstick</h3>
-      <p class="price">₹260</p>
-      <a href="https://amzn.to/4kBNsgl" target="_blank">Shop on Amazon</a>
-    </div>
-
-<div class="card">
-      <img src="https://m.media-amazon.com/images/I/51tH4dUKjUL._SL1500_.jpg">
-      <h3>Maybelline New York SuperStay Matte Ink Liquid Lipstick </h3>
-      <p class="price">₹374</p>
-      <a href="https://amzn.to/3MAJJ5T" target="_blank">Shop on Amazon</a>
-    </div>
-    
-<div class="card">
-      <img src="https://m.media-amazon.com/images/I/718F+0RgtfL._SL1500_.jpg">
-      <h3>Ghar Soaps Sandalwood & Saffron Magic Soaps For Bath (300 Gms Pack Of 3) </h3>
-      <p class="price">₹379</p>
-      <a href="https://amzn.to/40u0XVW" target="_blank">Shop on Amazon</a>
-    </div>
-
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/61Ke4uzk1PL._SL1500_.jpg">
-      <h3>Cetaphil Gentle Skin Hydrating Face Wash </h3>
-      <p class="price">₹397</p>
-      <a href="https://amzn.to/4qUhmh4" target="_blank">Shop on Amazon</a>
-    </div>
-
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/61Z3Ju3INbL.jpg">
-      <h3>Foldable Jewelry Organizer With Mirror Earrings and Necklace Hanging</h3>
-      <p class="price">₹699</p>
-      <a href="https://amzn.to/46mQX4q" target="_blank">Shop on Amazon</a>
-    </div>
-
-    <div class="card">
-<img src="https://m.media-amazon.com/images/I/71IGXdkvpVL._SL1500_.jpg">
-<h3> Philips Hair Straightener Brush</h3>
-<div class="rating">★★★★★ (4.8/5)</div>
-<a class="btn  amazon-link " href="https://amzn.to/4l4g5Da" target="_blank" rel="noopener noreferrer" 
-   data-product=" Philips Hair Straightener Brush">Shop Now</a>
-</div>
-
- <div class="card">
-<img src="https://m.media-amazon.com/images/I/41aY2ihjX6L._SL1000_.jpg">
-<h3> Bare Anatomy Anti-Dandruff Shampoo</h3>
-<div class="rating">★★★★★ (4.8/5)</div>
-<a class="btn  amazon-link " href="https://amzn.to/4rRWc4t" target="_blank" rel="noopener noreferrer" 
-   data-product=" anti dandruff shampoo">Shop Now</a>
-</div>
-     <div class="card">
-<img src="https://m.media-amazon.com/images/I/51pruNF+rXL._SL1500_.jpg">
-<h3> L Oréal Paris Moisture Filling Shampoo</h3>
-<div class="rating">★★★★★ (4.8/5)</div>
-<a class="btn  amazon-link " href="https://amzn.to/4rU3FjP" target="_blank" rel="noopener noreferrer" 
-   data-product=" L O'real paris ">Shop Now</a>
-</div>
-     <div class="card">
-<img src="https://m.media-amazon.com/images/I/61SSD0FoULL._SL1500_.jpg">
-<h3> Dot & Key Barrier Repair Moisturizer For Normal</h3>
-<div class="rating">★★★★★ (4.8/5)</div>
-<a class="btn  amazon-link" href="https://amzn.to/4rd9qrm" target="_blank" rel="noopener noreferrer" 
-   data-product="Dot & Key Barrier Repair Moisturizer For Normal">Shop Now</a>
-    </div>
-     <div class="card">
-<img src="https://m.media-amazon.com/images/I/51GhOWodz1L._SL1500_.jpg">
-<h3> L'Oreal Paris Extraordinary Oil Hair Serum</h3>
-<div class="rating">★★★★★ (4.8/5)</div>
-<a class="btn  amazon-link " href="https://amzn.to/4cwDACq" target="_blank" rel="noopener noreferrer" 
-   data-product=" L'Oreal Paris Extraordinary Oil Hair Serum">Shop Now</a>
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="logo">Krish<span>Botique</span></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <div class="dropdown">
+      <button class="dropbtn">Categories</button>
+      <div class="dropdown-content">
+        <a href="dresses.html">Dresses</a>
+        <a href="men-clothing.html">Men</a>
+        <a href="jewellery.html">Jewellery</a>
+        <a href="beauty.html">Beauty</a>
+        <a href="kitchen.html">Kitchen</a>
+        <a href="home-decor.html">Home Decor</a>
+        <a href="baby.html">Baby</a>
+        <a href="valentine.html">Valentine</a>
+        <a href="stationery.html">Stationery</a>
+        <a href="asthetic.html">Aesthetic</a>
       </div>
-       <div class="card">
-<img src="https://m.media-amazon.com/images/I/510SH5B9klL._SL1200_.jpg">
-<h3>Soulflower Extra Virgin Coconut Hair </h3>
-<div class="rating">★★★★★ (4.8/5)</div>
-<a class="btn  amazon-link " href="https://amzn.to/4lmNoRR" target="_blank" rel="noopener noreferrer" 
-   data-product="Soulflower Extra Virgin Coconut Hair ">Shop Now</a>
- <p class="product-desc">⭐ Bestseller | Fast Delivery | Trusted Brand</p>
-      </div>
+    </div>
+  </nav>
+</header>
 
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Beauty Collection</p>
+  <h1>Beauty <em>Essentials</em></h1>
+  <p class="hero-sub">Trending skincare and makeup loved across India — curated for every budget.</p>
+  <div class="hero-divider"></div>
+</section>
 
- <div class="card">
-<img src="https://m.media-amazon.com/images/I/51K4fp2XKVL._SL1000_.jpg">
-<h3>Vaseline Daily Brightening Body Lotion </h3>
-<div class="rating">★★★★★ (4.8/5)</div>
-<a class="btn  amazon-link " href="https://amzn.to/4bykuet" target="_blank" rel="noopener noreferrer" 
-   data-product="Vaseline Daily Brightening Body Lotion">Shop Now @361/-</a>
- <p class="product-desc">⭐ Bestseller | Fast Delivery | Trusted Brand</p>
-      </div>
-
-     <div class="card">
-<img src="https://m.media-amazon.com/images/I/515C380XTtL._SL1200_.jpg">
-<h3>Mamaearth Rice Dewy Bright Light Moisturizing Cream </h3>
-<div class="rating">★★★★★ (4.8/5)</div>
-<a class="btn  amazon-link " href="https://amzn.to/3PPFfcO" target="_blank" rel="noopener noreferrer" 
-   data-product="Mamaearth Rice Dewy Bright Light Moisturizing Cream">Shop Now @149/-</a>
- <p class="product-desc">⭐ Bestseller | Fast Delivery | Trusted Brand</p>
-
-    
+<!-- SECTION 1: SKINCARE -->
+<section class="grid-section">
+  <div class="section-header">
+    <h2 class="section-title">Skincare <em>Essentials</em></h2>
   </div>
-  <footer>
-    <p>
-    Follow us:
-    <a href="https://www.instagram.com/__cheap_and__best__?igsh=MW5penRibjh3NDRqeg==" target="_blank">Instagram</a> |
-    <a href="https://pin.it/3W3LaPO1q" target="_blank">Pinterest</a> |
-     <a href="https://whatsapp.com/channel/0029Vaa1dH9JP20yRUbR7Y2H" target="_blank">Whatsapp</a> |
-     <a href="https://beacons.ai/krishbotique"  target="_blank">view us </a>
+  <div class="products">
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/G/01/Influencer/hotspotIcon.svg" alt="Philips Hair Straightener Brush">
+      </div>
+      <div class="card-body">
+        <h3>Philips India's No.1 Hair Styling Brand — Hair Straightener Brush</h3>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/49KDgOj" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/51XTNPnYyAL._AC_UL480_FMwebp_QL65_.jpg" alt="Mamaearth Vitamin C Face Serum">
+      </div>
+      <div class="card-body">
+        <h3>Mamaearth Vitamin C Face Serum</h3>
+        <p class="card-price">₹538</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/401qNjQ" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/51kdVRMXpvL._SL1080_.jpg" alt="The Derma Co Hyaluronic Sunscreen SPF 50">
+      </div>
+      <div class="card-body">
+        <h3>The Derma Co Hyaluronic Sunscreen SPF 50</h3>
+        <p class="card-price">₹551</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/45U8alp" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/51Rb1F6cgxL._SL1000_.jpg" alt="Dove Exfoliating Bodywash">
+      </div>
+      <div class="card-body">
+        <h3>Dove Exfoliating Bodywash (825ml)</h3>
+        <p class="card-price">₹304</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/46DWX8P" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/41OyrhqGLdL._SL1000_.jpg" alt="Be Bodywise Hyaluronic Acid Body Wash">
+      </div>
+      <div class="card-body">
+        <h3>Be Bodywise Hyaluronic Acid Body Wash</h3>
+        <p class="card-price">₹279</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/3ZxVfCa" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 2: FULL FACE -->
+<section class="grid-section">
+  <div class="section-header">
+    <h2 class="section-title">Full Face <em>Under Budget</em></h2>
+  </div>
+  <div class="products">
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/418-0bNNQgL._SL1080_.jpg" alt="Maybelline Fit Me Matte Foundation">
+      </div>
+      <div class="card-body">
+        <h3>Maybelline Fit Me Matte + Poreless Foundation</h3>
+        <p class="card-price">₹599</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/3ZBEZA7" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/51tVPK5ZsxL._SL1000_.jpg" alt="Lakme 9 to 5 Primer + Matte Compact">
+      </div>
+      <div class="card-body">
+        <h3>Lakme 9 to 5 Primer + Matte Compact</h3>
+        <p class="card-price">₹425</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4rlFP04" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61b2tDBxhlL._SL1500_.jpg" alt="Maybelline Colossal Kajal">
+      </div>
+      <div class="card-body">
+        <h3>Maybelline Colossal Kajal</h3>
+        <p class="card-price">₹199</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4aT8ljy" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/51XOWNJa0TL._SL1500_.jpg" alt="Swiss Beauty Makeup Fixer Spray">
+      </div>
+      <div class="card-body">
+        <h3>Swiss Beauty Makeup Fixer Spray</h3>
+        <p class="card-price">₹299</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4tIZ3hK" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 3: GLOWING SKIN -->
+<section class="grid-section">
+  <div class="section-header">
+    <h2 class="section-title">Glowing Skin <em>Combo</em></h2>
+  </div>
+  <div class="products">
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61vmEu4MuZL._SL1500_.jpg" alt="Minimalist 10% Vitamin C Face Serum">
+      </div>
+      <div class="card-body">
+        <h3>Minimalist 10% Vitamin C Face Serum</h3>
+        <p class="card-price">₹255</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/3MDjQCq" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61tvX-QQDhL._SL1500_.jpg" alt="Minimalist Sunscreen SPF 50">
+      </div>
+      <div class="card-body">
+        <h3>Minimalist Sunscreen SPF 50 PA++++</h3>
+        <p class="card-price">₹212</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4aTslTi" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/51qu97DFTjL._SL1000_.jpg" alt="NIVEA Soft Light Moisturizer">
+      </div>
+      <div class="card-body">
+        <h3>NIVEA Soft Light Moisturizer, 300ml</h3>
+        <p class="card-price">₹343</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4tFCQAX" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/41R7LCjddAL._SL1100_.jpg" alt="Laneige Lip Sleeping Mask">
+      </div>
+      <div class="card-body">
+        <h3>Laneige Lip Sleeping Mask</h3>
+        <p class="card-price">₹480</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4rk53f7" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 4: LIP COMBO -->
+<section class="grid-section">
+  <div class="section-header">
+    <h2 class="section-title">Lip <em>Combo</em></h2>
+  </div>
+  <div class="products">
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/614SzhQINdL._SL1500_.jpg" alt="Swiss Beauty Bold Matt Lip Liner">
+      </div>
+      <div class="card-body">
+        <h3>Swiss Beauty Bold Matt Lip Liner</h3>
+        <p class="card-price">₹602</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4qIflVt" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61w-ceoyAxL._SL1200_.jpg" alt="Maybelline Color Sensational Creamy Matte">
+      </div>
+      <div class="card-body">
+        <h3>Maybelline New York Color Sensational Creamy Matte</h3>
+        <p class="card-price">₹177</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/46UUPto" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61-ASfrp3GL._SL1500_.jpg" alt="MARS Candylicious Sheer Lip Gloss">
+      </div>
+      <div class="card-body">
+        <h3>MARS Candylicious Sheer Lip Gloss</h3>
+        <p class="card-price">₹299</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4alFzIo" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/515YANWJ35L._SL1000_.jpg" alt="Lakme Powerplay Priming Matte Lipstick">
+      </div>
+      <div class="card-body">
+        <h3>Lakme Powerplay Priming Matte Lipstick</h3>
+        <p class="card-price">₹260</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4kBNsgl" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/51tH4dUKjUL._SL1500_.jpg" alt="Maybelline SuperStay Matte Ink Liquid Lipstick">
+      </div>
+      <div class="card-body">
+        <h3>Maybelline New York SuperStay Matte Ink Liquid Lipstick</h3>
+        <p class="card-price">₹374</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/3MAJJ5T" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 5: MORE PICKS -->
+<section class="grid-section">
+  <div class="section-header">
+    <h2 class="section-title">More <em>Picks</em></h2>
+  </div>
+  <div class="products">
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/718F+0RgtfL._SL1500_.jpg" alt="Ghar Soaps Sandalwood & Saffron Magic Soaps">
+      </div>
+      <div class="card-body">
+        <h3>Ghar Soaps Sandalwood &amp; Saffron Magic Soaps (300g Pack of 3)</h3>
+        <p class="card-price">₹379</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/40u0XVW" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61Ke4uzk1PL._SL1500_.jpg" alt="Cetaphil Gentle Skin Hydrating Face Wash">
+      </div>
+      <div class="card-body">
+        <h3>Cetaphil Gentle Skin Hydrating Face Wash</h3>
+        <p class="card-price">₹397</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4qUhmh4" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61Z3Ju3INbL.jpg" alt="Foldable Jewelry Organizer With Mirror">
+      </div>
+      <div class="card-body">
+        <h3>Foldable Jewelry Organizer with Mirror, Earrings &amp; Necklace Hanging</h3>
+        <p class="card-price">₹699</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/46mQX4q" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71IGXdkvpVL._SL1500_.jpg" alt="Philips Hair Straightener Brush">
+      </div>
+      <div class="card-body">
+        <h3>Philips Hair Straightener Brush</h3>
+        <p class="card-rating">★★★★★ 4.8 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4l4g5Da" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/41aY2ihjX6L._SL1000_.jpg" alt="Bare Anatomy Anti-Dandruff Shampoo">
+      </div>
+      <div class="card-body">
+        <h3>Bare Anatomy Anti-Dandruff Shampoo</h3>
+        <p class="card-rating">★★★★★ 4.8 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4rRWc4t" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/51pruNF+rXL._SL1500_.jpg" alt="L'Oréal Paris Moisture Filling Shampoo">
+      </div>
+      <div class="card-body">
+        <h3>L'Oréal Paris Moisture Filling Shampoo</h3>
+        <p class="card-rating">★★★★★ 4.8 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4rU3FjP" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61SSD0FoULL._SL1500_.jpg" alt="Dot & Key Barrier Repair Moisturizer">
+      </div>
+      <div class="card-body">
+        <h3>Dot &amp; Key Barrier Repair Moisturizer</h3>
+        <p class="card-rating">★★★★★ 4.8 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4rd9qrm" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/51GhOWodz1L._SL1500_.jpg" alt="L'Oreal Paris Extraordinary Oil Hair Serum">
+      </div>
+      <div class="card-body">
+        <h3>L'Oréal Paris Extraordinary Oil Hair Serum</h3>
+        <p class="card-rating">★★★★★ 4.8 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4cwDACq" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/510SH5B9klL._SL1200_.jpg" alt="Soulflower Extra Virgin Coconut Hair Oil">
+      </div>
+      <div class="card-body">
+        <h3>Soulflower Extra Virgin Coconut Hair Oil</h3>
+        <p class="card-rating">★★★★★ 4.8 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4lmNoRR" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/51K4fp2XKVL._SL1000_.jpg" alt="Vaseline Daily Brightening Body Lotion">
+      </div>
+      <div class="card-body">
+        <h3>Vaseline Daily Brightening Body Lotion</h3>
+        <p class="card-rating">★★★★★ 4.8 / 5</p>
+        <p class="card-price">₹361</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4bykuet" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/515C380XTtL._SL1200_.jpg" alt="Mamaearth Rice Dewy Bright Moisturizing Cream">
+      </div>
+      <div class="card-body">
+        <h3>Mamaearth Rice Dewy Bright Light Moisturizing Cream</h3>
+        <p class="card-rating">★★★★★ 4.8 / 5</p>
+        <p class="card-price">₹149</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/3PPFfcO" target="_blank" class="direct-btn">Shop on Amazon →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">KrishBotique</p>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/__cheap_and__best__?igsh=MW5penRibjh3NDRqeg==" target="_blank">Instagram</a>
+    <a href="https://pin.it/3W3LaPO1q" target="_blank">Pinterest</a>
+    <a href="https://whatsapp.com/channel/0029Vaa1dH9JP20yRUbR7Y2H" target="_blank">WhatsApp</a>
+    <a href="https://beacons.ai/krishbotique" target="_blank">View Us</a>
+  </div>
+  <div class="footer-divider"></div>
+  <p class="footer-note">
+    As an Amazon Associate, KrishBotique earns from qualifying purchases.<br>
+    All product links are affiliate links.
   </p>
-<p class="disclaimer">
-As an Amazon Associate, KrishBotique earns from qualifying purchases.
-</p>
 </footer>
+
+<script>
+const cards = document.querySelectorAll('.card');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+cards.forEach((card, i) => {
+  card.style.animationDelay = `${i * 0.06}s`;
+  observer.observe(card);
+});
+</script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
