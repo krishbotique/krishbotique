@@ -2,374 +2,730 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Asthetic Finds – Amazon asthetic Picks | KrishBotique</title>
-<meta name="description" content="Shop trendy Asthetic from amazon curated by KrishBotique.">
+<title>Aesthetic Finds – Curated Picks | KrishBotique</title>
+<meta name="description" content="Shop handpicked aesthetic home finds curated by KrishBotique.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
-/* BASE STYLES */
+/* ============================
+   COLOR TOKENS — PREMIUM BROWN
+   ============================
+   --cream     #F7F0E8   page bg
+   --parchment #EDE0CE   sections bg
+   --sand      #D9C4A7   borders / dividers
+   --caramel   #B8895A   mid accent
+   --cognac    #8B5A2B   primary
+   --espresso  #3E1F0D   dark text / footer
+   --gold      #C9973A   highlight accent
+   --gold-lt   #F0D9A8   gold tint fills
+   --white     #FFFFFF
+*/
+:root {
+  --cream: #F7F0E8;
+  --parchment: #EDE0CE;
+  --sand: #D9C4A7;
+  --caramel: #B8895A;
+  --cognac: #8B5A2B;
+  --espresso: #3E1F0D;
+  --gold: #C9973A;
+  --gold-lt: #F0D9A8;
+  --white: #FFFFFF;
+  --text-main: #2C1810;
+  --text-mid: #6B4C35;
+  --text-muted: #9C7A5E;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg,#fdeff9,#e8f0ff);
-    scroll-behavior: smooth;
+  font-family: 'Jost', sans-serif;
+  background-color: var(--cream);
+  color: var(--text-main);
+  min-height: 100vh;
 }
 
+/* ── HEADER ── */
 header {
-    background: #fff;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--sand);
+  padding: 0 40px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 20px rgba(62,31,13,0.06);
 }
 
-header h2 {
-    margin: 0;
-    color: #333;
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--espresso);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--gold);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 nav a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: #555;
-    font-weight: bold;
-    transition: color 0.3s;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: background 0.25s, color 0.25s;
 }
 
 nav a:hover {
-    color: #ff1493;
+  background: var(--gold-lt);
+  color: var(--cognac);
 }
 
-/* PAGE TITLE */
-h2.page-title {
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    font-size: 2rem;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 1s forwards;
-}
-
-/* PRODUCTS GRID */
-.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap: 20px;
-    padding: 30px;
-}
-
-/* CARD STYLES */
-.card {
-    background: #fff;
-    border-radius: 15px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    opacity: 0;
-    transform: translateY(30px);
-    transition: transform 0.4s, box-shadow 0.4s;
-}
-
-.card img {
-    width: 100%;
-    border-radius: 10px;
-    transition: transform 0.4s;
-}
-
-.card h3 {
-    margin: 10px 0 5px;
-    font-size: 1.1rem;
-    color: #333;
-}
-
-.card p {
-    font-size: 1rem;
-    color: #666;
-}
-
-.card button {
-    background: linear-gradient(90deg,#ff1493,#ff69b4);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card button:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 20px rgba(255,20,147,0.4);
-}
-
-.card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
-}
-
-/* CARD ANIMATION */
-.card.show {
-    animation: cardFadeUp 0.6s forwards;
-}
-
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 25px;
-    background: #f8f8f8;
-    margin-top: 40px;
-    font-size: 0.9rem;
-    color: #333;
-}
-
-/* KEYFRAMES */
-@keyframes fadeUp {
-    to { opacity:1; transform: translateY(0); }
-}
-
-@keyframes cardFadeUp {
-    to { opacity:1; transform: translateY(0); }
-}
-
-/* MOBILE RESPONSIVE */
-@media(max-width:768px){
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    nav {
-        margin-top: 10px;
-    }
-    h2.page-title {
-        font-size: 1.6rem;
-    }
-    .products {
-        padding: 20px;
-        gap: 15px;
-    }
-}
-
-@media(max-width:480px){
-    h2.page-title {
-        font-size: 1.4rem;
-    }
-    .card button {
-        padding: 8px 16px;
-        font-size: 0.9rem;
-    }
-}
-    /* CATEGORY DROPDOWN */
-.dropdown {
-    display: inline-block;
-    position: relative;
-}
+/* DROPDOWN */
+.dropdown { position: relative; }
 
 .dropbtn {
-    background: none;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 14px;
-    color: #555;
-    margin-left: 10px;
+  background: none;
+  border: none;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: background 0.25s, color 0.25s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dropbtn::after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.2s;
+}
+
+.dropdown:hover .dropbtn {
+  background: var(--gold-lt);
+  color: var(--cognac);
+}
+
+.dropdown:hover .dropbtn::after {
+  transform: rotate(225deg) translateY(-2px);
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background: #fff;
-    min-width: 180px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    border-radius: 12px;
-    overflow: hidden;
-    z-index: 1000;
-    text-align: left;
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--white);
+  min-width: 190px;
+  border: 1px solid var(--sand);
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 40px rgba(62,31,13,0.12);
+  overflow: hidden;
+  z-index: 1000;
 }
 
 .dropdown-content a {
-    display: block;
-    padding: 10px 15px;
-    text-decoration: none;
-    color: #333;
-    transition: 0.3s;
+  display: block;
+  padding: 10px 18px;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--text-mid);
+  text-decoration: none;
+  border-radius: 0;
+  transition: background 0.2s, color 0.2s, padding-left 0.2s;
 }
 
 .dropdown-content a:hover {
-    background: #fdeff9;
-    color: #ff1493;
+  background: var(--gold-lt);
+  color: var(--cognac);
+  padding-left: 24px;
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
+.dropdown:hover .dropdown-content { display: block; }
+
+/* ── HERO BANNER ── */
+.hero {
+  background: var(--parchment);
+  border-bottom: 1px solid var(--sand);
+  padding: 64px 40px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 20% 50%, rgba(201,151,58,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 80% 50%, rgba(139,90,43,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.1s forwards;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 300;
+  color: var(--espresso);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.25s forwards;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--cognac);
+}
+
+.hero-sub {
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: var(--text-mid);
+  letter-spacing: 0.04em;
+  max-width: 440px;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.4s forwards;
+}
+
+.hero-divider {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 22px auto 0;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.55s forwards;
+}
+
+/* ── PRODUCT GRID ── */
+.grid-section {
+  padding: 48px 40px 64px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* ── CARD ── */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--sand);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: transform 0.38s ease, box-shadow 0.38s ease, border-color 0.38s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 48px rgba(62,31,13,0.13);
+  border-color: var(--caramel);
+}
+
+.card-img-wrap {
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background: var(--parchment);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.card:hover img {
+  transform: scale(1.06);
+}
+
+.card-body {
+  padding: 18px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--espresso);
+}
+
+.card-price {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--cognac);
+  letter-spacing: 0.02em;
+}
+
+.card-footer {
+  padding: 0 18px 18px;
+}
+
+.card a {
+  display: block;
+  text-decoration: none;
+}
+
+.card button {
+  width: 100%;
+  background: var(--espresso);
+  border: 1px solid var(--espresso);
+  padding: 11px 0;
+  border-radius: var(--radius-sm);
+  color: var(--gold-lt);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card button::after {
+  content: '→';
+  margin-left: 8px;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.card:hover button {
+  background: var(--cognac);
+  border-color: var(--cognac);
+}
+
+.card button:hover {
+  transform: translateY(-1px);
+}
+
+.card button:hover::after {
+  transform: translateX(4px);
+}
+
+/* CARD SHOW ANIMATION */
+.card.show {
+  animation: cardFadeUp 0.55s forwards;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--espresso);
+  color: var(--sand);
+  padding: 40px 40px 32px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: var(--gold-lt);
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px 2px;
+  margin-bottom: 24px;
+}
+
+.footer-links a {
+  color: var(--sand);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 1px solid rgba(217,196,167,0.25);
+  border-radius: 20px;
+  transition: border-color 0.25s, color 0.25s;
+}
+
+.footer-links a:hover {
+  color: var(--gold-lt);
+  border-color: var(--gold);
+}
+
+.footer-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--caramel);
+  margin: 0 auto 20px;
+  opacity: 0.5;
+}
+
+.footer-note {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cardFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  header { padding: 0 20px; }
+
+  .logo { font-size: 1.3rem; }
+
+  nav a, .dropbtn { font-size: 0.75rem; padding: 5px 10px; }
+
+  .hero { padding: 48px 24px 40px; }
+
+  .grid-section { padding: 36px 20px 48px; }
+
+  .products { gap: 16px; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2rem; }
+
+  .products { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+
+  .card-body { padding: 12px 12px 10px; }
+  .card-footer { padding: 0 12px 14px; }
+
+  .card h3 { font-size: 0.9rem; }
+
+  .card button { font-size: 0.72rem; padding: 9px 0; }
+
+  footer { padding: 32px 20px 24px; }
 }
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
-<h2>KrishBotique</h2>
-<nav>
+  <a href="index.html" class="logo">Krish<span>Botique</span></a>
+  <nav>
     <a href="index.html">Home</a>
-
     <div class="dropdown">
-        <button class="dropbtn">Categories ▾</button>
-        <div class="dropdown-content">
-            <a href="dresses.html">Dresses</a>
-            <a href="men-clothing.html">Men</a>
-            <a href="jewellery.html">Jewellery</a>
-            <a href="beauty.html">Beauty</a>
-            <a href="kitchen.html">Kitchen</a>
-            <a href="home-decor.html">Home Decor</a>
-            <a href="baby.html">Baby</a>
-            <a href="valentine.html">Valentine</a>
-            <a href="stationery.html">Stationery</a>
-            <a href="asthetic.html">Aesthetic</a>
-        </div>
+      <button class="dropbtn">Categories</button>
+      <div class="dropdown-content">
+        <a href="dresses.html">Dresses</a>
+        <a href="men-clothing.html">Men</a>
+        <a href="jewellery.html">Jewellery</a>
+        <a href="beauty.html">Beauty</a>
+        <a href="kitchen.html">Kitchen</a>
+        <a href="home-decor.html">Home Decor</a>
+        <a href="baby.html">Baby</a>
+        <a href="valentine.html">Valentine</a>
+        <a href="stationery.html">Stationery</a>
+        <a href="asthetic.html">Aesthetic</a>
+      </div>
     </div>
-</nav>
+  </nav>
 </header>
 
-<h2 class="page-title">Asthetic finds</h2>
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Curated Collection</p>
+  <h1>Aesthetic <em>Finds</em></h1>
+  <p class="hero-sub">Objects that make a room feel intentional — handpicked from Amazon's best.</p>
+  <div class="hero-divider"></div>
+</section>
 
-<div class="products">
+<!-- PRODUCTS -->
+<section class="grid-section">
+  <div class="products">
 
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/71lb9rCOCAL._SL1500_.jpg" alt="dream catcher">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71lb9rCOCAL._SL1500_.jpg" alt="Handcrafted Dream Catcher">
+      </div>
+      <div class="card-body">
         <h3>Handcrafted Dream Catcher for Bedroom</h3>
-        <p>₹378</p>
+        <p class="card-price">₹378</p>
+      </div>
+      <div class="card-footer">
         <a href="https://amzn.to/4u3fRjs" target="_blank"><button>View on Amazon</button></a>
+      </div>
     </div>
 
-     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/518rTgWPS+L._SL1075_.jpg" alt="flower vase">
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/518rTgWPS+L._SL1075_.jpg" alt="Ceramic Donut Vase">
+      </div>
+      <div class="card-body">
         <h3>Ceramic Donut Vase</h3>
-        <p>₹199</p>
+        <p class="card-price">₹199</p>
+      </div>
+      <div class="card-footer">
         <a href="https://amzn.to/3OW1QE9" target="_blank"><button>View on Amazon</button></a>
+      </div>
     </div>
 
- <div class="card">
-        <img src="https://m.media-amazon.com/images/I/51DlF3vcLGL.jpg" alt="Flower throw pillow">
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/51DlF3vcLGL.jpg" alt="Cute Sunflower Shaped Throw Pillows">
+      </div>
+      <div class="card-body">
         <h3>Cute Sunflower Shaped Throw Pillows</h3>
-        <p>₹499</p>
+        <p class="card-price">₹499</p>
+      </div>
+      <div class="card-footer">
         <a href="https://amzn.to/47nric3" target="_blank"><button>View on Amazon</button></a>
+      </div>
     </div>
-    
+
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/61UbKMHF-VL._SL1500_.jpg" alt="Tree light">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61UbKMHF-VL._SL1500_.jpg" alt="Tree Light for Room Decor">
+      </div>
+      <div class="card-body">
         <h3>Tree Light for Room Decor</h3>
-        <p>₹699</p>
+        <p class="card-price">₹699</p>
+      </div>
+      <div class="card-footer">
         <a href="https://amzn.to/4slvb9C" target="_blank"><button>View on Amazon</button></a>
+      </div>
     </div>
 
-
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/61-26dUF7kL._SL1500_.jpg" alt="enjoy the little things">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61-26dUF7kL._SL1500_.jpg" alt="Enjoy The Little Things">
+      </div>
+      <div class="card-body">
         <h3>Enjoy The Little Things</h3>
-        <p>₹599</p>
+        <p class="card-price">₹599</p>
+      </div>
+      <div class="card-footer">
         <a href="https://amzn.to/4l66eww" target="_blank"><button>View on Amazon</button></a>
+      </div>
     </div>
 
-
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/71SxFeCaQnL._SL1500_.jpg" alt="Flower mat">
-        <h3>Little Flower Super Soft Anti Skid  Super Absorbent Mats</h3>
-        <p>₹349</p>
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71SxFeCaQnL._SL1500_.jpg" alt="Little Flower Anti-Skid Mat">
+      </div>
+      <div class="card-body">
+        <h3>Little Flower Super Soft Anti-Skid Absorbent Mat</h3>
+        <p class="card-price">₹349</p>
+      </div>
+      <div class="card-footer">
         <a href="https://amzn.to/4tTpqS5" target="_blank"><button>View on Amazon</button></a>
+      </div>
     </div>
 
-
-     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/51rMDgTRIkL._SL1500_.jpg" alt="3 pillow">
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/51rMDgTRIkL._SL1500_.jpg" alt="Cloud Moon Star Cot Cushion">
+      </div>
+      <div class="card-body">
         <h3>Cute Cloud Moon Star Cot Cushion with Crown</h3>
-        <p>₹649</p>
+        <p class="card-price">₹649</p>
+      </div>
+      <div class="card-footer">
         <a href="https://amzn.to/403KfN9" target="_blank"><button>View on Amazon</button></a>
+      </div>
     </div>
 
-    
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/71yS-U+MRkL._SL1500_.jpg" alt="Hexogen mirror">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71yS-U+MRkL._SL1500_.jpg" alt="Hexagon Golden Wall Mirror Stickers">
+      </div>
+      <div class="card-body">
         <h3>Hexagon 20 Golden Stickers for Wall, Hexagon Mirror</h3>
-        <p>₹229</p>
+        <p class="card-price">₹229</p>
+      </div>
+      <div class="card-footer">
         <a href="https://amzn.to/4r4bq5y" target="_blank"><button>View on Amazon</button></a>
+      </div>
     </div>
-  
-  <div class="card">
-        <img src="https://m.media-amazon.com/images/I/41+OHgM+NJL.jpg" alt="Flower mirror">
-        <h3>Flower-Shaped Makeup Mirror, Rotatable Makeup Mirror with Tray Table Vanity Mirror</h3>
-        <p>₹249</p>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/41+OHgM+NJL.jpg" alt="Flower-Shaped Makeup Mirror">
+      </div>
+      <div class="card-body">
+        <h3>Flower-Shaped Rotatable Makeup Mirror with Vanity Tray</h3>
+        <p class="card-price">₹249</p>
+      </div>
+      <div class="card-footer">
         <a href="https://amzn.to/4s6EqKI" target="_blank"><button>View on Amazon</button></a>
+      </div>
     </div>
 
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/61Qlj88qnfL._SL1242_.jpg" alt="asthetic planner">
-        <h3>Desk Calendar 2026 Planner and Organizer- B5 Size</h3>
-        <p>₹209</p>
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61Qlj88qnfL._SL1242_.jpg" alt="Desk Calendar 2026 Planner">
+      </div>
+      <div class="card-body">
+        <h3>Desk Calendar 2026 Planner and Organizer — B5 Size</h3>
+        <p class="card-price">₹209</p>
+      </div>
+      <div class="card-footer">
         <a href="https://amzn.to/3OZ7s0n" target="_blank"><button>View on Amazon</button></a>
+      </div>
     </div>
 
-
-
-
-
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/81WuKlal7GL._SL1500_.jpg" alt="Hexogen mirror">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/81WuKlal7GL._SL1500_.jpg" alt="Vintage Aesthetic Scrapbook Kit">
+      </div>
+      <div class="card-body">
         <h3>Vintage Aesthetic Scrapbook Kit, 346 Pcs</h3>
-        <p>₹369</p>
+        <p class="card-price">₹369</p>
+      </div>
+      <div class="card-footer">
         <a href="https://amzn.to/4u4y4NK" target="_blank"><button>View on Amazon</button></a>
+      </div>
     </div>
 
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/61EWlHZRcdL._SL1300_.jpg" alt="Hexogen mirror">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61EWlHZRcdL._SL1300_.jpg" alt="Table Photo Frame Set of 2">
+      </div>
+      <div class="card-body">
         <h3>Table Photo Frame Set of 2</h3>
-        <p>₹299</p>
+        <p class="card-price">₹299</p>
+      </div>
+      <div class="card-footer">
         <a href="https://amzn.to/46UMcPR" target="_blank"><button>View on Amazon</button></a>
+      </div>
     </div>
 
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/51mIBQ2z4BL._SL1243_.jpg" alt="Hexogen mirror">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/51mIBQ2z4BL._SL1243_.jpg" alt="Transparent Cosmetic Jewelry Box">
+      </div>
+      <div class="card-body">
         <h3>Transparent Cosmetic Jewelry Box</h3>
-        <p>₹325</p>
+        <p class="card-price">₹325</p>
+      </div>
+      <div class="card-footer">
         <a href="https://amzn.to/4bh2Efv" target="_blank"><button>View on Amazon</button></a>
+      </div>
     </div>
 
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/51HuxJ+gA3L._SL1500_.jpg" alt="Hexogen mirror">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/51HuxJ+gA3L._SL1500_.jpg" alt="Astronaut Planet 3D Coffee Mug">
+      </div>
+      <div class="card-body">
         <h3>Astronaut Planet Coffee Mug with 3D Creative Space</h3>
-        <p>₹510</p>
+        <p class="card-price">₹510</p>
+      </div>
+      <div class="card-footer">
         <a href="https://amzn.to/3MYm3IP" target="_blank"><button>View on Amazon</button></a>
+      </div>
     </div>
-</div>
 
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-        <p>
-    Follow us:
-    <a href="https://www.instagram.com/__cheap_and__best__?igsh=MW5penRibjh3NDRqeg==" target="_blank">Instagram</a> |
-    <a href="https://pin.it/3W3LaPO1q" target="_blank">Pinterest</a> |
-     <a href="https://whatsapp.com/channel/0029Vaa1dH9JP20yRUbR7Y2H" target="_blank">Whatsapp</a> |
-     <a href="https://beacons.ai/krishbotique "  target="_blank">view us </a>
+  <p class="footer-logo">KrishBotique</p>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/__cheap_and__best__?igsh=MW5penRibjh3NDRqeg==" target="_blank">Instagram</a>
+    <a href="https://pin.it/3W3LaPO1q" target="_blank">Pinterest</a>
+    <a href="https://whatsapp.com/channel/0029Vaa1dH9JP20yRUbR7Y2H" target="_blank">WhatsApp</a>
+    <a href="https://beacons.ai/krishbotique" target="_blank">View Us</a>
+  </div>
+  <div class="footer-divider"></div>
+  <p class="footer-note">
+    As an Amazon Associate, KrishBotique earns from qualifying purchases.<br>
+    All product links are affiliate links.
   </p>
-<p>As an Amazon Associate, KrishBotique earns from qualifying purchases.</p>
 </footer>
 
 <script>
-// Scroll reveal animation for cards
+// Staggered scroll-reveal for cards
 const cards = document.querySelectorAll('.card');
 const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add('show');
-        }
-    });
-},{threshold: 0.2});
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
 
-cards.forEach((card, index) => {
-    observer.observe(card);
-    card.style.animationDelay = `${index*0.15}s`; // staggered animation
+cards.forEach((card, i) => {
+  card.style.animationDelay = `${i * 0.08}s`;
+  observer.observe(card);
 });
 </script>
 
 </body>
 </html>
-
