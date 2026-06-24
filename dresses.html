@@ -1,297 +1,698 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Women Dresses – Amazon Fashion Picks | KrishBotique</title>
+<meta charset="UTF-8">
+<title>Women Dresses – Amazon Fashion Picks | KrishBotique</title>
+<meta name="description" content="Shop trendy women dresses from Amazon. Curated floral, party wear and casual dresses handpicked by KrishBotique.">
+<meta name="keywords" content="women dresses amazon, floral dress india, party wear dress amazon, fashion finds">
+<meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <meta name="description" content="Shop trendy women dresses from Amazon. Curated floral, party wear and casual dresses handpicked by KrishBotique.">
-  <meta name="keywords" content="women dresses amazon, floral dress india, party wear dress amazon, fashion finds">
-  <meta name="robots" content="index, follow">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root {
+  --cream: #F7F0E8;
+  --parchment: #EDE0CE;
+  --sand: #D9C4A7;
+  --caramel: #B8895A;
+  --cognac: #8B5A2B;
+  --espresso: #3E1F0D;
+  --gold: #C9973A;
+  --gold-lt: #F0D9A8;
+  --white: #FFFFFF;
+  --text-main: #2C1810;
+  --text-mid: #6B4C35;
+  --text-muted: #9C7A5E;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+}
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #fdeff9, #e8f0ff);
-      color: #333;
-    }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 
-    header {
-      background: #ffffffcc;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
+body {
+  font-family: 'Jost', sans-serif;
+  background-color: var(--cream);
+  color: var(--text-main);
+  min-height: 100vh;
+}
 
-    header h1 {
-      margin: 0;
-      color: #d63384;
-    }
+/* ── HEADER ── */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--sand);
+  padding: 0 40px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 20px rgba(62,31,13,0.06);
+}
 
-    nav a {
-      margin-left: 15px;
-      text-decoration: none;
-      color: #555;
-      font-weight: bold;
-    }
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--espresso);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
 
-    nav a:hover {
-      color: #d63384;
-    }
+.logo span { color: var(--gold); }
 
-    .container {
-      padding: 40px;
-      max-width: 1200px;
-      margin: auto;
-    }
+nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
 
-    .container h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #444;
-    }
+nav a {
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: background 0.25s, color 0.25s;
+}
 
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-    }
+nav a:hover {
+  background: var(--gold-lt);
+  color: var(--cognac);
+}
 
-    .product-card {
-      background: white;
-      border-radius: 15px;
-      padding: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      text-align: center;
-      transition: transform 0.3s;
-    }
+/* ── DROPDOWN ── */
+.dropdown { position: relative; }
 
-    .product-card:hover {
-      transform: translateY(-5px);
-    }
+.dropbtn {
+  background: none;
+  border: none;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: background 0.25s, color 0.25s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 
-    .product-card img {
-      width: 100%;
-      border-radius: 10px;
-    }
+.dropbtn::after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.2s;
+}
 
-    .product-card h3 {
-      font-size: 18px;
-      margin: 10px 0;
-    }
+.dropdown:hover .dropbtn {
+  background: var(--gold-lt);
+  color: var(--cognac);
+}
 
-    .price {
-      font-size: 18px;
-      font-weight: bold;
-      color: #28a745;
-      margin: 5px 0;
-    }
+.dropdown:hover .dropbtn::after {
+  transform: rotate(225deg) translateY(-2px);
+}
 
-    .product-card button {
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      border: none;
-      padding: 10px 20px;
-      border-radius: 25px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--white);
+  min-width: 190px;
+  border: 1px solid var(--sand);
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 40px rgba(62,31,13,0.12);
+  overflow: hidden;
+  z-index: 1000;
+}
 
-    .product-card button:hover {
-      opacity: 0.85;
-    }
+.dropdown-content a {
+  display: block;
+  padding: 10px 18px;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--text-mid);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, padding-left 0.2s;
+}
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #ffffffcc;
-      margin-top: 40px;
-      font-size: 14px;
-    }
+.dropdown-content a:hover {
+  background: var(--gold-lt);
+  color: var(--cognac);
+  padding-left: 24px;
+}
 
-    footer a {
-      text-decoration: none;
-      color: #d63384;
-      margin: 0 8px;
-    }
-  </style>
+.dropdown:hover .dropdown-content { display: block; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--parchment);
+  border-bottom: 1px solid var(--sand);
+  padding: 64px 40px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 15% 50%, rgba(201,151,58,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 85% 50%, rgba(139,90,43,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.1s forwards;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 300;
+  color: var(--espresso);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.25s forwards;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--cognac);
+}
+
+.hero-sub {
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: var(--text-mid);
+  letter-spacing: 0.04em;
+  max-width: 460px;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.4s forwards;
+}
+
+.hero-divider {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 22px auto 0;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.55s forwards;
+}
+
+/* ── SECTION ── */
+.grid-section {
+  padding: 56px 40px 16px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+.section-header::before,
+.section-header::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sand));
+}
+
+.section-header::after {
+  background: linear-gradient(90deg, var(--sand), transparent);
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--espresso);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--cognac);
+}
+
+/* ── PRODUCTS GRID ── */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  margin-bottom: 56px;
+}
+
+/* ── CARD ── */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--sand);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: transform 0.38s ease, box-shadow 0.38s ease, border-color 0.38s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 48px rgba(62,31,13,0.13);
+  border-color: var(--caramel);
+}
+
+.card-img-wrap {
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: var(--parchment);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.card:hover img { transform: scale(1.06); }
+
+.card-body {
+  padding: 16px 18px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  flex: 1;
+}
+
+.card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--espresso);
+}
+
+.card-price {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--cognac);
+  letter-spacing: 0.02em;
+}
+
+.card-footer {
+  padding: 0 18px 18px;
+}
+
+.card a { display: block; text-decoration: none; }
+
+.card button {
+  width: 100%;
+  background: var(--espresso);
+  border: 1px solid var(--espresso);
+  padding: 11px 0;
+  border-radius: var(--radius-sm);
+  color: var(--gold-lt);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, transform 0.2s;
+}
+
+.card button::after {
+  content: ' →';
+  display: inline;
+  transition: transform 0.2s;
+}
+
+.card:hover button { background: var(--cognac); border-color: var(--cognac); }
+.card button:hover { transform: translateY(-1px); }
+
+/* SHOW ANIMATION */
+.card.show { animation: cardFadeUp 0.55s forwards; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--espresso);
+  color: var(--sand);
+  padding: 40px 40px 32px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: var(--gold-lt);
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.footer-links a {
+  color: var(--sand);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 1px solid rgba(217,196,167,0.25);
+  border-radius: 20px;
+  transition: border-color 0.25s, color 0.25s;
+}
+
+.footer-links a:hover {
+  color: var(--gold-lt);
+  border-color: var(--gold);
+}
+
+.footer-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--caramel);
+  margin: 0 auto 20px;
+  opacity: 0.5;
+}
+
+.footer-note {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cardFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  header { padding: 0 20px; }
+  .hero { padding: 48px 24px 40px; }
+  .grid-section { padding: 40px 20px 8px; }
+  .products { gap: 16px; }
+  .section-title { font-size: 1.3rem; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2rem; }
+  .products { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 12px; }
+  .card-body { padding: 12px 12px 8px; }
+  .card-footer { padding: 0 12px 14px; }
+  .card h3 { font-size: 0.9rem; }
+  .card button { font-size: 0.72rem; padding: 9px 0; }
+  footer { padding: 32px 20px 24px; }
+}
+</style>
 </head>
-
 <body>
 
+<!-- HEADER -->
 <header>
-  <h1>KrishBotique</h1>
+  <a href="index.html" class="logo">Krish<span>Botique</span></a>
   <nav>
     <a href="index.html">Home</a>
-    <a href="jewellery.html">Jewelry</a>
-    <a href="asthetic.html">Asthetic</a>
-    <a href="kitchen.html">kitchen</a>
-    <a href="beauty.html">Beauty</a>
+    <div class="dropdown">
+      <button class="dropbtn">Categories</button>
+      <div class="dropdown-content">
+        <a href="dresses.html">Dresses</a>
+        <a href="men-clothing.html">Men</a>
+        <a href="jewellery.html">Jewellery</a>
+        <a href="beauty.html">Beauty</a>
+        <a href="kitchen.html">Kitchen</a>
+        <a href="home-decor.html">Home Decor</a>
+        <a href="baby.html">Baby</a>
+        <a href="valentine.html">Valentine</a>
+        <a href="stationery.html">Stationery</a>
+        <a href="asthetic.html">Aesthetic</a>
+      </div>
+    </div>
   </nav>
 </header>
 
-<div class="container">
-  <h2>✨ Trendy Dresses for Women ✨</h2>
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Women's Collection</p>
+  <h1>Dresses &amp; <em>Fashion Finds</em></h1>
+  <p class="hero-sub">Floral, festive, and everyday — curated picks that feel effortlessly put-together.</p>
+  <div class="hero-divider"></div>
+</section>
+
+<!-- SECTION 1: TRENDY DRESSES -->
+<section class="grid-section">
+  <div class="section-header">
+    <h2 class="section-title">Trendy <em>Dresses</em></h2>
+  </div>
 
   <div class="products">
 
-    <!-- PRODUCT 1 -->
-    <div class="product-card">
-      <img src="https://m.media-amazon.com/images/I/71HCasJaacL._SY741_.jpg" alt="Floral Maxi Dress for Women">
-      <h3>Floral Maxi Dress</h3>
-      <p class="price">₹1,599</p>
-      <a href="https://amzn.to/4ceYB4o" target="_blank">
-        <button>View on Amazon</button>
-      </a>
-    </div>
-
-
-     <!-- PRODUCT 1 -->
-    <div class="product-card">
-      <img src="https://m.media-amazon.com/images/I/6104h7x0eUL._SX569_.jpg" alt="red co-ord">
-      <h3> Co-ord Set for Women Stylish</h3>
-      <p class="price">₹599</p>
-      <a href="https://amzn.to/3MHNHdg" target="_blank">
-        <button>View on Amazon</button>
-      </a>
-    </div>
-
-    <!-- PRODUCT 2 -->
-    <div class="product-card">
-      <img src="https://m.media-amazon.com/images/I/61kEVKPdeJL._SY741_.jpg" alt="shapewear Bodycon Dress">
-      <h3>shapewear Bodycon Dress</h3>
-      <p class="price">₹259</p>
-      <a href="https://amzn.to/4se4HXH" target="_blank">
-        <button>View on Amazon</button>
-      </a>
-    </div>
-
-    
-    <div class="product-card">
-      <img src="https://m.media-amazon.com/images/I/719hlNDXZ5L._SX569_.jpg" alt="Anarkali Printed Kurta with Palazzo & Dupatta">
-      <h3>Anarkali Printed Kurta with Palazzo & Dupatta</h3>
-      <p class="price">₹779</p>
-      <a href="https://amzn.to/4rDMToG" target="_blank">
-        <button>View on Amazon</button>
-      </a>
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71HCasJaacL._SY741_.jpg" alt="Floral Maxi Dress for Women">
       </div>
-<div class="product-card">
-      <img src="https://m.media-amazon.com/images/I/81271aov+AL._SY741_.jpg" alt="Maroon Poly Crepe Straight Kurta with Pant and Dupatta">
-      <h3>Maroon Poly Crepe Straight Kurta with Pant and Dupatta</h3>
-      <p class="price">₹829</p>
-      <a href="https://amzn.to/4sc8Db4" target="_blank">
-        <button>View on Amazon</button>
-      </a>
+      <div class="card-body">
+        <h3>Floral Maxi Dress</h3>
+        <p class="card-price">₹1,599</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4ceYB4o" target="_blank"><button>View on Amazon</button></a>
+      </div>
     </div>
 
-
-    <!-- PRODUCT 1 -->
-    <div class="product-card">
-      <img src="https://m.media-amazon.com/images/I/51wNzje3v3L._SY741_.jpg" alt="Floral Maxi Dress for Women">
-      <h3>Rainbow saree</h3>
-      <p class="price">₹529</p>
-      <a href="https://amzn.to/4rbgEw1" target="_blank">
-        <button>View on Amazon</button>
-      </a>
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/6104h7x0eUL._SX569_.jpg" alt="Co-ord Set for Women">
+      </div>
+      <div class="card-body">
+        <h3>Co-ord Set for Women Stylish</h3>
+        <p class="card-price">₹599</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/3MHNHdg" target="_blank"><button>View on Amazon</button></a>
+      </div>
     </div>
-      
-    <!-- PRODUCT 3 -->
-    <div class="product-card">
-      <img src="https://m.media-amazon.com/images/I/617fpstijES._SY741_.jpg" alt=" Kurta with Pant and Dupatta">
-      <h3> Pure Cotton Solid Straight Kurta Palazzo </h3>
-      <p class="price">₹549</p>
-      <a href="https://amzn.to/4cpV6Iv" target="_blank">
-        <button>View on Amazon</button>
-      </a>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61kEVKPdeJL._SY741_.jpg" alt="Shapewear Bodycon Dress">
+      </div>
+      <div class="card-body">
+        <h3>Shapewear Bodycon Dress</h3>
+        <p class="card-price">₹259</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4se4HXH" target="_blank"><button>View on Amazon</button></a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/719hlNDXZ5L._SX569_.jpg" alt="Anarkali Printed Kurta with Palazzo & Dupatta">
+      </div>
+      <div class="card-body">
+        <h3>Anarkali Printed Kurta with Palazzo &amp; Dupatta</h3>
+        <p class="card-price">₹779</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4rDMToG" target="_blank"><button>View on Amazon</button></a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/81271aov+AL._SY741_.jpg" alt="Maroon Poly Crepe Straight Kurta with Pant and Dupatta">
+      </div>
+      <div class="card-body">
+        <h3>Maroon Poly Crepe Straight Kurta with Pant and Dupatta</h3>
+        <p class="card-price">₹829</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4sc8Db4" target="_blank"><button>View on Amazon</button></a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/51wNzje3v3L._SY741_.jpg" alt="Rainbow Saree">
+      </div>
+      <div class="card-body">
+        <h3>Rainbow Saree</h3>
+        <p class="card-price">₹529</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4rbgEw1" target="_blank"><button>View on Amazon</button></a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/617fpstijES._SY741_.jpg" alt="Pure Cotton Solid Straight Kurta Palazzo">
+      </div>
+      <div class="card-body">
+        <h3>Pure Cotton Solid Straight Kurta Palazzo</h3>
+        <p class="card-price">₹549</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4cpV6Iv" target="_blank"><button>View on Amazon</button></a>
+      </div>
     </div>
 
   </div>
-</div>
+</section>
 
-
-
-
-
-  <div class="container">
-  <h2>✨EID Special Dresses for Women ✨</h2>
+<!-- SECTION 2: EID SPECIAL -->
+<section class="grid-section">
+  <div class="section-header">
+    <h2 class="section-title">Eid <em>Special</em></h2>
+  </div>
 
   <div class="products">
 
-    <!-- PRODUCT 1 -->
-    <div class="product-card">
-      <img src="https://m.media-amazon.com/images/I/71dNIIMX1HL._SY741_.jpg" alt=" Georgette Semi-Stitched Top With Stitched Bottom and Dupatta Embroidered Straight Kurta Dress Material">
-      <h3>Georgette Semi-Stitched Top With Stitched Bottom and Dupatta Embroidered Straight Kurta Dress Material</h3>
-      <p class="price">₹2239</p>
-      <a href="https://amzn.to/4l8oDbZ" target="_blank">
-        <button>View on Amazon</button>
-      </a>
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71dNIIMX1HL._SY741_.jpg" alt="Georgette Semi-Stitched Embroidered Kurta Dress Material">
+      </div>
+      <div class="card-body">
+        <h3>Georgette Semi-Stitched Embroidered Straight Kurta with Dupatta</h3>
+        <p class="card-price">₹2,239</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4l8oDbZ" target="_blank"><button>View on Amazon</button></a>
+      </div>
     </div>
 
-    <!-- PRODUCT 2 -->
-    <div class="product-card">
-      <img src="https://m.media-amazon.com/images/I/61TXTvZ1fNL._SY741_.jpg" alt="Silk with Embroidered Top, Sharara & Dupatta">
-      <h3>Silk with Embroidered Top, Sharara & Dupatta</h3>
-      <p class="price">₹1899</p>
-      <a href="https://amzn.to/4cXe7SG" target="_blank">
-        <button>View on Amazon</button>
-      </a>
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61TXTvZ1fNL._SY741_.jpg" alt="Silk Embroidered Top, Sharara & Dupatta">
+      </div>
+      <div class="card-body">
+        <h3>Silk with Embroidered Top, Sharara &amp; Dupatta</h3>
+        <p class="card-price">₹1,899</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4cXe7SG" target="_blank"><button>View on Amazon</button></a>
+      </div>
     </div>
 
-
-  
-    <!-- PRODUCT 3 -->
-      <div class="product-card">
-      <img src="https://m.media-amazon.com/images/I/61FPmj3vrdL._SY741_.jpg" alt="Strip Chinon Heavy Embroidered Stitched Sharara">
-      <h3>Strip Chinon Heavy Embroidered Stitched Sharara</h3>
-      <p class="price">₹2499</p>
-      <a href="https://amzn.to/4sescQg" target="_blank">
-        <button>View on Amazon</button>
-      </a>
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61FPmj3vrdL._SY741_.jpg" alt="Strip Chinon Heavy Embroidered Stitched Sharara">
+      </div>
+      <div class="card-body">
+        <h3>Strip Chinon Heavy Embroidered Stitched Sharara</h3>
+        <p class="card-price">₹2,499</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4sescQg" target="_blank"><button>View on Amazon</button></a>
+      </div>
     </div>
 
-     <!-- PRODUCT 4 -->
-      <div class="product-card">
-      <img src="https://m.media-amazon.com/images/I/71-MX+XvjHL._SY741_.jpg" alt="Santoon Bottom and Net Dupatta Solid Flared Top Dress Material">
-      <h3>Santoon Bottom and Net Dupatta Solid Flared Top Dress Material</h3>
-      <p class="price">₹2499</p>
-      <a href="https://amzn.to/3OACeNa" target="_blank">
-        <button>View on Amazon</button>
-      </a>
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71-MX+XvjHL._SY741_.jpg" alt="Santoon Bottom and Net Dupatta Solid Flared Top">
+      </div>
+      <div class="card-body">
+        <h3>Santoon Bottom and Net Dupatta Solid Flared Top Dress Material</h3>
+        <p class="card-price">₹2,499</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/3OACeNa" target="_blank"><button>View on Amazon</button></a>
+      </div>
     </div>
-  
-    
 
   </div>
-</div>
+</section>
 
+<!-- FOOTER -->
 <footer>
-  <p>As an Amazon Associate, KrishBotique earns from qualifying purchases.</p>
-  <p>
-    <a href="privacy.html">Privacy Policy</a> |
-    <a href="disclaimer.html">Disclaimer</a> |
+  <p class="footer-logo">KrishBotique</p>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/__cheap_and__best__?igsh=MW5penRibjh3NDRqeg==" target="_blank">Instagram</a>
+    <a href="https://pin.it/3W3LaPO1q" target="_blank">Pinterest</a>
+    <a href="https://whatsapp.com/channel/0029Vaa1dH9JP20yRUbR7Y2H" target="_blank">WhatsApp</a>
+    <a href="https://beacons.ai/krishbotique" target="_blank">View Us</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="disclaimer.html">Disclaimer</a>
     <a href="contact.html">Contact</a>
-  </p>
-     <p>
-    Follow us:
-    <a href="https://www.instagram.com/__cheap_and__best__?igsh=MW5penRibjh3NDRqeg==" target="_blank">Instagram</a> |
-    <a href="https://pin.it/3W3LaPO1q" target="_blank">Pinterest</a> |
-     <a href="https://whatsapp.com/channel/0029Vaa1dH9JP20yRUbR7Y2H" target="_blank">Whatsapp</a> |
-     <a href="https://beacons.ai/krishbotique "  target="_blank">view us </a>
+  </div>
+  <div class="footer-divider"></div>
+  <p class="footer-note">
+    As an Amazon Associate, KrishBotique earns from qualifying purchases.<br>
+    All product links are affiliate links.
   </p>
 </footer>
 
+<script>
+const cards = document.querySelectorAll('.card');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+cards.forEach((card, i) => {
+  card.style.animationDelay = `${i * 0.07}s`;
+  observer.observe(card);
+});
+</script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
