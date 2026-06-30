@@ -1,290 +1,709 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
 <title>Baby & Maternity – Amazon Picks | KrishBotique</title>
+<meta name="description" content="Best-selling baby care, maternity support, diapers, wipes and pregnancy essentials, curated by KrishBotique.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-
-/* BODY */
-body{
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background:#fff6fb;
-  margin:0;
+:root {
+  --cream: #F7F0E8;
+  --parchment: #EDE0CE;
+  --sand: #D9C4A7;
+  --caramel: #B8895A;
+  --cognac: #8B5A2B;
+  --espresso: #3E1F0D;
+  --gold: #C9973A;
+  --gold-lt: #F0D9A8;
+  --white: #FFFFFF;
+  --text-main: #2C1810;
+  --text-mid: #6B4C35;
+  --text-muted: #9C7A5E;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
 }
 
-/* PAGE TITLE */
-.page-title{
-  text-align:center;
-  padding:30px 15px 10px;
-  font-size:26px;
-  color:#e75480;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background-color: var(--cream);
+  color: var(--text-main);
+  min-height: 100vh;
 }
 
-.page-desc{
-  text-align:center;
-  max-width:900px;
-  margin:auto;
-  padding:0 20px 20px;
-  color:#555;
-  font-size:14px;
+/* ── HEADER ── */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--sand);
+  padding: 0 40px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 20px rgba(62,31,13,0.06);
 }
 
-/* GRID LAYOUT */
-.product-grid{
-  display:grid;
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--espresso);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.logo span { color: var(--gold); }
+
+nav { display: flex; align-items: center; gap: 4px; }
+
+nav a {
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: background 0.25s, color 0.25s;
+}
+
+nav a:hover { background: var(--gold-lt); color: var(--cognac); }
+
+/* ── DROPDOWN ── */
+.dropdown { position: relative; }
+
+.dropbtn {
+  background: none;
+  border: none;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: background 0.25s, color 0.25s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dropbtn::after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.2s;
+}
+
+.dropdown:hover .dropbtn { background: var(--gold-lt); color: var(--cognac); }
+.dropdown:hover .dropbtn::after { transform: rotate(225deg) translateY(-2px); }
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--white);
+  min-width: 190px;
+  border: 1px solid var(--sand);
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 40px rgba(62,31,13,0.12);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 18px;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--text-mid);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, padding-left 0.2s;
+}
+
+.dropdown-content a:hover { background: var(--gold-lt); color: var(--cognac); padding-left: 24px; }
+.dropdown:hover .dropdown-content { display: block; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--parchment);
+  border-bottom: 1px solid var(--sand);
+  padding: 64px 40px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 15% 50%, rgba(201,151,58,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 85% 50%, rgba(139,90,43,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.1s forwards;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 300;
+  color: var(--espresso);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.25s forwards;
+}
+
+.hero h1 em { font-style: italic; color: var(--cognac); }
+
+.hero-sub {
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: var(--text-mid);
+  letter-spacing: 0.04em;
+  max-width: 520px;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.4s forwards;
+}
+
+.hero-divider {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 22px auto 0;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.55s forwards;
+}
+
+/* ── PRODUCTS GRID ── */
+.grid-section {
+  padding: 48px 40px 64px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.products {
+  display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap:25px;
-  max-width:1200px;
-  margin:auto;
-  padding:20px;
+  gap: 24px;
 }
 
-/* PRODUCT CARD */
-.card{
-  background:#ffffff;
-  padding:18px;
-  border-radius:18px;
-  text-align:center;
-  box-shadow:0 6px 18px rgba(0,0,0,0.06);
-  transition:0.3s ease;
+@media (max-width: 992px) {
+  .products { grid-template-columns: repeat(2, 1fr); }
 }
 
-.card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 12px 28px rgba(0,0,0,0.12);
+@media (max-width: 600px) {
+  .products { grid-template-columns: 1fr; gap: 16px; }
 }
 
-/* IMAGE */
-.card img{
-  width:100%;
-  height:200px;
-  object-fit:contain;
-  border-radius:12px;
-  margin-bottom:12px;
+/* ── CARD ── */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--sand);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: transform 0.38s ease, box-shadow 0.38s ease, border-color 0.38s ease;
 }
 
-/* PRODUCT NAME */
-.card h3{
-  font-size:15px;
-  color:#333;
-  margin-bottom:8px;
-  min-height:40px;
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 48px rgba(62,31,13,0.13);
+  border-color: var(--caramel);
 }
 
-/* PRICE */
-.price{
-  font-weight:bold;
-  color:#e75480;
-  font-size:16px;
+.card-img-wrap {
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background: var(--parchment);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* BUTTON */
-.card a{
-  display:inline-block;
-  margin-top:12px;
-  padding:9px 16px;
-  background:linear-gradient(45deg,#ff69b4,#ff1493);
-  color:#fff;
-  text-decoration:none;
-  border-radius:25px;
-  font-size:14px;
-  transition:0.3s;
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  padding: 14px;
+  transition: transform 0.5s ease;
 }
 
-.card a:hover{
-  opacity:0.85;
+.card:hover img { transform: scale(1.06); }
+
+.card-body {
+  padding: 16px 18px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  flex: 1;
 }
 
-/* FOOTER */
-.affiliate-footer{
-  text-align:center;
-  font-size:13px;
-  color:#777;
-  padding:20px 10px;
-  border-top:1px solid #eee;
-  margin-top:30px;
+.card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--espresso);
+  min-height: 2.8em;
 }
 
-/* ---------------- RESPONSIVE DESIGN ---------------- */
-
-/* Tablet */
-@media (max-width: 992px){
-  .product-grid{
-    grid-template-columns: repeat(2, 1fr);
-  }
+.card-price {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--cognac);
+  letter-spacing: 0.02em;
 }
 
-/* Mobile */
-@media (max-width: 600px){
-  .product-grid{
-    grid-template-columns: 1fr;
-    padding:15px;
-  }
+.card-footer { padding: 0 18px 18px; }
 
-  .page-title{
-    font-size:22px;
-  }
-
-  .card img{
-    height:170px;
-  }
+.card a.direct-btn {
+  display: block;
+  width: 100%;
+  background: var(--espresso);
+  border: 1px solid var(--espresso);
+  padding: 11px 0;
+  border-radius: var(--radius-sm);
+  color: var(--gold-lt);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.25s, color 0.25s, transform 0.2s;
 }
 
+.card:hover a.direct-btn { background: var(--cognac); border-color: var(--cognac); }
+.card a.direct-btn:hover { transform: translateY(-1px); }
+
+.card.show { animation: cardFadeUp 0.55s forwards; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--espresso);
+  color: var(--sand);
+  padding: 40px 40px 32px;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: var(--gold-lt);
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.footer-links a {
+  color: var(--sand);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 1px solid rgba(217,196,167,0.25);
+  border-radius: 20px;
+  transition: border-color 0.25s, color 0.25s;
+}
+
+.footer-links a:hover { color: var(--gold-lt); border-color: var(--gold); }
+
+.footer-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--caramel);
+  margin: 0 auto 20px;
+  opacity: 0.5;
+}
+
+.footer-note {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes cardFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  header { padding: 0 20px; }
+  .hero { padding: 48px 24px 40px; }
+  .grid-section { padding: 36px 20px 48px; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2rem; }
+  .card-body { padding: 12px 12px 8px; }
+  .card-footer { padding: 0 12px 14px; }
+  .card h3 { font-size: 0.88rem; }
+  footer { padding: 32px 20px 24px; }
+}
 </style>
 </head>
-
 <body>
 
-<h2 class="page-title">👶 Baby & Maternity Essentials</h2>
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="logo">Krish<span>Botique</span></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <div class="dropdown">
+      <button class="dropbtn">Categories</button>
+      <div class="dropdown-content">
+        <a href="dresses.html">Dresses</a>
+        <a href="men-clothing.html">Men</a>
+        <a href="jewellery.html">Jewellery</a>
+        <a href="beauty.html">Beauty</a>
+        <a href="kitchen.html">Kitchen</a>
+        <a href="home-decor.html">Home Decor</a>
+        <a href="baby.html">Baby</a>
+        <a href="valentine.html">Valentine</a>
+        <a href="stationery.html">Stationery</a>
+        <a href="asthetic.html">Aesthetic</a>
+        <a href="games.html">Games &amp; Toys</a>
+      </div>
+    </div>
+  </nav>
+</header>
 
-<p class="page-desc">
-Discover best-selling baby care, maternity support, diapers, wipes, skincare and pregnancy essentials loved by moms across India.
-</p>
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Mother &amp; Baby Collection</p>
+  <h1>Baby &amp; <em>Maternity</em></h1>
+  <p class="hero-sub">Best-selling baby care, maternity support, diapers, wipes, skincare and pregnancy essentials loved by moms across India.</p>
+  <div class="hero-divider"></div>
+</section>
 
-<div class="product-grid">
-
-  <div class="card">
-    <img src="https://m.media-amazon.com/images/I/71vygBo6SKL._SL1500_.jpg" alt="Pampers Baby Diapers">
-    <h3>Pampers Premium Care Pant Style Baby Diapers (M, 104)</h3>
-    <p class="price">₹1593</p>
-    <a href="https://amzn.to/4krm4Bv" target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
-  </div>
-
-  <div class="card">
-    <img src="https://m.media-amazon.com/images/I/71tdCnaheiL._SL1500_.jpg" alt="LuvLap Baby Walker">
-    <h3>LuvLap Walker</h3>
-    <p class="price">₹2399</p>
-    <a href="https://amzn.to/43KpHLg" target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
-  </div>
-
-  <div class="card">
-    <img src="https://m.media-amazon.com/images/I/61RTSPooOtL._SL1500_.jpg" alt="LuvLap Baby Diapers">
-    <h3>LuvLap Pant Style Baby Diapers (XL, 54)</h3>
-    <p class="price">₹473</p>
-    <a href="https://amzn.to/4rJlPUN" target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
-  </div>
-
-  <div class="card">
-    <img src="https://m.media-amazon.com/images/I/41cqG+Lhu7L.jpg" alt="Mamaearth Baby Wash">
-    <h3>Mamaearth Milky Soft Head to Toe Baby Wash (400ml)</h3>
-    <p class="price">₹718</p>
-    <a href="https://amzn.to/4txdeq4" target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
-  </div>
-
-   <div class="card">
-    <img src="https://m.media-amazon.com/images/I/51Ifja10F9L._SL1182_.jpg" alt="Cetaphil Baby Daily Lotion, 400ml, Baby Shampoo and Wash, 230 ml and Baby Mild Bar 75g(2Pcs) (Pack of 4) - Combo">
-    <h3>Cetaphil Baby Daily Lotion, 400ml, Baby Shampoo and Wash, 230 ml and Baby Mild Bar 75g(2Pcs) (Pack of 4) - Combo</h3>
-    <p class="price">₹2099</p>
-    <a href="https://amzn.in/d/0dschfOI" target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
-  </div>
-
-  <div class="card">
-    <img src="https://m.media-amazon.com/images/I/71kY8YwzvQL._SL1500_.jpg" alt="Mee Mee Baby Wipes">
-    <h3>Mee Mee Gentle Baby Wet Wipes (Pack of 6)</h3>
-    <p class="price">₹359</p>
-    <a href="https://amzn.to/4abrr4s" target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
-  </div>
-
-  <div class="card">
-    <img src="https://m.media-amazon.com/images/I/711hgbm4rmL._SL1500_.jpg" alt="Himalaya Baby Cream">
-    <h3>Himalaya Baby Cream 200ml</h3>
-    <p class="price">₹248</p>
-    <a href="https://amzn.to/4akaumX" target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
-  </div>
-
-  <div class="card">
-    <img src="https://m.media-amazon.com/images/I/713ZK0PTSuL._SL1500_.jpg" alt="Pregnancy Pillow">
-    <h3>OYO BABY Pregnancy Pillow J-Shape Full Body Support</h3>
-    <p class="price">₹1476</p>
-    <a href="https://amzn.to/4apZmoU" target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
-  </div>
-
-  <div class="card">
-    <img src="https://m.media-amazon.com/images/I/51gdcobd8wL.jpg" alt="Infantbond Mattress">
-    <h3>Infantbond Cotton Baby Mattress With Net (4 Pcs Set)</h3>
-    <p class="price">₹1641</p>
-    <a href="https://amzn.to/4ryTBvK" target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
-  </div>
-
-  <div class="card">
-    <img src="https://m.media-amazon.com/images/I/81D-bayk87L._SL1500_.jpg" alt="Waterproof Dry Sheets">
-    <h3>OYO BABY Waterproof Dry Sheets Combo (2 Pack)</h3>
-    <p class="price">₹399</p>
-    <a href="https://amzn.to/4tHRtnA" target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
-  </div>
-
-
-   <div class="card">
-    <img src="https://m.media-amazon.com/images/I/71H4SelBosL._SL1500_.jpg" alt="grooming kit">
-    <h3>LuvLap 7In1 Baby Grooming Kit</h3>
-    <p class="price">₹399</p>
-    <a href="https://amzn.to/4t4QuwY" target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
-  </div>
-
-  
-   <div class="card">
-    <img src="https://m.media-amazon.com/images/I/71H4SelBosL._SL1500_.jpg" alt="baby diapers">
-    <h3>72 Baby Diapers </h3>
-    <p class="price">₹489</p>
-    <a href=" https://amzn.to/47U7xcB " target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
-  </div>
-
-
-   <div class="card">
-    <img src="https://m.media-amazon.com/images/I/61lm8AUiMVL._SL1200_.jpg" alt="feeding pillow">
-    <h3> feeding pillow </h3>
-    <p class="price">₹1099</p>
-    <a href=" https://amzn.to/4cuVwM6 " target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
-  </div>
-
-  <div class="card">
-    <img src="https://m.media-amazon.com/images/I/71fS8UbxfUL._SL1100_.jpg" alt="Baby Play Mat Double Sided">
-    <h3>Baby Play Mat Double Sided </h3>
-    <p class="price">₹797</p>
-    <a href="https://amzn.to/3Q2k9rZ   " target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
-  </div>
+<!-- PRODUCTS -->
+<section class="grid-section">
+  <div class="products">
 
     <div class="card">
-    <img src="https://m.media-amazon.com/images/I/61zVln4MViL._SL1500_.jpg" alt="Natural Care Baby Wet Wipes with Lid">
-    <h3>Natural Care Baby Wet Wipes with Lid </h3>
-    <p class="price">₹274/- </p>
-    <a href=" https://amzn.to/4so2gRG   " target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
-  </div>
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71vygBo6SKL._SL1500_.jpg" alt="Pampers Baby Diapers">
+      </div>
+      <div class="card-body">
+        <h3>Pampers Premium Care Pant Style Baby Diapers (M, 104)</h3>
+        <p class="card-price">₹1,593</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4krm4Bv" target="_blank" rel="nofollow sponsored" class="direct-btn">Buy on Amazon →</a>
+      </div>
+    </div>
 
-     <div class="card">
-    <img src="https://m.media-amazon.com/images/I/61e2VIq3CtL._SL1000_.jpg" alt="Natural Care Baby Wet Wipes with Lid">
-    <h3>360° Baby Walker with Adjustable Height</h3>
-    <p class="price">₹1199/- </p>
-    <a href=" https://amzn.to/41pXfgz " target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
-  </div>
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71tdCnaheiL._SL1500_.jpg" alt="LuvLap Baby Walker">
+      </div>
+      <div class="card-body">
+        <h3>LuvLap Walker</h3>
+        <p class="card-price">₹2,399</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/43KpHLg" target="_blank" rel="nofollow sponsored" class="direct-btn">Buy on Amazon →</a>
+      </div>
+    </div>
 
-   <div class="card">
-    <img src="https://m.media-amazon.com/images/I/71axjSHv3ZL._SL1500_.jpg" alt="Back Protector with Head Protective Hat Combo Set ">
-    <h3>Back Protector with Head Protective Hat Combo Set </h3>
-    <p class="price">₹374/- </p>
-    <a href=" https://amzn.to/48a3YiF   " target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
-  </div>
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61RTSPooOtL._SL1500_.jpg" alt="LuvLap Baby Diapers">
+      </div>
+      <div class="card-body">
+        <h3>LuvLap Pant Style Baby Diapers (XL, 54)</h3>
+        <p class="card-price">₹473</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4rJlPUN" target="_blank" rel="nofollow sponsored" class="direct-btn">Buy on Amazon →</a>
+      </div>
+    </div>
 
-  <div class="card">
-    <img src="https://m.media-amazon.com/images/I/81l+HG4s71L._SY741_.jpg" alt="Nursing Apron With Pocket ">
-    <h3>Nursing Apron With Pocket</h3>
-    <p class="price">₹474/- </p>
-    <a href=" https://amzn.to/3OOX6k2" target="_blank" rel="nofollow sponsored">Buy on Amazon</a>
-  </div>
-  
-</div>
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/41cqG+Lhu7L.jpg" alt="Mamaearth Baby Wash">
+      </div>
+      <div class="card-body">
+        <h3>Mamaearth Milky Soft Head to Toe Baby Wash (400ml)</h3>
+        <p class="card-price">₹718</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4txdeq4" target="_blank" rel="nofollow sponsored" class="direct-btn">Buy on Amazon →</a>
+      </div>
+    </div>
 
-<footer class="affiliate-footer">
-      <p>
-    Follow us:
-    <a href="https://www.instagram.com/__cheap_and__best__?igsh=MW5penRibjh3NDRqeg==" target="_blank">Instagram</a> |
-    <a href="https://pin.it/3W3LaPO1q" target="_blank">Pinterest</a> |
-     <a href="https://whatsapp.com/channel/0029Vaa1dH9JP20yRUbR7Y2H" target="_blank">Whatsapp</a> |
-     <a href="https://beacons.ai/krishbotique "  target="_blank">view us </a>
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/51Ifja10F9L._SL1182_.jpg" alt="Cetaphil Baby Combo Pack">
+      </div>
+      <div class="card-body">
+        <h3>Cetaphil Baby Daily Lotion 400ml, Shampoo &amp; Wash 230ml, Mild Bar 75g (2pcs) — Combo Pack of 4</h3>
+        <p class="card-price">₹2,099</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.in/d/0dschfOI" target="_blank" rel="nofollow sponsored" class="direct-btn">Buy on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71kY8YwzvQL._SL1500_.jpg" alt="Mee Mee Baby Wipes">
+      </div>
+      <div class="card-body">
+        <h3>Mee Mee Gentle Baby Wet Wipes (Pack of 6)</h3>
+        <p class="card-price">₹359</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4abrr4s" target="_blank" rel="nofollow sponsored" class="direct-btn">Buy on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/711hgbm4rmL._SL1500_.jpg" alt="Himalaya Baby Cream">
+      </div>
+      <div class="card-body">
+        <h3>Himalaya Baby Cream, 200ml</h3>
+        <p class="card-price">₹248</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4akaumX" target="_blank" rel="nofollow sponsored" class="direct-btn">Buy on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/713ZK0PTSuL._SL1500_.jpg" alt="OYO Baby Pregnancy Pillow">
+      </div>
+      <div class="card-body">
+        <h3>OYO BABY Pregnancy Pillow — J-Shape Full Body Support</h3>
+        <p class="card-price">₹1,476</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4apZmoU" target="_blank" rel="nofollow sponsored" class="direct-btn">Buy on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/51gdcobd8wL.jpg" alt="Infantbond Cotton Baby Mattress">
+      </div>
+      <div class="card-body">
+        <h3>Infantbond Cotton Baby Mattress with Net (4 Pcs Set)</h3>
+        <p class="card-price">₹1,641</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4ryTBvK" target="_blank" rel="nofollow sponsored" class="direct-btn">Buy on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/81D-bayk87L._SL1500_.jpg" alt="OYO Baby Waterproof Dry Sheets">
+      </div>
+      <div class="card-body">
+        <h3>OYO BABY Waterproof Dry Sheets Combo (2 Pack)</h3>
+        <p class="card-price">₹399</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4tHRtnA" target="_blank" rel="nofollow sponsored" class="direct-btn">Buy on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71H4SelBosL._SL1500_.jpg" alt="LuvLap 7-in-1 Baby Grooming Kit">
+      </div>
+      <div class="card-body">
+        <h3>LuvLap 7-in-1 Baby Grooming Kit</h3>
+        <p class="card-price">₹399</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4t4QuwY" target="_blank" rel="nofollow sponsored" class="direct-btn">Buy on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71H4SelBosL._SL1500_.jpg" alt="72 Baby Diapers">
+      </div>
+      <div class="card-body">
+        <h3>72 Baby Diapers</h3>
+        <p class="card-price">₹489</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/47U7xcB" target="_blank" rel="nofollow sponsored" class="direct-btn">Buy on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61lm8AUiMVL._SL1200_.jpg" alt="Feeding Pillow">
+      </div>
+      <div class="card-body">
+        <h3>Feeding Pillow</h3>
+        <p class="card-price">₹1,099</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4cuVwM6" target="_blank" rel="nofollow sponsored" class="direct-btn">Buy on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71fS8UbxfUL._SL1100_.jpg" alt="Baby Play Mat Double Sided">
+      </div>
+      <div class="card-body">
+        <h3>Baby Play Mat — Double Sided</h3>
+        <p class="card-price">₹797</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/3Q2k9rZ" target="_blank" rel="nofollow sponsored" class="direct-btn">Buy on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61zVln4MViL._SL1500_.jpg" alt="Natural Care Baby Wet Wipes with Lid">
+      </div>
+      <div class="card-body">
+        <h3>Natural Care Baby Wet Wipes with Lid</h3>
+        <p class="card-price">₹274</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4so2gRG" target="_blank" rel="nofollow sponsored" class="direct-btn">Buy on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61e2VIq3CtL._SL1000_.jpg" alt="360 Degree Baby Walker with Adjustable Height">
+      </div>
+      <div class="card-body">
+        <h3>360° Baby Walker with Adjustable Height</h3>
+        <p class="card-price">₹1,199</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/41pXfgz" target="_blank" rel="nofollow sponsored" class="direct-btn">Buy on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71axjSHv3ZL._SL1500_.jpg" alt="Back Protector with Head Protective Hat Combo Set">
+      </div>
+      <div class="card-body">
+        <h3>Back Protector with Head Protective Hat — Combo Set</h3>
+        <p class="card-price">₹374</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/48a3YiF" target="_blank" rel="nofollow sponsored" class="direct-btn">Buy on Amazon →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/81l+HG4s71L._SY741_.jpg" alt="Nursing Apron with Pocket">
+      </div>
+      <div class="card-body">
+        <h3>Nursing Apron with Pocket</h3>
+        <p class="card-price">₹474</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/3OOX6k2" target="_blank" rel="nofollow sponsored" class="direct-btn">Buy on Amazon →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">KrishBotique</p>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/__cheap_and__best__?igsh=MW5penRibjh3NDRqeg==" target="_blank">Instagram</a>
+    <a href="https://pin.it/3W3LaPO1q" target="_blank">Pinterest</a>
+    <a href="https://whatsapp.com/channel/0029Vaa1dH9JP20yRUbR7Y2H" target="_blank">WhatsApp</a>
+    <a href="https://beacons.ai/krishbotique" target="_blank">View Us</a>
+  </div>
+  <div class="footer-divider"></div>
+  <p class="footer-note">
+    As an Amazon Associate, KrishBotique earns from qualifying purchases.<br>
+    All product links are affiliate links.
   </p>
-  As an Amazon Associate, KrishBotique earns from qualifying purchases.
 </footer>
+
+<script>
+const cards = document.querySelectorAll('.card');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+cards.forEach((card, i) => {
+  card.style.animationDelay = `${(i % 4) * 0.07}s`;
+  observer.observe(card);
+});
+</script>
 
 </body>
 </html>
