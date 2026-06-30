@@ -1,359 +1,983 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <title>Kitchen Essentials – Amazon Finds | KrishBotique</title>
-<meta name="viewport" content="width=device-width">
+<meta name="description" content="Discover best-selling kitchen essentials from Amazon India, curated by KrishBotique.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
-body{
-  font-family: Arial;
-  background:linear-gradient(to right, #ff758c, #764ba2);
-  margin:0;
+:root {
+  --cream: #F7F0E8;
+  --parchment: #EDE0CE;
+  --sand: #D9C4A7;
+  --caramel: #B8895A;
+  --cognac: #8B5A2B;
+  --espresso: #3E1F0D;
+  --gold: #C9973A;
+  --gold-lt: #F0D9A8;
+  --white: #FFFFFF;
+  --text-main: #2C1810;
+  --text-mid: #6B4C35;
+  --text-muted: #9C7A5E;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
 }
 
-/* GRID LAYOUT */
-.product-grid{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap:20px;
-  max-width:1200px;
-  margin:auto;
-  padding:20px;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background-color: var(--cream);
+  color: var(--text-main);
+  min-height: 100vh;
 }
 
-/* PRODUCT CARD */
-.card{
-  background: rgba(255,255,255,0.95);
-  padding:15px;
-  border-radius:15px;
-  text-align:center;
-  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+/* ── HEADER ── */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--sand);
+  padding: 0 40px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 20px rgba(62,31,13,0.06);
 }
 
-/* IMAGE FIX */
-.card img{
-  width:100%;
-  height:200px;
-  object-fit:contain;
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--espresso);
+  letter-spacing: 0.04em;
+  text-decoration: none;
 }
 
-/* BUTTON */
-.card a{
-  display:inline-block;
-  margin-top:10px;
-  padding:8px 14px;
-  background:#ff69b4;
-  color:#fff;
-  text-decoration:none;
-  border-radius:6px;
+.logo span { color: var(--gold); }
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
-  .btn{
-  display:inline-block;
-  margin-top:10px;
-  padding:8px 14px;
-  background:#ff69b4;
-  color:#fff;
-  text-decoration:none;
-  border-radius:6px;
+
+nav a {
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: background 0.25s, color 0.25s;
+}
+
+nav a:hover {
+  background: var(--gold-lt);
+  color: var(--cognac);
+}
+
+/* ── DROPDOWN ── */
+.dropdown { position: relative; }
+
+.dropbtn {
+  background: none;
+  border: none;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: background 0.25s, color 0.25s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dropbtn::after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.2s;
+}
+
+.dropdown:hover .dropbtn {
+  background: var(--gold-lt);
+  color: var(--cognac);
+}
+
+.dropdown:hover .dropbtn::after {
+  transform: rotate(225deg) translateY(-2px);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--white);
+  min-width: 190px;
+  border: 1px solid var(--sand);
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 40px rgba(62,31,13,0.12);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 18px;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--text-mid);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, padding-left 0.2s;
+}
+
+.dropdown-content a:hover {
+  background: var(--gold-lt);
+  color: var(--cognac);
+  padding-left: 24px;
+}
+
+.dropdown:hover .dropdown-content { display: block; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--parchment);
+  border-bottom: 1px solid var(--sand);
+  padding: 64px 40px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 15% 50%, rgba(201,151,58,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 85% 50%, rgba(139,90,43,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.1s forwards;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 300;
+  color: var(--espresso);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.25s forwards;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--cognac);
+}
+
+.hero-sub {
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: var(--text-mid);
+  letter-spacing: 0.04em;
+  max-width: 520px;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.4s forwards;
+}
+
+.hero-divider {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 22px auto 0;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.55s forwards;
+}
+
+/* ── SECTION ── */
+.grid-section {
+  padding: 56px 40px 16px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+.section-header::before,
+.section-header::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sand));
+}
+
+.section-header::after {
+  background: linear-gradient(90deg, var(--sand), transparent);
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--espresso);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--cognac);
+}
+
+/* ── PRODUCTS GRID ── */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 22px;
+  margin-bottom: 16px;
+}
+
+/* ── CARD ── */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--sand);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: transform 0.38s ease, box-shadow 0.38s ease, border-color 0.38s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 48px rgba(62,31,13,0.13);
+  border-color: var(--caramel);
+}
+
+.card-img-wrap {
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background: var(--parchment);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  padding: 12px;
+  transition: transform 0.5s ease;
+}
+
+.card:hover img { transform: scale(1.06); }
+
+.card-body {
+  padding: 16px 18px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.02rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--espresso);
+}
+
+.card-price {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--cognac);
+  letter-spacing: 0.02em;
+}
+
+.card-rating {
+  font-size: 0.78rem;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+
+.card-stock-note {
+  font-size: 0.72rem;
+  color: var(--cognac);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.card-footer {
+  padding: 8px 18px 18px;
+  margin-top: auto;
+}
+
+.card a.direct-btn {
+  display: block;
+  width: 100%;
+  background: var(--espresso);
+  border: 1px solid var(--espresso);
+  padding: 11px 0;
+  border-radius: var(--radius-sm);
+  color: var(--gold-lt);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.25s, color 0.25s, transform 0.2s;
+}
+
+.card:hover a.direct-btn {
+  background: var(--cognac);
+  border-color: var(--cognac);
+}
+
+.card a.direct-btn:hover { transform: translateY(-1px); }
+
+/* SHOW ANIMATION */
+.card.show { animation: cardFadeUp 0.55s forwards; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--espresso);
+  color: var(--sand);
+  padding: 40px 40px 32px;
+  text-align: center;
+  margin-top: 48px;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: var(--gold-lt);
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.footer-links a {
+  color: var(--sand);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 1px solid rgba(217,196,167,0.25);
+  border-radius: 20px;
+  transition: border-color 0.25s, color 0.25s;
+}
+
+.footer-links a:hover {
+  color: var(--gold-lt);
+  border-color: var(--gold);
+}
+
+.footer-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--caramel);
+  margin: 0 auto 20px;
+  opacity: 0.5;
+}
+
+.footer-note {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cardFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  header { padding: 0 20px; }
+  .hero { padding: 48px 24px 40px; }
+  .grid-section { padding: 40px 20px 8px; }
+  .products { gap: 14px; }
+  .section-title { font-size: 1.3rem; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2rem; }
+  .products { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+  .card-body { padding: 10px 12px 6px; }
+  .card-footer { padding: 6px 12px 12px; }
+  .card h3 { font-size: 0.86rem; }
+  footer { padding: 32px 20px 24px; }
 }
 </style>
 </head>
 <body>
 
-<h2 align="center">🍳 Kitchen Essentials</h2>
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="logo">Krish<span>Botique</span></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <div class="dropdown">
+      <button class="dropbtn">Categories</button>
+      <div class="dropdown-content">
+        <a href="dresses.html">Dresses</a>
+        <a href="men-clothing.html">Men</a>
+        <a href="jewellery.html">Jewellery</a>
+        <a href="beauty.html">Beauty</a>
+        <a href="kitchen.html">Kitchen</a>
+        <a href="home-decor.html">Home Decor</a>
+        <a href="baby.html">Baby</a>
+        <a href="valentine.html">Valentine</a>
+        <a href="stationery.html">Stationery</a>
+        <a href="asthetic.html">Aesthetic</a>
+      </div>
+    </div>
+  </nav>
+</header>
 
-<p style="max-width:900px;margin:auto;text-align:center;color:#ffffff;">
-Discover best-selling kitchen essentials from Amazon India. These products are highly rated, practical for daily cooking, and trusted by thousands of Indian households.
-</p>
-
-<div class="product-grid">
-
-  
- <div class="card">
-    <img src="https://m.media-amazon.com/images/I/31dJEUhp+5L._SX300_SY300_QL70_FMwebp_.jpg" alt="Pigeon Favourite 7 Piece Gift Set">
-    <h3>Pigeon Favourite 7 Piece Gift Set</h3>
-    <p>₹1249</p>
-    <a href="https://amzn.to/4d7DEZO  @1249/-" target="_blank" rel="nofollow sponsored">
-      See Latest Price on Amazon
-    </a>
-  </div>
-
-
-  
-  <div class="card">
-    <img src="https://m.media-amazon.com/images/I/71oNKLXdW5L._SL1500_.jpg" alt="Blue Ovule Shape Cup Set of 6">
-    <h3>Blue Ovule Shape Cup Set of 6</h3>
-    <p>₹475</p>
-    <a href="https://amzn.to/4uNq6Jh" target="_blank" rel="nofollow sponsored">
-      See Latest Price on Amazon
-    </a>
-  </div>
-
-  <div class="card">
-    <img src="https://m.media-amazon.com/images/I/71PjqF8xEFL._AC_UL480_FMwebp_QL65_.jpg" alt="Cello Kitchen Storage Containers">
-    <h3>Cello Checkers Kitchen Storage Box (18 pcs)</h3>
-    <p>₹415</p>
-    <a href="https://amzn.to/4qrQJ36" target="_blank" rel="nofollow sponsored">
-      See Latest Price on Amazon
-    </a>
-  </div>
-
-   <div class="card">
-    <img src="https://m.media-amazon.com/images/I/61fn1xtHO4L._SL1500_.jpg" alt="GARBAGE BAG">
-    <h3>Presto! Garbage Bags</h3>
-    <p>₹352</p>
-    <a href="https://amzn.to/4rEyOaO" target="_blank" rel="nofollow sponsored">
-      See Latest Price on Amazon
-    </a>
-  </div>
-
-  
-   <div class="card">
-    <img src="https://m.media-amazon.com/images/I/71rH4vEE4nL._SL1500_.jpg" alt="BULLET JAR">
-    <h3>NutriPro Juicer Mixer Grinder</h3>
-    <p>₹1599</p>
-    <a href="https://amzn.to/4qVGxjC" target="_blank" rel="nofollow sponsored">
-      See Latest Price on Amazon
-    </a>
-  </div>
-
-  <div class="card">
-    <img src="https://m.media-amazon.com/images/I/51DGcy8eBCL._SL1080_.jpg" alt="kettel">
-    <h3>Pigeon Amaze Plus Electric Kettle</h3>
-    <p>₹549</p>
-    <a href="https://amzn.to/4tVvI3u" target="_blank" rel="nofollow sponsored">
-      See Latest Price on Amazon
-    </a>
-  </div>
-
-  <div class="card">
-    <img src="https://m.media-amazon.com/images/I/71Vb6kCoPBL._SL1500_.jpg" alt="kettel">
-    <h3>glass jars with wooden lid glass jar</h3>
-    <p>₹648</p>
-    <a href="https://amzn.to/4qR4LLH" target="_blank" rel="nofollow sponsored">
-      See Latest Price on Amazon
-    </a>
-  </div> 
-
-  
-
- <div class="card">
-    <img src="https://m.media-amazon.com/images/I/81HI-XnrqNL._SL1500_.jpg" alt="fridge organizer">
-    <h3>Fridge Storage Containers (Pack of 6)</h3>
-    <p>₹399</p>
-    <a href="https://amzn.to/3OBcxMi" target="_blank" rel="nofollow sponsored">
-      See Latest Price on Amazon
-    </a>
-  </div>
- <div class="card">
-    <img src="https://m.media-amazon.com/images/I/51Vn6T315NL._SL1024_.jpg" alt="chopping board">
-    <h3>Stainless Steel Chopping Board </h3>
-    <p>₹997</p>
-    <a href="https://amzn.to/4rI6R1U" target="_blank" rel="nofollow sponsored">
-      See Latest Price on Amazon
-    </a>
-  </div>
-
-  <div class="card">
-<img src="https://m.media-amazon.com/images/I/61AsTcHzlXL._SL1500_.jpg">
-<h3>  Lifelong Push Chopper @199/-</h3>
-     <div class="rating">★★★★☆ (4.7/5)</div>
-<a class="btn" href=" https://amzn.to/48DDXYZ" target="_blank">Check Price</a>
-</div>
-
-<div class="card">
-<img src="https://m.media-amazon.com/images/I/71HGLYEy-VL._SL1500_.jpg">
-<h3> AGARO Electric Chopper</h3>
-     <div class="rating">★★★★☆ (4.8/5)</div>
-<a class="btn" href="  https://amzn.to/41XoO0V " target="_blank">Check Price</a>
-</div>
-
-  <div class="card">
-<img src="https://m.media-amazon.com/images/I/71jGmPdCvlL._SL1500_.jpg">
-<h3>Handy Vegetable and Fruit Manual</h3>
-     <div class="rating">★★★★☆ (4.8/5)</div>
-<a class="btn" href=" https://amzn.to/4tJBFQt  " target="_blank">Check Price</a>
-</div>
-
-  <div class="card">
-<img src="https://m.media-amazon.com/images/I/71b5zPZytUL._SL1500_.jpg">
-<h3>12 in 1 Multipurpose Vegetable & Fruit Chopper</h3>
-     <div class="rating">★★★★☆ (4.8/5)</div>
-<a class="btn" href="https://amzn.to/48xBdwb  " target="_blank">Check Price</a>
-</div>
-  
-  <div class="card">
-    <img src="https://m.media-amazon.com/images/I/61Ug9kTwzoL._SL1500_.jpg" alt="sealing machine">
-    <h3>Sealing Machine</h3>
-    <p>₹332</p>
-    <a href="https://amzn.to/4rvuTgl" target="_blank" rel="nofollow sponsored">
-      See Latest Price on Amazon
-    </a>
-  </div> 
-  <div class="card">
-    <img src="https://m.media-amazon.com/images/I/81B8vvRxj1L._SL1500_.jpg" alt="spiece box">
-    <h3>Wooden Spice Box with Spoon</h3>
-    <p>₹947</p>
-    <a href="https://amzn.to/4kS9onz" target="_blank" rel="nofollow sponsored">
-      See Latest Price on Amazon
-    </a>
-  </div>
-</div>
-
-  
-<section>
-<h2 style="color:#d63384; text-align:center;">✨Amazon kitchen finds  that actually make life easier</h2>
-<div class="product-grid">
-
-    <div class="card">
-<img src="https://m.media-amazon.com/images/I/41J6D7fEIJL.jpg">
-<h3> Gas Cleaning Brush | Steel Brush</h3>
-<div class="rating">★★★★☆ (4.4/5)</div>
-<a class="btn" href="https://amzn.to/4rImWEx" target="_blank" >Check Price</a>
-        <p style="color:#e63946;font-weight:600;">
-🔥 Limited Stock – Prices May Change Anytime!
-</p>
-</div>
-
-<div class="card">
-<img src="https://m.media-amazon.com/images/I/61h1xYFax0L._SL1024_.jpg">
-<h3>Mini Electric Grinder</h3>
-<div class="rating">★★★★★ (4.8/5)</div>
-<a class="btn" href="https://amzn.to/46Cg7Mx" target="_blank">Check Price</a>
-</div>
-    
-<div class="card">
-<img src="https://m.media-amazon.com/images/I/713+2UPOISL._SL1500_.jpg">
-<h3>Glass Oil Sprayer and Dispenser Bottle</h3>
-<div class="rating">★★★★★ (4.8/5)</div>
-<a class="btn" href="https://amzn.to/402n3Pj" target="_blank">Check Price</a>
-</div>
-
-<div class="card">
-<img src="https://m.media-amazon.com/images/I/71mLcdqP78L._SL1500_.jpg">
-<h3> 3-Tier Step Standing rack Kitchen </h3>
-<div class="rating">★★★★☆ (4.3/5)</div>
-<a class="btn" href="https://amzn.to/4cju45z" target="_blank">Check Price</a>
-</div>
-
-  
-<div class="card">
-<img src="https://m.media-amazon.com/images/I/81TwxR3pN7L._SL1500_.jpg">
-<h3> Multi-Purpose Trolley Storage Organizer </h3>
-<div class="rating">★★★★☆ (4.3/5)</div>
-<a class="btn" href="https://amzn.to/4b2DFLW" target="_blank">Check Price</a>
-</div>
-
-
-  <div class="card">
-<img src="https://m.media-amazon.com/images/I/51GB+UkLuoL._SL1080_.jpg">
-<h3>Upliance 1.0 AI Cooking Assistant </h3>
-<div class="rating">★★★★☆ (4.3/5)</div>
-<a class="btn" href="https://amzn.to/3PclXxX" target="_blank">Check Price</a>
-</div>
-
-    <div class="card">
-<img src="https://rukminim2.flixcart.com/image/1536/1536/xif0q/container/c/m/7/1-rolling-egg-lemon-dispenser-18-24-egg-storage-organizer-with-original-imahm8mhxstrjek5.jpeg?q=90">
-<h3>EGG STAND </h3>
-<div class="rating">★★★★☆ (4.3/5)</div>
-<a class="btn" href="https://fkrt.co/j8w3sG" target="_blank">Check Price</a>
-</div>
-
- <div class="card">
-<img src="https://rukminim1.flixcart.com/image/1536/1536/xif0q/steamer/a/k/q/2-tier-steamer-set-with-lid-pasta-steamer-vegetable-momo-original-imahaf5bv5tmk2by.jpeg?q=90">
-<h3>veggies streamer </h3>
-   <div class="rating">★★★★☆ (4.3/5)</div>
-<a class="btn" href="https://fkrt.co/BmG9mE" target="_blank">Check Price</a>
-</div>
-
-   <div class="card">
-<img src="https://rukminim1.flixcart.com/image/1536/1536/ky7lci80/steamer/9/1/w/chiratta-puttu-maker-use-with-pressure-cooker-steel-steamer-original-imagahxuggrsj7kq.jpeg?q=90">
-<h3>puttu steamer</h3>
-     <div class="rating">★★★★☆ (4.3/5)</div>
-<a class="btn" href="https://fkrt.co/T8fKWo" target="_blank">Check Price</a>
-</div>
-
-
-  
-   <div class="card">
-<img src="https://rukminim1.flixcart.com/image/1536/1536/xif0q/container/o/p/8/2-hjaar-ceramicwings-original-imahm9jng4dagchy.jpeg?q=90">
-<h3>2pcs ceramic jar asthetic</h3>
-     <div class="rating">★★★★☆ (4.3/5)</div>
-<a class="btn" href="https://fkrt.co/JET8ii " target="_blank">Check Price</a>
-</div>
-
-   <div class="card">
-<img src="https://rukminim1.flixcart.com/image/1536/1536/xif0q/container/5/l/v/12-wooden-canister-02-shs-sales-original-imahhmyrhphfzhad.jpeg?q=90">
-<h3>12 pcs honey jar </h3>
-     <div class="rating">★★★★☆ (4.3/5)</div>
-<a class="btn" href="https://fkrt.co/iC6mEF" target="_blank">Check Price</a>
-</div>
-
-     <div class="card">
-<img src="https://rukminim1.flixcart.com/image/1536/1536/xif0q/bottle/s/k/h/1000-steel-puro-water-bottle-1000ml-pack-of-2-2-inox-puro-original-imahg8guec4jptma.jpeg?q=90">
-<h3>2pcs stainless steel water bottle</h3>
-       <div class="rating">★★★★☆ (4.3/5)</div>
-<a class="btn" href="https://fkrt.co/ZAnQAO" target="_blank">Check Price</a>
-</div>
-     <div class="card">
-<img src="https://rukminim1.flixcart.com/image/1536/1536/xif0q/oil-dispenser/a/j/b/oil-bottle-with-brush-sr-creation-original-imahe6jxgywnhhhz.jpeg?q=90">
-<h3>oil dispenser</h3>
-  <div class="rating">★★★★☆ (4.3/5)</div>
-<a class="btn" href="https://fkrt.co/SM4QR4" target="_blank">Check Price</a>
-</div>
-
-  <div class="card">
-<img src="https://rukminim1.flixcart.com/image/1536/1536/xif0q/condiment-set/l/g/z/360-spice-360-cronex-original-imahgdhrufkkqynb.jpeg?q=90">
-<h3>spice box</h3>
-    <div class="rating">★★★★☆ (4.3/5)</div>
-<a class="btn" href="https://fkrt.co/UdV3qb" target="_blank">Check Price</a>
-</div>
-
-  <div class="card">
-<img src="https://rukminim1.flixcart.com/image/1536/1536/xif0q/water-bottle/7/r/g/1000-teddy-bottle-for-kids-1000ml-1-jhalakriti-original-imahhhhagryx4yuy.jpeg?q=90">
-<h3>teddy bottle</h3><div class="rating">★★★★☆ (4.3/5)</div>
-<a class="btn" href="https://fkrt.co/eo1CAy" target="_blank">Check Price</a>
-</div>
-
-  <div class="card">
-<img src="https://rukminim1.flixcart.com/image/1536/1536/xif0q/steamer/x/q/h/folding-vegetable-steamer-basket-100-stainless-steel-steamer-original-imahhxpjhsfvxhwd.jpeg?q=90">
-<h3>steamer </h3>
-    <div class="rating">★★★★☆ (4.3/5)</div>
-<a class="btn" href="https://fkrt.co/EY4Bu7" target="_blank">Check Price</a>
-</div>
-
-   <div class="card">
-<img src="https://rukminim1.flixcart.com/image/1536/1536/xif0q/container/o/o/c/2-2-pcs-herb-saver-pod-fresh-herb-keeper-for-refrigerator-mint-original-imah8bz4shabnhzn.jpeg?q=90">
-<h3>curry leaf freshner</h3>
-     <div class="rating">★★★★☆ (4.3/5)</div>
-<a class="btn" href="https://fkrt.co/f6DEyk" target="_blank">Check Price</a>
-</div>
-
-  
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Kitchen Collection</p>
+  <h1>Kitchen <em>Essentials</em></h1>
+  <p class="hero-sub">Best-selling, highly-rated kitchen finds from Amazon India — practical for daily cooking and trusted by thousands of households.</p>
+  <div class="hero-divider"></div>
 </section>
-  
-      <p>
-    Follow us:
-    <a href="https://www.instagram.com/__cheap_and__best__?igsh=MW5penRibjh3NDRqeg==" target="_blank">Instagram</a> |
-    <a href="https://pin.it/3W3LaPO1q" target="_blank">Pinterest</a> |
-     <a href="https://whatsapp.com/channel/0029Vaa1dH9JP20yRUbR7Y2H" target="_blank">Whatsapp</a> |
-     <a href="https://beacons.ai/krishbotique "  target="_blank">view us </a>
+
+<!-- SECTION 1: KITCHEN ESSENTIALS -->
+<section class="grid-section">
+  <div class="section-header">
+    <h2 class="section-title">Everyday <em>Essentials</em></h2>
+  </div>
+  <div class="products">
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/31dJEUhp+5L._SX300_SY300_QL70_FMwebp_.jpg" alt="Pigeon Favourite 7 Piece Gift Set">
+      </div>
+      <div class="card-body">
+        <h3>Pigeon Favourite 7 Piece Gift Set</h3>
+        <p class="card-price">₹1,249</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4d7DEZO" target="_blank" rel="nofollow sponsored" class="direct-btn">See Latest Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71oNKLXdW5L._SL1500_.jpg" alt="Blue Ovule Shape Cup Set of 6">
+      </div>
+      <div class="card-body">
+        <h3>Blue Ovule Shape Cup Set of 6</h3>
+        <p class="card-price">₹475</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4uNq6Jh" target="_blank" rel="nofollow sponsored" class="direct-btn">See Latest Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71PjqF8xEFL._AC_UL480_FMwebp_QL65_.jpg" alt="Cello Checkers Kitchen Storage Box">
+      </div>
+      <div class="card-body">
+        <h3>Cello Checkers Kitchen Storage Box (18 pcs)</h3>
+        <p class="card-price">₹415</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4qrQJ36" target="_blank" rel="nofollow sponsored" class="direct-btn">See Latest Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61fn1xtHO4L._SL1500_.jpg" alt="Presto Garbage Bags">
+      </div>
+      <div class="card-body">
+        <h3>Presto! Garbage Bags</h3>
+        <p class="card-price">₹352</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4rEyOaO" target="_blank" rel="nofollow sponsored" class="direct-btn">See Latest Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71rH4vEE4nL._SL1500_.jpg" alt="NutriPro Juicer Mixer Grinder">
+      </div>
+      <div class="card-body">
+        <h3>NutriPro Juicer Mixer Grinder</h3>
+        <p class="card-price">₹1,599</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4qVGxjC" target="_blank" rel="nofollow sponsored" class="direct-btn">See Latest Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/51DGcy8eBCL._SL1080_.jpg" alt="Pigeon Amaze Plus Electric Kettle">
+      </div>
+      <div class="card-body">
+        <h3>Pigeon Amaze Plus Electric Kettle</h3>
+        <p class="card-price">₹549</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4tVvI3u" target="_blank" rel="nofollow sponsored" class="direct-btn">See Latest Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71Vb6kCoPBL._SL1500_.jpg" alt="Glass Jars with Wooden Lid">
+      </div>
+      <div class="card-body">
+        <h3>Glass Jars with Wooden Lid</h3>
+        <p class="card-price">₹648</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4qR4LLH" target="_blank" rel="nofollow sponsored" class="direct-btn">See Latest Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/81HI-XnrqNL._SL1500_.jpg" alt="Fridge Storage Containers Pack of 6">
+      </div>
+      <div class="card-body">
+        <h3>Fridge Storage Containers (Pack of 6)</h3>
+        <p class="card-price">₹399</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/3OBcxMi" target="_blank" rel="nofollow sponsored" class="direct-btn">See Latest Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/51Vn6T315NL._SL1024_.jpg" alt="Stainless Steel Chopping Board">
+      </div>
+      <div class="card-body">
+        <h3>Stainless Steel Chopping Board</h3>
+        <p class="card-price">₹997</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4rI6R1U" target="_blank" rel="nofollow sponsored" class="direct-btn">See Latest Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61AsTcHzlXL._SL1500_.jpg" alt="Lifelong Push Chopper">
+      </div>
+      <div class="card-body">
+        <h3>Lifelong Push Chopper</h3>
+        <p class="card-price">₹199</p>
+        <p class="card-rating">★★★★☆ 4.7 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/48DDXYZ" target="_blank" class="direct-btn">Check Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71HGLYEy-VL._SL1500_.jpg" alt="AGARO Electric Chopper">
+      </div>
+      <div class="card-body">
+        <h3>AGARO Electric Chopper</h3>
+        <p class="card-rating">★★★★☆ 4.8 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/41XoO0V" target="_blank" class="direct-btn">Check Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71jGmPdCvlL._SL1500_.jpg" alt="Handy Vegetable and Fruit Manual Chopper">
+      </div>
+      <div class="card-body">
+        <h3>Handy Vegetable &amp; Fruit Manual Chopper</h3>
+        <p class="card-rating">★★★★☆ 4.8 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4tJBFQt" target="_blank" class="direct-btn">Check Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71b5zPZytUL._SL1500_.jpg" alt="12 in 1 Multipurpose Vegetable & Fruit Chopper">
+      </div>
+      <div class="card-body">
+        <h3>12-in-1 Multipurpose Vegetable &amp; Fruit Chopper</h3>
+        <p class="card-rating">★★★★☆ 4.8 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/48xBdwb" target="_blank" class="direct-btn">Check Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61Ug9kTwzoL._SL1500_.jpg" alt="Sealing Machine">
+      </div>
+      <div class="card-body">
+        <h3>Sealing Machine</h3>
+        <p class="card-price">₹332</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4rvuTgl" target="_blank" rel="nofollow sponsored" class="direct-btn">See Latest Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/81B8vvRxj1L._SL1500_.jpg" alt="Wooden Spice Box with Spoon">
+      </div>
+      <div class="card-body">
+        <h3>Wooden Spice Box with Spoon</h3>
+        <p class="card-price">₹947</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4kS9onz" target="_blank" rel="nofollow sponsored" class="direct-btn">See Latest Price →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 2: KITCHEN FINDS THAT MAKE LIFE EASIER -->
+<section class="grid-section">
+  <div class="section-header">
+    <h2 class="section-title">Finds That <em>Make Life Easier</em></h2>
+  </div>
+  <div class="products">
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/41J6D7fEIJL.jpg" alt="Gas Cleaning Brush Steel Brush">
+      </div>
+      <div class="card-body">
+        <h3>Gas Cleaning Brush | Steel Brush</h3>
+        <p class="card-rating">★★★★☆ 4.4 / 5</p>
+        <p class="card-stock-note">Limited stock — price may change</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4rImWEx" target="_blank" class="direct-btn">Check Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/61h1xYFax0L._SL1024_.jpg" alt="Mini Electric Grinder">
+      </div>
+      <div class="card-body">
+        <h3>Mini Electric Grinder</h3>
+        <p class="card-rating">★★★★★ 4.8 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/46Cg7Mx" target="_blank" class="direct-btn">Check Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/713+2UPOISL._SL1500_.jpg" alt="Glass Oil Sprayer and Dispenser Bottle">
+      </div>
+      <div class="card-body">
+        <h3>Glass Oil Sprayer &amp; Dispenser Bottle</h3>
+        <p class="card-rating">★★★★★ 4.8 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/402n3Pj" target="_blank" class="direct-btn">Check Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/71mLcdqP78L._SL1500_.jpg" alt="3-Tier Step Standing Rack Kitchen">
+      </div>
+      <div class="card-body">
+        <h3>3-Tier Step Standing Rack — Kitchen</h3>
+        <p class="card-rating">★★★★☆ 4.3 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4cju45z" target="_blank" class="direct-btn">Check Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/81TwxR3pN7L._SL1500_.jpg" alt="Multi-Purpose Trolley Storage Organizer">
+      </div>
+      <div class="card-body">
+        <h3>Multi-Purpose Trolley Storage Organizer</h3>
+        <p class="card-rating">★★★★☆ 4.3 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/4b2DFLW" target="_blank" class="direct-btn">Check Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://m.media-amazon.com/images/I/51GB+UkLuoL._SL1080_.jpg" alt="Upliance 1.0 AI Cooking Assistant">
+      </div>
+      <div class="card-body">
+        <h3>Upliance 1.0 AI Cooking Assistant</h3>
+        <p class="card-rating">★★★★☆ 4.3 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://amzn.to/3PclXxX" target="_blank" class="direct-btn">Check Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://rukminim2.flixcart.com/image/1536/1536/xif0q/container/c/m/7/1-rolling-egg-lemon-dispenser-18-24-egg-storage-organizer-with-original-imahm8mhxstrjek5.jpeg?q=90" alt="Rolling Egg & Lemon Dispenser Organizer">
+      </div>
+      <div class="card-body">
+        <h3>Rolling Egg &amp; Lemon Dispenser Organizer</h3>
+        <p class="card-rating">★★★★☆ 4.3 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://fkrt.co/j8w3sG" target="_blank" class="direct-btn">Check Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://rukminim1.flixcart.com/image/1536/1536/xif0q/steamer/a/k/q/2-tier-steamer-set-with-lid-pasta-steamer-vegetable-momo-original-imahaf5bv5tmk2by.jpeg?q=90" alt="2-Tier Steamer Set with Lid">
+      </div>
+      <div class="card-body">
+        <h3>2-Tier Steamer Set with Lid — Veggies &amp; Momo</h3>
+        <p class="card-rating">★★★★☆ 4.3 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://fkrt.co/BmG9mE" target="_blank" class="direct-btn">Check Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://rukminim1.flixcart.com/image/1536/1536/ky7lci80/steamer/9/1/w/chiratta-puttu-maker-use-with-pressure-cooker-steel-steamer-original-imagahxuggrsj7kq.jpeg?q=90" alt="Puttu Maker Steel Steamer">
+      </div>
+      <div class="card-body">
+        <h3>Puttu Maker — Steel Steamer for Pressure Cooker</h3>
+        <p class="card-rating">★★★★☆ 4.3 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://fkrt.co/T8fKWo" target="_blank" class="direct-btn">Check Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://rukminim1.flixcart.com/image/1536/1536/xif0q/container/o/p/8/2-hjaar-ceramicwings-original-imahm9jng4dagchy.jpeg?q=90" alt="2 Pcs Ceramic Jar Aesthetic">
+      </div>
+      <div class="card-body">
+        <h3>2 Pcs Ceramic Jar — Aesthetic Set</h3>
+        <p class="card-rating">★★★★☆ 4.3 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://fkrt.co/JET8ii" target="_blank" class="direct-btn">Check Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://rukminim1.flixcart.com/image/1536/1536/xif0q/container/5/l/v/12-wooden-canister-02-shs-sales-original-imahhmyrhphfzhad.jpeg?q=90" alt="12 Pcs Wooden Canister Honey Jar">
+      </div>
+      <div class="card-body">
+        <h3>12 Pcs Wooden Canister — Honey Jar Set</h3>
+        <p class="card-rating">★★★★☆ 4.3 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://fkrt.co/iC6mEF" target="_blank" class="direct-btn">Check Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://rukminim1.flixcart.com/image/1536/1536/xif0q/bottle/s/k/h/1000-steel-puro-water-bottle-1000ml-pack-of-2-2-inox-puro-original-imahg8guec4jptma.jpeg?q=90" alt="Stainless Steel Water Bottle Pack of 2">
+      </div>
+      <div class="card-body">
+        <h3>Stainless Steel Water Bottle (Pack of 2)</h3>
+        <p class="card-rating">★★★★☆ 4.3 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://fkrt.co/ZAnQAO" target="_blank" class="direct-btn">Check Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://rukminim1.flixcart.com/image/1536/1536/xif0q/oil-dispenser/a/j/b/oil-bottle-with-brush-sr-creation-original-imahe6jxgywnhhhz.jpeg?q=90" alt="Oil Dispenser with Brush">
+      </div>
+      <div class="card-body">
+        <h3>Oil Dispenser Bottle with Brush</h3>
+        <p class="card-rating">★★★★☆ 4.3 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://fkrt.co/SM4QR4" target="_blank" class="direct-btn">Check Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://rukminim1.flixcart.com/image/1536/1536/xif0q/condiment-set/l/g/z/360-spice-360-cronex-original-imahgdhrufkkqynb.jpeg?q=90" alt="360 Spice Box Condiment Set">
+      </div>
+      <div class="card-body">
+        <h3>360° Spice Box Condiment Set</h3>
+        <p class="card-rating">★★★★☆ 4.3 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://fkrt.co/UdV3qb" target="_blank" class="direct-btn">Check Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://rukminim1.flixcart.com/image/1536/1536/xif0q/water-bottle/7/r/g/1000-teddy-bottle-for-kids-1000ml-1-jhalakriti-original-imahhhhagryx4yuy.jpeg?q=90" alt="Teddy Bottle for Kids">
+      </div>
+      <div class="card-body">
+        <h3>Teddy Bottle for Kids, 1000ml</h3>
+        <p class="card-rating">★★★★☆ 4.3 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://fkrt.co/eo1CAy" target="_blank" class="direct-btn">Check Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://rukminim1.flixcart.com/image/1536/1536/xif0q/steamer/x/q/h/folding-vegetable-steamer-basket-100-stainless-steel-steamer-original-imahhxpjhsfvxhwd.jpeg?q=90" alt="Folding Vegetable Steamer Basket">
+      </div>
+      <div class="card-body">
+        <h3>Folding Vegetable Steamer Basket — Stainless Steel</h3>
+        <p class="card-rating">★★★★☆ 4.3 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://fkrt.co/EY4Bu7" target="_blank" class="direct-btn">Check Price →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://rukminim1.flixcart.com/image/1536/1536/xif0q/container/o/o/c/2-2-pcs-herb-saver-pod-fresh-herb-keeper-for-refrigerator-mint-original-imah8bz4shabnhzn.jpeg?q=90" alt="Curry Leaf Freshness Keeper Pod">
+      </div>
+      <div class="card-body">
+        <h3>Curry Leaf Freshness Keeper Pod (Pack of 2)</h3>
+        <p class="card-rating">★★★★☆ 4.3 / 5</p>
+      </div>
+      <div class="card-footer">
+        <a href="https://fkrt.co/f6DEyk" target="_blank" class="direct-btn">Check Price →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">KrishBotique</p>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/__cheap_and__best__?igsh=MW5penRibjh3NDRqeg==" target="_blank">Instagram</a>
+    <a href="https://pin.it/3W3LaPO1q" target="_blank">Pinterest</a>
+    <a href="https://whatsapp.com/channel/0029Vaa1dH9JP20yRUbR7Y2H" target="_blank">WhatsApp</a>
+    <a href="https://beacons.ai/krishbotique" target="_blank">View Us</a>
+  </div>
+  <div class="footer-divider"></div>
+  <p class="footer-note">
+    As an Amazon Associate, KrishBotique earns from qualifying purchases.<br>
+    All product links are affiliate links.
   </p>
-<p align="center">Amazon Associate Disclaimer</p>
+</footer>
 
+<script>
+const cards = document.querySelectorAll('.card');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
 
+cards.forEach((card, i) => {
+  card.style.animationDelay = `${(i % 6) * 0.06}s`;
+  observer.observe(card);
+});
+</script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</body>
+</html>
