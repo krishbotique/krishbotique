@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Amazon Prime Day Sale – KrishBotique | 4th–6th July 2026</title>
+<meta name="description" content="Amazon Prime Day & 10th Anniversary Sale. Huge savings across categories — 4th to 6th July 2026.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #F7F0E8;
+  --parchment: #EDE0CE;
+  --sand: #D9C4A7;
+  --caramel: #B8895A;
+  --cognac: #8B5A2B;
+  --espresso: #3E1F0D;
+  --gold: #C9973A;
+  --gold-lt: #F0D9A8;
+  --white: #FFFFFF;
+  --text-main: #2C1810;
+  --text-mid: #6B4C35;
+  --text-muted: #9C7A5E;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --prime-blue: #1a3a5c;
+  --prime-blue-lt: #2d6da3;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background-color: var(--espresso);
+  color: var(--text-main);
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--espresso);
+  border-bottom: 1px solid rgba(201,151,58,0.2);
+  padding: 0 40px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+.logo span { color: var(--gold); }
+
+nav { display: flex; align-items: center; gap: 4px; }
+nav a {
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: background 0.25s, color 0.25s;
+}
+nav a:hover { background: rgba(201,151,58,0.15); color: var(--gold); }
+
+/* ── HERO BANNER ── */
+.prime-hero {
+  background: linear-gradient(135deg, #0a1628 0%, #1a2f50 40%, #0d1f3c 100%);
+  padding: 72px 40px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 2px solid var(--gold);
+}
+
+.prime-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(201,151,58,0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(45,109,163,0.2) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 90% 80%, rgba(45,109,163,0.2) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* stars bg */
+.prime-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 15% 25%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 35% 15%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 60% 30%, rgba(255,255,255,0.45) 0%, transparent 100%),
+    radial-gradient(1px 1px at 80% 18%, rgba(255,255,255,0.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 50%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 5% 60%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 25% 75%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 70% 70%, rgba(255,255,255,0.45) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 85%, rgba(255,255,255,0.35) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.prime-badge-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+  position: relative;
+  z-index: 1;
+}
+
+.prime-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.badge-limited {
+  background: rgba(201,151,58,0.15);
+  border: 1px solid rgba(201,151,58,0.4);
+  color: var(--gold);
+}
+
+.badge-savings {
+  background: rgba(45,109,163,0.2);
+  border: 1px solid rgba(45,109,163,0.4);
+  color: #7ab8e8;
+}
+
+.prime-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.1s forwards;
+}
+
+.prime-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.25s forwards;
+}
+
+.prime-hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.prime-dates {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 300;
+  color: #7ab8e8;
+  letter-spacing: 0.06em;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.4s forwards;
+}
+
+.prime-dates::before,
+.prime-dates::after {
+  content: '—';
+  opacity: 0.4;
+  margin: 0 10px;
+}
+
+.prime-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 44px;
+  background: linear-gradient(135deg, var(--gold), var(--caramel));
+  color: var(--espresso);
+  text-decoration: none;
+  border-radius: 50px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 32px rgba(201,151,58,0.4);
+  transition: all 0.25s;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.55s forwards;
+}
+
+.prime-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 44px rgba(201,151,58,0.55);
+}
+
+/* countdown */
+.countdown-wrap {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 40px;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.7s forwards;
+}
+
+.countdown-block {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(201,151,58,0.2);
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  min-width: 72px;
+  text-align: center;
+}
+
+.countdown-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.countdown-lbl {
+  font-size: 0.6rem;
+  color: rgba(185,155,120,0.7);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+.countdown-sep {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  color: var(--gold);
+  opacity: 0.4;
+  align-self: center;
+  padding-bottom: 16px;
+}
+
+/* ── SECTION HEADER ── */
+.grid-section {
+  padding: 56px 40px 48px;
+  max-width: 1320px;
+  margin: 0 auto;
+  background: var(--espresso);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 36px;
+}
+
+.section-header::before,
+.section-header::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,151,58,0.3));
+}
+.section-header::after {
+  background: linear-gradient(90deg, rgba(201,151,58,0.3), transparent);
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.55rem;
+  font-weight: 400;
+  color: var(--gold-lt);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+.section-title em { font-style: italic; color: var(--gold); }
+
+/* ── PRODUCTS GRID ── */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 22px;
+}
+
+/* ── CARD ── */
+.card {
+  background: rgba(255,255,255,0.04);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(201,151,58,0.18);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: transform 0.38s ease, box-shadow 0.38s ease, border-color 0.38s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 48px rgba(0,0,0,0.4);
+  border-color: var(--gold);
+  background: rgba(255,255,255,0.07);
+}
+
+/* placeholder pedestal card */
+.card.placeholder {
+  background: rgba(255,255,255,0.03);
+  border: 1px dashed rgba(201,151,58,0.25);
+}
+
+.card-img-wrap {
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background: rgba(237,224,206,0.05);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 0;
+  position: relative;
+}
+
+/* glass pedestal */
+.card-img-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 18px;
+  background: linear-gradient(180deg, rgba(201,151,58,0.12), rgba(201,151,58,0.04));
+  border-radius: 50%;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  filter: blur(4px);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  padding: 18px 18px 8px;
+  transition: transform 0.5s ease;
+}
+
+.card:hover img { transform: scale(1.06); }
+
+/* placeholder product silhouette */
+.card.placeholder .card-img-wrap {
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px;
+}
+
+.placeholder-icon {
+  font-size: 2.8rem;
+  opacity: 0.25;
+  filter: grayscale(1);
+}
+
+.placeholder-shine {
+  width: 55%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(201,151,58,0.3), transparent);
+  border-radius: 2px;
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* shadow under product */
+.product-shadow {
+  width: 50%;
+  height: 10px;
+  background: radial-gradient(ellipse, rgba(0,0,0,0.4), transparent 70%);
+  margin: -6px auto 6px;
+  pointer-events: none;
+}
+
+.card-body {
+  padding: 14px 16px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--parchment);
+}
+
+.card-price {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+}
+
+.deal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(201,151,58,0.12);
+  border: 1px solid rgba(201,151,58,0.25);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 0.65rem;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.card-footer { padding: 0 16px 16px; }
+
+.card a.direct-btn {
+  display: block;
+  width: 100%;
+  background: linear-gradient(135deg, var(--gold), var(--caramel));
+  border: none;
+  padding: 10px 0;
+  border-radius: var(--radius-sm);
+  color: var(--espresso);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: opacity 0.25s, transform 0.2s;
+  box-shadow: 0 4px 14px rgba(201,151,58,0.25);
+}
+
+.card a.direct-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+/* placeholder btn */
+.card.placeholder a.direct-btn {
+  background: rgba(201,151,58,0.1);
+  color: rgba(201,151,58,0.5);
+  border: 1px dashed rgba(201,151,58,0.25);
+  box-shadow: none;
+  cursor: default;
+  letter-spacing: 0.06em;
+}
+
+.card.show { animation: cardFadeUp 0.55s forwards; }
+
+/* ── COMING SOON STRIP ── */
+.coming-soon-strip {
+  background: rgba(201,151,58,0.08);
+  border: 1px solid rgba(201,151,58,0.2);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  text-align: center;
+  margin-top: 32px;
+  color: rgba(185,155,120,0.7);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+}
+
+.coming-soon-strip strong {
+  color: var(--gold);
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #0a0a0a;
+  border-top: 1px solid rgba(201,151,58,0.15);
+  color: var(--sand);
+  padding: 36px 40px 28px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--gold-lt);
+  margin-bottom: 18px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: var(--sand);
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border: 1px solid rgba(217,196,167,0.2);
+  border-radius: 20px;
+  transition: border-color 0.25s, color 0.25s;
+}
+
+.footer-links a:hover { color: var(--gold); border-color: var(--gold); }
+
+.footer-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--caramel);
+  margin: 0 auto 18px;
+  opacity: 0.4;
+}
+
+.footer-note {
+  font-size: 0.72rem;
+  color: rgba(156,122,94,0.6);
+  line-height: 1.9;
+}
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes cardFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse { 0%,100%{opacity:1;}50%{opacity:0.75;} }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  header { padding: 0 20px; }
+  .prime-hero { padding: 52px 20px 44px; }
+  .grid-section { padding: 36px 18px 40px; }
+  .products { gap: 14px; }
+  .countdown-wrap { gap: 10px; }
+  .countdown-block { min-width: 58px; padding: 10px 14px; }
+  .countdown-num { font-size: 1.7rem; }
+}
+
+@media (max-width: 480px) {
+  .prime-hero h1 { font-size: 1.8rem; }
+  .prime-dates { font-size: 1rem; }
+  .prime-dates::before, .prime-dates::after { display: none; }
+  .products { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .card h3 { font-size: 0.85rem; }
+  .card-body { padding: 10px 10px 6px; }
+  .card-footer { padding: 0 10px 10px; }
+  footer { padding: 28px 16px 22px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="logo">Krish<span>Botique</span></a>
+  <nav>
+    <a href="index.html">← Back to Home</a>
+  </nav>
+</header>
+
+<!-- PRIME HERO -->
+<section class="prime-hero">
+  <div class="prime-badge-row">
+    <span class="prime-badge badge-limited">✦ Limited Time Offers</span>
+    <span class="prime-badge badge-savings">🏷 Huge Savings Across Categories</span>
+  </div>
+
+  <p class="prime-eyebrow">KrishBotique Exclusive</p>
+
+  <h1>Amazon Prime Day &amp;<br><em>10th Anniversary Sale</em></h1>
+
+  <p class="prime-dates">4th – 6th July 2026</p>
+
+  <a href="#deals" class="prime-cta">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+    Shop Now
+  </a>
+
+  <div class="countdown-wrap">
+    <div class="countdown-block">
+      <div class="countdown-num" id="cdDays">00</div>
+      <div class="countdown-lbl">Days</div>
+    </div>
+    <span class="countdown-sep">:</span>
+    <div class="countdown-block">
+      <div class="countdown-num" id="cdHours">00</div>
+      <div class="countdown-lbl">Hours</div>
+    </div>
+    <span class="countdown-sep">:</span>
+    <div class="countdown-block">
+      <div class="countdown-num" id="cdMins">00</div>
+      <div class="countdown-lbl">Mins</div>
+    </div>
+    <span class="countdown-sep">:</span>
+    <div class="countdown-block">
+      <div class="countdown-num" id="cdSecs">00</div>
+      <div class="countdown-lbl">Secs</div>
+    </div>
+  </div>
+</section>
+
+<!-- DEALS GRID -->
+<section class="grid-section" id="deals">
+  <div class="section-header">
+    <h2 class="section-title">Prime Day <em>Deals</em></h2>
+  </div>
+
+  <div class="products">
+
+    <!-- PLACEHOLDER 1 — replace src and href with your product -->
+    <div class="card placeholder">
+      <div class="card-img-wrap">
+        <span class="placeholder-icon">🛍</span>
+        <span class="placeholder-shine"></span>
+      </div>
+      <div class="product-shadow"></div>
+      <div class="card-body">
+        <h3>Coming Soon — Add Your Product</h3>
+        <p class="card-price">₹ —</p>
+        <span class="deal-badge">Prime Deal</span>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="direct-btn">Add Link →</a>
+      </div>
+    </div>
+
+    <!-- PLACEHOLDER 2 -->
+    <div class="card placeholder">
+      <div class="card-img-wrap">
+        <span class="placeholder-icon">💄</span>
+        <span class="placeholder-shine"></span>
+      </div>
+      <div class="product-shadow"></div>
+      <div class="card-body">
+        <h3>Coming Soon — Add Your Product</h3>
+        <p class="card-price">₹ —</p>
+        <span class="deal-badge">Prime Deal</span>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="direct-btn">Add Link →</a>
+      </div>
+    </div>
+
+    <!-- PLACEHOLDER 3 -->
+    <div class="card placeholder">
+      <div class="card-img-wrap">
+        <span class="placeholder-icon">🏠</span>
+        <span class="placeholder-shine"></span>
+      </div>
+      <div class="product-shadow"></div>
+      <div class="card-body">
+        <h3>Coming Soon — Add Your Product</h3>
+        <p class="card-price">₹ —</p>
+        <span class="deal-badge">Prime Deal</span>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="direct-btn">Add Link →</a>
+      </div>
+    </div>
+
+    <!-- PLACEHOLDER 4 -->
+    <div class="card placeholder">
+      <div class="card-img-wrap">
+        <span class="placeholder-icon">👗</span>
+        <span class="placeholder-shine"></span>
+      </div>
+      <div class="product-shadow"></div>
+      <div class="card-body">
+        <h3>Coming Soon — Add Your Product</h3>
+        <p class="card-price">₹ —</p>
+        <span class="deal-badge">Prime Deal</span>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="direct-btn">Add Link →</a>
+      </div>
+    </div>
+
+    <!-- PLACEHOLDER 5 -->
+    <div class="card placeholder">
+      <div class="card-img-wrap">
+        <span class="placeholder-icon">🍳</span>
+        <span class="placeholder-shine"></span>
+      </div>
+      <div class="product-shadow"></div>
+      <div class="card-body">
+        <h3>Coming Soon — Add Your Product</h3>
+        <p class="card-price">₹ —</p>
+        <span class="deal-badge">Prime Deal</span>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="direct-btn">Add Link →</a>
+      </div>
+    </div>
+
+    <!-- PLACEHOLDER 6 -->
+    <div class="card placeholder">
+      <div class="card-img-wrap">
+        <span class="placeholder-icon">💻</span>
+        <span class="placeholder-shine"></span>
+      </div>
+      <div class="product-shadow"></div>
+      <div class="card-body">
+        <h3>Coming Soon — Add Your Product</h3>
+        <p class="card-price">₹ —</p>
+        <span class="deal-badge">Prime Deal</span>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="direct-btn">Add Link →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="coming-soon-strip">
+    <strong>More deals dropping soon</strong>
+    Check back on 4th July 2026 for live Amazon Prime Day links across all categories.
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">KrishBotique</p>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/__cheap_and__best__?igsh=MW5penRibjh3NDRqeg==" target="_blank">Instagram</a>
+    <a href="https://pin.it/3W3LaPO1q" target="_blank">Pinterest</a>
+    <a href="https://whatsapp.com/channel/0029Vaa1dH9JP20yRUbR7Y2H" target="_blank">WhatsApp</a>
+    <a href="https://beacons.ai/krishbotique" target="_blank">View Us</a>
+  </div>
+  <div class="footer-divider"></div>
+  <p class="footer-note">
+    As an Amazon Associate, KrishBotique earns from qualifying purchases.<br>
+    All product links are affiliate links. Sale dates subject to Amazon's official schedule.
+  </p>
+</footer>
+
+<script>
+/* COUNTDOWN to 4th July 2026 00:00 IST */
+function updateCountdown() {
+  const target = new Date('2026-07-04T00:00:00+05:30').getTime();
+  const now = Date.now();
+  const diff = target - now;
+
+  if (diff <= 0) {
+    document.getElementById('cdDays').textContent = '00';
+    document.getElementById('cdHours').textContent = '00';
+    document.getElementById('cdMins').textContent = '00';
+    document.getElementById('cdSecs').textContent = '00';
+    return;
+  }
+
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+
+  document.getElementById('cdDays').textContent  = String(d).padStart(2,'0');
+  document.getElementById('cdHours').textContent = String(h).padStart(2,'0');
+  document.getElementById('cdMins').textContent  = String(m).padStart(2,'0');
+  document.getElementById('cdSecs').textContent  = String(s).padStart(2,'0');
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* SCROLL REVEAL */
+const cards = document.querySelectorAll('.card');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      obs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+cards.forEach((c, i) => {
+  c.style.animationDelay = `${i * 0.07}s`;
+  obs.observe(c);
+});
+</script>
+
+</body>
+</html>
